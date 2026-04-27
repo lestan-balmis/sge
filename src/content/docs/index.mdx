@@ -1,0 +1,52 @@
+---
+title: Sistemas de Gestión Empresarial (SGE)
+description: Módulo SGE · DAM · IES Balmis · Curso 2026-2027
+template: splash
+hero:
+  tagline: DAM · IES Balmis · Curso 2026-2027
+  actions:
+    - text: Presentación del módulo
+      link: /sge/presentacion/
+      icon: right-arrow
+      variant: primary
+    - text: UD1 — Identificación ERP-CRM
+      link: /sge/axelor/ud1/
+      icon: open-book
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## El módulo en dos frases
+
+Primero aprendemos **qué hace un ERP** usando Axelor (14h).
+Luego **construimos uno desde cero** con Spring Boot (54h).
+
+## Las dos fases
+
+| Fase | Herramienta | Horas | Objetivo |
+|---|---|---|---|
+| Referencia funcional | **Axelor** | 14h | Entender qué hace un ERP profesional |
+| Implementación | **Spring Boot** | 54h | Construir el ERP Balmis desde cero |
+
+## Los 9 Retos del ERP Balmis
+
+```
+Reto 0 → Reto 1 → Reto 2 → Reto 3 → Reto 4 → Reto 5 → Reto 6 → Reto 7 → Reto Final
+POJO     JPA+H2  Thymeleaf  REST      CRM       Ventas   JWT       Compras   Dashboard
+(4h)     (6h)    (4h)       (4h)      (10h)     (8h)     (8h)      (4h)      (6h)
+```
+
+<CardGrid>
+	<Card title="Fase Axelor" icon="magnifier">
+		UD1, UD2, UD3 — Aprender qué hace un ERP profesional antes de programar nada.
+	</Card>
+	<Card title="Fase Spring Boot" icon="rocket">
+		Retos 0-7 + Final — Construir el ERP Balmis desde cero, capa a capa.
+	</Card>
+	<Card title="Repositorios" icon="github">
+		[sge-reto0](https://github.com/lestan-balmis/sge-reto0) — Código fuente del Reto 0.
+	</Card>
+	<Card title="Documentación" icon="open-book">
+		[sge-docs](https://github.com/lestan-balmis/sge-docs) — Planificación, UD1 y presentación.
+	</Card>
+</CardGrid>
