@@ -37,7 +37,7 @@ export default defineConfig({
 						{ label: 'UD6 — Reto 5: Las Ventas', slug: 'spring/reto5' },
 						{ label: 'UD6 — Reto 6: La Seguridad', slug: 'spring/reto6' },
 						{ label: 'UD7 — Reto 7: Las Compras', slug: 'spring/reto7' },
-						{ label: 'UD7 — Reto Final: Dashboard', slug: 'spring/reto-final' },
+					{ label: 'UD7 — Reto 8 Final: Dashboard', slug: 'spring/reto8-final' },
 					],
 				},
 				{
