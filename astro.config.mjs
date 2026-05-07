@@ -10,6 +10,7 @@ export default defineConfig({
 		starlight({
 			title: 'SGE — IES Balmis',
 			description: 'Módulo Sistemas de Gestión Empresarial · DAM · IES Balmis · Curso 2026-2027',
+			expressiveCode: false,
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/lestan-balmis' }],
 			sidebar: [
 				{
