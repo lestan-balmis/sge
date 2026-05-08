@@ -99,13 +99,29 @@ Comprenderás realmente por qué JPA existe y por qué es tan poderosa. No será
 
 ---
 
-## 3. Creación del proyecto con Spring Initializr
+## 3. Creación del proyecto con VS Code
 
-### Paso 1: Acceder a Spring Initializr
+### Paso 1: Abrir VS Code
 
-Abre tu navegador y ve a **https://start.spring.io/**
+Abre **Visual Studio Code** en tu equipo.
 
-### Paso 2: Configuración del Proyecto
+### Paso 2: Instalar la extensión Spring Boot Extension Pack
+
+Si no la tienes instalada:
+1. Haz clic en **Extensions** (Ctrl+Shift+X)
+2. Busca **"Spring Boot Extension Pack"**
+3. Haz clic en **Install**
+
+Esta extensión incluye Spring Tools, Java Extensions Pack, y otras herramientas necesarias.
+
+### Paso 3: Crear el proyecto
+
+1. Abre la Paleta de Comandos: **Ctrl+Shift+P**
+2. Escribe: **"Spring Boot: Create Java Project"**
+3. Selecciona **"Create Java Project"**
+4. Se abrirá VS Code con un asistente para crear el proyecto
+
+### Paso 4: Configuración del Proyecto
 
 Rellena los campos siguientes:
 
@@ -114,13 +130,13 @@ Rellena los campos siguientes:
 | **Project** | Maven Project |
 | **Language** | Java |
 | **Spring Boot** | 4.0.x (la versión más reciente disponible) |
-| **Project Metadata → Group** | `com.iesbal` |
-| **Project Metadata → Artifact** | `erpbalmis-reto0` |
-| **Project Metadata → Name** | `ERP Balmis Reto 0` |
+| **Project Metadata → Group** | `com.iesdoctorbalmis` |
+| **Project Metadata → Artifact** | `spring` |
+| **Project Metadata → Name** | `spring` |
 | **Project Metadata → Description** | `La Semilla: Proyecto Spring Boot con ArrayList y POJO` |
-| **Project Metadata → Package name** | `com.iesbal.erpbalmis` |
+| **Project Metadata → Package name** | `com.iesdoctorbalmis.spring` |
 | **Packaging** | Jar |
-| **Java** | 21 (o la versión más reciente que dispongas) |
+| **Java** | 25 |
 
 ### Paso 3: Seleccionar Dependencias
 
@@ -132,16 +148,13 @@ Haz clic en **"Add Dependencies"** y selecciona:
 - **Lombok** → Genera automáticamente getters, setters y constructores.
 - **Validation** → Anotaciones `@NotBlank`, `@Email` para validaciones.
 
-Después de seleccionar, haz clic en **"Generate"**. Se descargará un archivo ZIP.
+Sigue el asistente y confirma los parámetros indicados en el paso anterior. VS Code creará automáticamente la estructura del proyecto.
 
-### Paso 4: Descomprimir e Importar en el IDE
+### Paso 5: Verificación del proyecto en VS Code
 
-1. Descomprime el ZIP en tu carpeta de proyectos.
-2. Abre tu IDE (IntelliJ IDEA, Eclipse, VS Code con extensión de Java).
-3. Abre el proyecto: `File → Open → [carpeta del proyecto]`.
-4. El IDE reconocerá que es un proyecto Maven y descargará todas las dependencias automáticamente.
+Una vez creado, VS Code abrirá automáticamente el proyecto. Verás notificaciones de descarga de dependencias Maven en la esquina inferior derecha.
 
-### Paso 5: Verificar la Estructura
+### Paso 6: Verificar la Estructura
 
 Abre el terminal del IDE y ejecuta:
 
@@ -162,19 +175,19 @@ Si todo es correcto, verás:
 Después de generar e importar el proyecto, encontrarás esta estructura:
 
 ```
-erpbalmis-reto0/
+spring/
 ├── pom.xml                          # Configuración de Maven
 ├── src/
 │   ├── main/
 │   │   ├── java/
-│   │   │   └── com/iesbal/erpbalmis/
-│   │   │       └── ErpBalmisReto0Application.java  # Main
+│   │   │   └── com/iesdoctorbalmis/spring/
+│   │   │       └── Application.java  # Main
 │   │   └── resources/
 │   │       └── application.properties              # Configuración
 │   └── test/
 │       └── java/
-│           └── com/iesbal/erpbalmis/
-│               └── ErpBalmisReto0ApplicationTests.java
+│           └── com/iesdoctorbalmis/spring/
+│               └── ApplicationTests.java
 ├── target/                          # Clases compiladas (generado automáticamente)
 └── .gitignore                       # Archivos a ignorar en Git
 ```
@@ -218,7 +231,7 @@ Aquí tienes un fragmento:
 Aquí iré creando todas mis clases:
 
 ```
-src/main/java/com/iesbal/erpbalmis/
+src/main/java/com/iesdoctorbalmis/spring/
 ├── controller/      # Controladores REST (Reto 3 en adelante)
 ├── dto/             # Data Transfer Objects (Reto 4 en adelante)
 ├── entity/          # Entidades JPA (Reto 1 en adelante)
@@ -226,7 +239,7 @@ src/main/java/com/iesbal/erpbalmis/
 ├── repository/      # Repositorios (Reto 0: ArrayList; Reto 1: JpaRepository)
 ├── service/         # Servicios de negocio (Reto 4 en adelante)
 ├── security/        # Autenticación y JWT (Reto 6)
-└── ErpBalmisReto0Application.java  # Clase main
+└── Application.java  # Clase main
 ```
 
 En el **Reto 0**, solo usaremos las carpetas `model/` y `repository/`.
@@ -264,10 +277,10 @@ logging.level.com.iesbal.erpbalmis=DEBUG
 
 ### 6.1 Entidad Cliente
 
-Crea la clase `src/main/java/com/iesbal/erpbalmis/model/Cliente.java`:
+Crea la clase `src/main/java/com/iesdoctorbalmis/spring/model/Cliente.java`:
 
 ```java
-package com.iesbal.erpbalmis.model;
+package com.iesdoctorbalmis.spring.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -302,10 +315,10 @@ public class Cliente {
 
 ### 6.2 Enum TipoCliente
 
-Crea `src/main/java/com/iesbal/erpbalmis/model/TipoCliente.java`:
+Crea `src/main/java/com/iesdoctorbalmis/spring/model/TipoCliente.java`:
 
 ```java
-package com.iesbal.erpbalmis.model;
+package com.iesdoctorbalmis.spring.model;
 
 public enum TipoCliente {
     PROSPECTO,
@@ -327,10 +340,10 @@ cliente.setTipoCliente(TipoCliente.CANCELADO);  // ❌ Error: no existe
 
 ### 6.3 Entidad Producto
 
-Crea `src/main/java/com/iesbal/erpbalmis/model/Producto.java`:
+Crea `src/main/java/com/iesdoctorbalmis/spring/model/Producto.java`:
 
 ```java
-package com.iesbal.erpbalmis.model;
+package com.iesdoctorbalmis.spring.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -365,10 +378,10 @@ BigDecimal precio = new BigDecimal("19.99");
 
 ### 6.4 Entidad Empleado
 
-Crea `src/main/java/com/iesbal/erpbalmis/model/Empleado.java`:
+Crea `src/main/java/com/iesdoctorbalmis/spring/model/Empleado.java`:
 
 ```java
-package com.iesbal.erpbalmis.model;
+package com.iesdoctorbalmis.spring.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -434,13 +447,13 @@ En el **Reto 1**, la implementación cambiaremos a JPA, pero la interfaz y el us
 
 ### 7.2 ClienteRepositorio: CRUD manual
 
-Crea `src/main/java/com/iesbal/erpbalmis/repository/ClienteRepositorio.java`:
+Crea `src/main/java/com/iesdoctorbalmis/spring/repository/ClienteRepositorio.java`:
 
 ```java
-package com.iesbal.erpbalmis.repository;
+package com.iesdoctorbalmis.spring.repository;
 
-import com.iesbal.erpbalmis.model.Cliente;
-import com.iesbal.erpbalmis.model.TipoCliente;
+import com.iesdoctorbalmis.spring.model.Cliente;
+import com.iesdoctorbalmis.spring.model.TipoCliente;
 import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
@@ -542,12 +555,12 @@ public class ClienteRepositorio {
 
 ### 7.3 ProductoRepositorio
 
-Crea `src/main/java/com/iesbal/erpbalmis/repository/ProductoRepositorio.java`:
+Crea `src/main/java/com/iesdoctorbalmis/spring/repository/ProductoRepositorio.java`:
 
 ```java
-package com.iesbal.erpbalmis.repository;
+package com.iesdoctorbalmis.spring.repository;
 
-import com.iesbal.erpbalmis.model.Producto;
+import com.iesdoctorbalmis.spring.model.Producto;
 import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
@@ -615,12 +628,12 @@ public class ProductoRepositorio {
 
 ### 7.4 EmpleadoRepositorio
 
-Crea `src/main/java/com/iesbal/erpbalmis/repository/EmpleadoRepositorio.java`:
+Crea `src/main/java/com/iesdoctorbalmis/spring/repository/EmpleadoRepositorio.java`:
 
 ```java
-package com.iesbal.erpbalmis.repository;
+package com.iesdoctorbalmis.spring.repository;
 
-import com.iesbal.erpbalmis.model.Empleado;
+import com.iesdoctorbalmis.spring.model.Empleado;
 import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
@@ -753,22 +766,22 @@ Deberías ver algo como:
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v4.0.x)
 
-2026-05-08 13:45:00.123  INFO  : Starting ErpBalmisReto0Application...
-2026-05-08 13:45:02.456  INFO  : Started ErpBalmisReto0Application in 2.333 seconds (JVM running for 2.789)
+2026-05-08 13:45:00.123  INFO  : Starting Application...
+2026-05-08 13:45:02.456  INFO  : Started Application in 2.333 seconds (JVM running for 2.789)
 ```
 
 La aplicación está corriendo en `http://localhost:9000/`
 
 ### Paso 2: Crear una clase de prueba
 
-Para verificar que todo funciona, modifica la clase main `src/main/java/com/iesbal/erpbalmis/ErpBalmisReto0Application.java`:
+Para verificar que todo funciona, modifica la clase main `src/main/java/com/iesdoctorbalmis/spring/Application.java`:
 
 ```java
-package com.iesbal.erpbalmis;
+package com.iesdoctorbalmis.spring;
 
-import com.iesbal.erpbalmis.model.Cliente;
-import com.iesbal.erpbalmis.model.TipoCliente;
-import com.iesbal.erpbalmis.repository.ClienteRepositorio;
+import com.iesdoctorbalmis.spring.model.Cliente;
+import com.iesdoctorbalmis.spring.model.TipoCliente;
+import com.iesdoctorbalmis.spring.repository.ClienteRepositorio;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -776,10 +789,10 @@ import org.springframework.context.annotation.Bean;
 import java.time.LocalDate;
 
 @SpringBootApplication
-public class ErpBalmisReto0Application {
+public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(ErpBalmisReto0Application.class, args);
+        SpringApplication.run(Application.class, args);
     }
 
     @Bean
@@ -891,11 +904,11 @@ Eso es la potencia de una arquitectura bien diseñada: cambios sin quebrantos.
 ### Estructura Esperada
 
 ```
-erpbalmis-reto0/
+spring/
 ├── pom.xml                          # Configuración Maven (sin cambios)
 ├── src/
 │   ├── main/
-│   │   ├── java/com/iesbal/erpbalmis/
+│   │   ├── java/com/iesdoctorbalmis/spring/
 │   │   │   ├── model/
 │   │   │   │   ├── Cliente.java
 │   │   │   │   ├── Producto.java
@@ -905,7 +918,7 @@ erpbalmis-reto0/
 │   │   │   │   ├── ClienteRepositorio.java
 │   │   │   │   ├── ProductoRepositorio.java
 │   │   │   │   └── EmpleadoRepositorio.java
-│   │   │   └── ErpBalmisReto0Application.java
+│   │   │   └── Application.java
 │   │   └── resources/
 │   │       └── application.properties
 │   └── test/...
