@@ -44,7 +44,7 @@ export default defineConfig({
 				{
 					label: 'Repositorios',
 					items: [
-						{ label: 'Código fuente Reto 0', link: 'https://github.com/lestan-balmis/sge-reto0', attrs: { target: '_blank' } },
+						// { label: 'Código fuente Reto 0', link: 'https://github.com/lestan-balmis/sge-reto0', attrs: { target: '_blank' } },
 					],
 				},
 			],
