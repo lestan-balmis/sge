@@ -3,6 +3,52 @@ title: UD3 — Gestión y Consultas en Axelor
 description: Consultas avanzadas, filtros, informes y dashboard - Especificación para Reto Final del ERP Balmis
 ---
 
+### Consultas, Informes y Dashboard de Axelor
+**Módulo SGE · DAM · IES Balmis**
+
+---
+
+> **Duración:** 4 horas  
+> **Herramienta:** Axelor (referencia funcional del ERP Balmis)  
+> **Objetivo:** Aprender a extraer información consolidada de los datos del ERP mediante filtros, consultas, informes y dashboards. Comprender los KPIs y cómo se visualizan, para posteriormente implementarlos en el endpoint `GET /api/dashboard` del ERP Balmis en el Reto Final.
+
+---
+
+## Índice
+
+1. [Introducción: El Valor de los Datos Consolidados](#1-introducción-el-valor-de-los-datos-consolidados)
+2. [Filtros y Consultas Avanzadas en Axelor](#2-filtros-y-consultas-avanzadas-en-axelor)
+   - 2.1 [Concepto: La Barra de Filtrado](#21-concepto-la-barra-de-filtrado)
+   - 2.2 [Filtrado Básico de Clientes por Estado](#22-filtrado-básico-de-clientes-por-estado)
+   - 2.3 [Búsqueda Avanzada: Filtro Combinado](#23-búsqueda-avanzada-filtro-combinado)
+3. [Dashboard de Ventas: Visualización de KPIs](#3-dashboard-de-ventas-visualización-de-kpis)
+   - 3.1 [¿Qué es el Dashboard de Axelor?](#31-qué-es-el-dashboard-de-axelor)
+   - 3.2 [Acceder al Dashboard de Ventas](#32-acceder-al-dashboard-de-ventas)
+4. [Informes y Exportaciones](#4-informes-y-exportaciones)
+   - 4.1 [Concepto: Informes de Negocio](#41-concepto-informes-de-negocio)
+   - 4.2 [Generar Informe de Ventas: Paso a Paso](#42-generar-informe-de-ventas-paso-a-paso)
+5. [Gestión de Usuarios y Roles](#5-gestión-de-usuarios-y-roles)
+   - 5.1 [Concepto: Control de Acceso Basado en Roles (RBAC)](#51-concepto-control-de-acceso-basado-en-roles-rbac)
+   - 5.2 [Tutorial: Explorar la Gestión de Roles en Axelor](#52-tutorial-explorar-la-gestión-de-roles-en-axelor)
+6. [Actividades Prácticas: UD3](#6-actividades-prácticas-ud3)
+   - 6.1 [Actividad 1: Filtrado de Clientes por Estado (0.5h)](#actividad-1-filtrado-de-clientes-por-estado-05h)
+   - 6.2 [Actividad 2: Exploración del Dashboard (0.5h)](#actividad-2-exploración-del-dashboard-05h)
+   - 6.3 [Actividad 3: Generación de Informe de Ventas (1h)](#actividad-3-generación-de-informe-de-ventas-1h)
+   - 6.4 [Actividad 4: Análisis de Roles y Permisos (0.5h)](#actividad-4-análisis-de-roles-y-permisos-05h)
+   - 6.5 [Actividad 5: Exportación de Datos a Excel (0.5h)](#actividad-5-exportación-de-datos-a-excel-05h)
+7. [Cuaderno de Referencia Axelor: Resumen para ERP Balmis](#7-cuaderno-de-referencia-axelor-resumen-para-erp-balmis)
+   - 7.1 [Sección 1: Ficha de Entidades](#71-sección-1-ficha-de-entidades)
+   - 7.2 [Sección 2: Flujo de Negocio Completo](#72-sección-2-flujo-de-negocio-completo)
+   - 7.3 [Sección 3: Dashboard — Especificación](#73-sección-3-dashboard--especificación)
+   - 7.4 [Sección 4: Matriz de Roles y Permisos](#74-sección-4-matriz-de-roles-y-permisos)
+8. [Entregable: Cuaderno de Referencia Axelor (PDF)](#8-entregable-cuaderno-de-referencia-axelor-pdf)
+   - 8.1 [Requisitos del Entregable](#81-requisitos-del-entregable)
+   - 8.2 [Criterios de Evaluación](#82-criterios-de-evaluación)
+9. [Conexión con el ERP Balmis: Referencia para Retos Futuros](#9-conexión-con-el-erp-balmis-referencia-para-retos-futuros)
+10. [Conclusión: UD3 como Puente hacia Spring Boot](#10-conclusión-ud3-como-puente-hacia-spring-boot)
+
+---
+
 ## 1. Introducción: El Valor de los Datos Consolidados
 
 En las unidades anteriores (UD1 y UD2) hemos construido la base del ERP Balmis:
