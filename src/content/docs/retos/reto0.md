@@ -147,6 +147,7 @@ Haz clic en **"Add Dependencies"** y selecciona:
 - **H2 Database** → Base de datos en memoria; la usaremos en Reto 1.
 - **Lombok** → Genera automáticamente getters, setters y constructores.
 - **Validation** → Anotaciones `@NotBlank`, `@Email` para validaciones.
+- **Spring Boot DevTools** → Reinicio automático del servidor al guardar cambios durante el desarrollo.
 
 Sigue el asistente y confirma los parámetros indicados en el paso anterior. VS Code creará automáticamente la estructura del proyecto.
 
