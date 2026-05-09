@@ -276,6 +276,23 @@ logging.level.com.iesdoctorbalmis.spring=DEBUG
 
 ## 6. Modelado del Dominio: Entidades POJO
 
+Antes de crear las entidades, crea la carpeta `model` dentro del paquete principal. En VS Code, haz clic derecho sobre `src/main/java/com/iesdoctorbalmis/spring/` y selecciona **New Folder**, con el nombre `model`.
+
+La estructura quedará así:
+
+```
+src/main/java/com/iesdoctorbalmis/spring/
+└── model/
+    ├── Cliente.java
+    ├── TipoCliente.java
+    ├── Producto.java
+    └── Empleado.java
+```
+
+Todas las clases de los apartados 6.1 a 6.4 irán dentro de esta carpeta.
+
+---
+
 ### 6.1 Entidad Cliente
 
 Crea la clase `src/main/java/com/iesdoctorbalmis/spring/model/Cliente.java`:
@@ -411,6 +428,20 @@ public class Empleado {
 ### 7.1 Patrón Repositorio
 
 El **patrón Repositorio** es una capa de abstracción entre la lógica de negocio y el almacenamiento de datos.
+
+Antes de crear los repositorios, crea la carpeta `repository` dentro del paquete principal. En VS Code, haz clic derecho sobre `src/main/java/com/iesdoctorbalmis/spring/` y selecciona **New Folder**, con el nombre `repository`.
+
+La estructura quedará así:
+
+```
+src/main/java/com/iesdoctorbalmis/spring/
+└── repository/
+    ├── ClienteRepositorio.java
+    ├── ProductoRepositorio.java
+    └── EmpleadoRepositorio.java
+```
+
+Todos los repositorios de los apartados 7.2 a 7.4 irán dentro de esta carpeta.
 
 La idea es que si hoy almacenas datos en ArrayList y mañana necesitas cambiar a una base de datos, tu código de negocio no cambia.
 
