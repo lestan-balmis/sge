@@ -252,15 +252,15 @@ En el **Reto 0**, solo usaremos las carpetas `model/` y `repository/`.
 Abre el archivo `src/main/resources/application.properties` y añade la siguiente configuración:
 
 ```properties
+# Nombre de la aplicación
+spring.application.name=spring
+
 # Puerto del servidor
 server.port=9000
 
-# Nombre de la aplicación
-spring.application.name=ERP Balmis
-
 # Logging
 logging.level.root=INFO
-logging.level.com.iesbal.erpbalmis=DEBUG
+logging.level.com.iesdoctorbalmis.spring=DEBUG
 ```
 
 ### Explicación
@@ -268,9 +268,9 @@ logging.level.com.iesbal.erpbalmis=DEBUG
 | Propiedad | Valor | Por qué |
 |---|---|---|
 | `server.port` | `9000` | Evita conflictos con otros servidores locales (8080 es demasiado común) |
-| `spring.application.name` | `ERP Balmis` | Nombre del proyecto en logs y consola |
+| `spring.application.name` | `spring` | Nombre del proyecto en logs y consola |
 | `logging.level.root` | `INFO` | Solo mensajes importantes del sistema |
-| `logging.level.com.iesbal.erpbalmis` | `DEBUG` | Nuestro código en DEBUG para ver más detalles |
+| `logging.level.com.iesdoctorbalmis.spring` | `DEBUG` | Nuestro código en DEBUG para ver más detalles |
 
 ---
 
