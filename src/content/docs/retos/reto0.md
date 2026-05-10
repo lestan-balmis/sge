@@ -114,14 +114,23 @@ Si no la tienes instalada:
 
 Esta extensión incluye Spring Tools, Java Extensions Pack, y otras herramientas necesarias.
 
-### Paso 3: Crear el proyecto
+### Paso 3: Instalar la extensión Lombok
+
+Si no la tienes instalada:
+1. Haz clic en **Extensions** (Ctrl+Shift+X)
+2. Busca **"Lombok Annotations Support for VS Code"**
+3. Instala la de **GabrielBB** (icono de guindilla roja)
+
+Esta extensión es necesaria para que VS Code reconozca los métodos generados por Lombok (`getters`, `setters`, constructores...) y no muestre errores falsos en el editor.
+
+### Paso 4: Crear el proyecto
 
 1. Abre la Paleta de Comandos: **Ctrl+Shift+P**
 2. Escribe: **"Spring Boot: Create Java Project"**
 3. Selecciona **"Create Java Project"**
 4. Se abrirá VS Code con un asistente para crear el proyecto
 
-### Paso 4: Configuración del Proyecto
+### Paso 5: Configuración del Proyecto
 
 Rellena los campos siguientes:
 
@@ -138,7 +147,7 @@ Rellena los campos siguientes:
 | **Packaging** | Jar |
 | **Java** | 25 |
 
-### Paso 3: Seleccionar Dependencias
+### Paso 6: Seleccionar Dependencias
 
 Haz clic en **"Add Dependencies"** y selecciona:
 
@@ -151,11 +160,11 @@ Haz clic en **"Add Dependencies"** y selecciona:
 
 Sigue el asistente y confirma los parámetros indicados en el paso anterior. VS Code creará automáticamente la estructura del proyecto.
 
-### Paso 5: Verificación del proyecto en VS Code
+### Paso 7: Verificación del proyecto en VS Code
 
 Una vez creado, VS Code abrirá automáticamente el proyecto. Verás notificaciones de descarga de dependencias Maven en la esquina inferior derecha.
 
-### Paso 6: Verificar la Estructura
+### Paso 8: Verificar la Estructura
 
 Abre el terminal del IDE y ejecuta:
 
