@@ -328,6 +328,8 @@ public class Cliente {
 }
 ```
 
+> ⚠️ **Normal ver errores en este punto**: Al escribir `TipoCliente`, VS Code mostrará la referencia subrayada en rojo porque el enum aún no existe. Es completamente normal. Los errores desaparecerán en cuanto completes el apartado **6.2 Enum TipoCliente**.
+
 ### ¿Qué hace Lombok aquí?
 
 | Anotación | Genera |
