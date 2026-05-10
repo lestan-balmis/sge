@@ -1,4 +1,4 @@
----
+﻿---
 title: "UD4 — Reto 0: La Semilla"
 description: Proyecto Spring Boot con entidades POJO y repositorios ArrayList. Fundamentos del ERP Balmis.
 ---
@@ -852,22 +852,22 @@ public class Application {
             cliente1.setFechaAlta(LocalDate.now());
 
             Cliente guardado = clienteRepositorio.guardar(cliente1);
-            System.out.println("✓ Cliente guardado con ID: " + guardado.getId());
+            System.out.println("- Cliente guardado con ID: " + guardado.getId());
 
             // Buscar todos los clientes
-            System.out.println("✓ Total de clientes: " + clienteRepositorio.contar());
+            System.out.println("- Total de clientes: " + clienteRepositorio.contar());
 
             // Buscar por ID
             Cliente encontrado = clienteRepositorio.buscarPorId(1L);
-            System.out.println("✓ Cliente encontrado: " + encontrado.getNombre());
+            System.out.println("- Cliente encontrado: " + encontrado.getNombre());
 
             // Cambiar a activo
             encontrado.setTipoCliente(TipoCliente.ACTIVO);
             clienteRepositorio.actualizar(encontrado);
-            System.out.println("✓ Cliente actualizado a: " + encontrado.getTipoCliente());
+            System.out.println("- Cliente actualizado a: " + encontrado.getTipoCliente());
 
             // Listar por tipo
-            System.out.println("✓ Clientes ACTIVOS: " + clienteRepositorio.buscarPorTipo(TipoCliente.ACTIVO).size());
+            System.out.println("- Clientes ACTIVOS: " + clienteRepositorio.buscarPorTipo(TipoCliente.ACTIVO).size());
         };
     }
 }
@@ -877,11 +877,11 @@ Cuando ejecutes la aplicación con esta clase main, verás en la consola:
 
 ```
 === Prueba ClienteRepositorio ===
-✓ Cliente guardado con ID: 1
-✓ Total de clientes: 1
-✓ Cliente encontrado: Acme Corporation
-✓ Cliente actualizado a: ACTIVO
-✓ Clientes ACTIVOS: 1
+- Cliente guardado con ID: 1
+- Total de clientes: 1
+- Cliente encontrado: Acme Corporation
+- Cliente actualizado a: ACTIVO
+- Clientes ACTIVOS: 1
 ```
 
 Perfecto. Tu arquitectura funciona.
