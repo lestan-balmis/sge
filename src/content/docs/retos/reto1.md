@@ -301,7 +301,7 @@ public class Cliente {
     
     @Column(name = "fecha_modificacion")
     private LocalDate fechaModificacion;
-}```
+}
 ```
 
 ### Explicación de anotaciones
@@ -360,7 +360,7 @@ public class Producto {
     
     @Column(name = "activo", nullable = false)
     private Boolean activo = true;
-}```
+}
 ```
 
 ### 5.3 Entidad Empleado persistente
@@ -410,7 +410,7 @@ public class Empleado {
     
     @Column(name = "activo", nullable = false)
     private Boolean activo = true;
-}```
+}
 ```
 
 ### 5.4 Enum TipoCliente en la BD
@@ -439,7 +439,7 @@ public enum TipoCliente {
     public String getDescripcion() {
         return descripcion;
     }
-}```
+}
 ```
 
 ---
@@ -451,11 +451,11 @@ public enum TipoCliente {
 Actualiza `src/main/resources/application.properties`:
 
 ```properties
+# Nombre de la aplicación
+spring.application.name=spring
+
 # Puerto del servidor
 server.port=9000
-
-# Nombre de la aplicación
-spring.application.name=ERP Balmis
 
 # Configuración de H2
 spring.datasource.url=jdbc:h2:mem:erpbalmis
