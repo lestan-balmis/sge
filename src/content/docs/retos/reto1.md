@@ -255,10 +255,10 @@ package com.iesdoctorbalmis.spring.entity;
 
 ### 5.1 Entidad Cliente con @Entity
 
-Abre o crea: `src/main/java/com/iesbal/erpbalmis/entity/Cliente.java`
+Abre o crea: `src/main/java/com/iesdoctorbalmis/spring/entity/Cliente.java`
 
 ```java
-package com.iesbal.erpbalmis.entity;
+package com.iesdoctorbalmis.spring.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -317,10 +317,10 @@ public class Cliente {
 
 ### 5.2 Entidad Producto persistente
 
-Crea: `src/main/java/com/iesbal/erpbalmis/entity/Producto.java`
+Crea: `src/main/java/com/iesdoctorbalmis/spring/entity/Producto.java`
 
 ```java
-package com.iesbal.erpbalmis.entity;
+package com.iesdoctorbalmis.spring.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -365,10 +365,10 @@ public class Producto {
 
 ### 5.3 Entidad Empleado persistente
 
-Crea: `src/main/java/com/iesbal/erpbalmis/entity/Empleado.java`
+Crea: `src/main/java/com/iesdoctorbalmis/spring/entity/Empleado.java`
 
 ```java
-package com.iesbal.erpbalmis.entity;
+package com.iesdoctorbalmis.spring.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -415,7 +415,7 @@ public class Empleado {
 
 ### 5.4 Enum TipoCliente en la BD
 
-Crea: `src/main/java/com/iesbal/erpbalmis/entity/TipoCliente.java`
+Crea: `src/main/java/com/iesdoctorbalmis/spring/entity/TipoCliente.java`
 
 **Nota importante:** En un ERP real, los valores del enum representan el **estado del cliente en el ciclo de vida**:
 - **PROSPECTO**: Cliente potencial, aún no confirmado
@@ -423,7 +423,7 @@ Crea: `src/main/java/com/iesbal/erpbalmis/entity/TipoCliente.java`
 - **INACTIVO**: Cliente suspendido o bloqueado
 
 ```java
-package com.iesbal.erpbalmis.entity;
+package com.iesdoctorbalmis.spring.entity;
 
 public enum TipoCliente {
     PROSPECTO("Cliente Potencial"),
@@ -479,7 +479,7 @@ spring.sql.init.mode=always
 
 # Logging
 logging.level.root=INFO
-logging.level.com.iesbal.erpbalmis=DEBUG
+logging.level.com.iesdoctorbalmis.spring=DEBUG
 logging.level.org.hibernate.SQL=DEBUG
 logging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE
 ```
@@ -503,12 +503,12 @@ logging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE
 
 ### 7.1 ClienteRepository: Del ArrayList a la BD
 
-Crea: `src/main/java/com/iesbal/erpbalmis/repository/ClienteRepository.java`
+Crea: `src/main/java/com/iesdoctorbalmis/spring/repository/ClienteRepository.java`
 
 ```java
-package com.iesbal.erpbalmis.repository;
+package com.iesdoctorbalmis.spring.repository;
 
-import com.iesbal.erpbalmis.entity.Cliente;
+import com.iesdoctorbalmis.spring.entity.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import java.util.Optional;
@@ -536,12 +536,12 @@ Es **magia de nomenclatura**: sigues patrones convencionales y Spring hace el re
 
 ### 7.2 ProductoRepository
 
-Crea: `src/main/java/com/iesbal/erpbalmis/repository/ProductoRepository.java`
+Crea: `src/main/java/com/iesdoctorbalmis/spring/repository/ProductoRepository.java`
 
 ```java
-package com.iesbal.erpbalmis.repository;
+package com.iesdoctorbalmis.spring.repository;
 
-import com.iesbal.erpbalmis.entity.Producto;
+import com.iesdoctorbalmis.spring.entity.Producto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import java.util.Optional;
@@ -556,12 +556,12 @@ public interface ProductoRepository extends JpaRepository<Producto, Long> {
 
 ### 7.3 EmpleadoRepository
 
-Crea: `src/main/java/com/iesbal/erpbalmis/repository/EmpleadoRepository.java`
+Crea: `src/main/java/com/iesdoctorbalmis/spring/repository/EmpleadoRepository.java`
 
 ```java
-package com.iesbal.erpbalmis.repository;
+package com.iesdoctorbalmis.spring.repository;
 
-import com.iesbal.erpbalmis.entity.Empleado;
+import com.iesdoctorbalmis.spring.entity.Empleado;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import java.util.Optional;
@@ -839,7 +839,7 @@ El proyecto entregable debe incluir:
 erpbalmis_1/
 ├── pom.xml                          # Incluye Spring Data JPA y H2
 ├── src/main/
-│   ├── java/com/iesbal/erpbalmis/
+│   ├── java/com/iesdoctorbalmis/spring/
 │   │   ├── entity/
 │   │   │   ├── Cliente.java         # @Entity
 │   │   │   ├── Producto.java        # @Entity  
@@ -854,7 +854,7 @@ erpbalmis_1/
 │       ├── application.properties     # Configuración H2 y JPA
 │       └── import.sql                 # Datos iniciales
 └── src/test/
-    └── java/com/iesbal/erpbalmis/
+    └── java/com/iesdoctorbalmis/spring/
         └── repository/
             └── ClienteRepositoryTest.java  # Tests JPA
 ```
