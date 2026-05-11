@@ -982,7 +982,6 @@ spring/
 
 ## Cómo ejecutar
 
-```bash
 mvn spring-boot:run
 ```
 
@@ -1005,12 +1004,10 @@ En el Reto 1, sustituiremos ArrayList por JPA, pero la arquitectura seguirá sie
 
 ### Criterios de Evaluación
 
-| Criterio | Peso | Descripción |
-|---|---|---|
-| **Funcionamiento correcto** | 40% | La aplicación compila y ejecuta sin errores. Los CRUD funcionan en ArrayList. |
-| **Arquitectura** | 30% | Las clases están bien organizadas en paquetes. Hay separación entre model y repository. |
-| **Uso de Lombok** | 20% | Las entidades usan @Data, @NoArgsConstructor, @AllArgsConstructor correctamente. |
-| **Documentación** | 10% | README.md presente con instrucciones claras. Código comentado en métodos complejos. |
+- **Funcionamiento correcto (40%):** La aplicación compila y ejecuta sin errores. Los CRUD funcionan en ArrayList.
+- **Arquitectura (30%):** Las clases están bien organizadas en paquetes. Hay separación entre model y repository.
+- **Uso de Lombok (20%):** Las entidades usan `@Data`, `@NoArgsConstructor`, `@AllArgsConstructor` correctamente.
+- **Documentación (10%):** README.md presente con instrucciones claras. Código comentado en métodos complejos.
 
 ---
 
