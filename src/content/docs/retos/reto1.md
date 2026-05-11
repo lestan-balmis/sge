@@ -227,6 +227,26 @@ El código del Reto 0 que está en `model/` lo moveré a `entity/` (porque será
 ```bash
 # En terminal, desde la raíz del proyecto:
 mkdir -p src/main/java/com/iesdoctorbalmis/spring/entity
+
+# Mueve todos los ficheros de model/ a entity/
+mv src/main/java/com/iesdoctorbalmis/spring/model/* src/main/java/com/iesdoctorbalmis/spring/entity/
+```
+
+:::note
+En Windows puedes usar el explorador de archivos de VS Code o el terminal PowerShell con:
+```powershell
+Move-Item src\main\java\com\iesdoctorbalmis\spring\model\* src\main\java\com\iesdoctorbalmis\spring\entity\
+```
+:::
+
+Después de mover los ficheros, recuerda actualizar la declaración `package` en cada fichero movido:
+
+```java
+// Cambiar de:
+package com.iesdoctorbalmis.spring.model;
+
+// A:
+package com.iesdoctorbalmis.spring.entity;
 ```
 
 ---
