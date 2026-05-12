@@ -1,57 +1,31 @@
 ﻿---
-title: "UD4 — Reto 0: La Semilla"
-description: Proyecto Spring Boot con entidades POJO y repositorios ArrayList. Fundamentos del ERP Balmis.
+title: "Reto 0: La Semilla"
+description: Proyecto Spring Boot con entidades POJO y repositorios ArrayList.
 ---
 
-### Proyecto Spring Boot · La Semilla
+### Reto 0 · La Semilla
 **Módulo SGE · DAM · IES Balmis**
 
 ---
 
 > **Duración:** 4 horas  
-> **Herramienta:** Spring Boot (inicialización y estructura Maven)  
-> **Objetivo:** Crear el proyecto Spring Boot, modelar el dominio del ERP Balmis como clases POJO y desarrollar repositorios basados en ArrayList, comprendiendo los conceptos fundamentales de la arquitectura Java antes de introducir persistencia real con JPA.
+> **Teoría requerida:** [UD4 — Introducción a Spring Boot](/docs/spring/ud4)
 
 ---
 
-## Índice
+## 📌 Resumen del Reto
 
-1. [Introducción a Reto 0](#1-introducción-a-reto-0)
-2. [¿Por qué ArrayList antes de JPA?](#2-por-qué-arraylist-antes-de-jpa)
-3. [Creación del proyecto con Spring Initializr](#3-creación-del-proyecto-con-spring-initializr)
-4. [Estructura de un proyecto Maven](#4-estructura-de-un-proyecto-maven)
-5. [Configuración inicial de application.properties](#5-configuración-inicial-de-applicationproperties)
-6. [Modelado del Dominio: Entidades POJO](#6-modelado-del-dominio-entidades-pojo)
-   - 6.1 [Entidad Cliente](#61-entidad-cliente)
-   - 6.2 [Enum TipoCliente](#62-enum-tipocliente)
-   - 6.3 [Entidad Producto](#63-entidad-producto)
-   - 6.4 [Entidad Empleado](#64-entidad-empleado)
-7. [Desarrollo de Repositorios ArrayList](#7-desarrollo-de-repositorios-arraylist)
-   - 7.1 [Patrón Repositorio](#71-patrón-repositorio)
-   - 7.2 [ClienteRepositorio: CRUD manual](#72-clienterepositorio-crud-manual)
-   - 7.3 [ProductoRepositorio](#73-productorepositorio)
-   - 7.4 [EmpleadoRepositorio](#74-empleadorepositorio)
-   - 7.5 [Inyección de Dependencias con @Component](#75-inyección-de-dependencias-con-component)
-8. [Verificación del proyecto](#8-verificación-del-proyecto)
-9. [Reflexión: Reto 0 → Reto 1](#9-reflexión-reto-0--reto-1)
-10. [Actividades a realizar](#10-actividades-a-realizar)
-11. [Entregable: Proyecto Spring Boot Semilla](#11-entregable-proyecto-spring-boot-semilla)
+Implementarás un proyecto Spring Boot inicial con:
+- **3 entidades POJO:** Cliente, Producto, Empleado
+- **3 repositorios ArrayList:** Gestión manual de CRUD en memoria
+- **Inyección de dependencias** con `@Component`
+- **Modelo puro:** Sin persistencia en BD (eso es para Reto 1)
+
+**Objetivo pedagógico:** Entender cómo funciona realmente CRUD antes de que JPA lo automatice.
 
 ---
 
-## 1. Introducción a Reto 0
-
-El **Reto 0 — La Semilla** es el primer paso en la construcción del **ERP Balmis**. No incluye vistas, no incluye persistencia en base de datos: es **Java puro**.
-
-El objetivo es que entiendas:
-- Cómo crear un proyecto Spring Boot desde cero.
-- Cómo modelar el dominio de negocio como clases Java simples (POJO).
-- Cómo implementar el patrón Repositorio manualmente, usando ArrayList.
-- Cómo Spring gestiona la inyección de dependencias.
-
-Al finalizar este reto, dispondrás de una estructura sólida sobre la que el **Reto 1** añadirá JPA y persistencia real. Descubrirás entonces el poder del framework: todo el código de gestión manual de ArrayList será reemplazado por una interfaz de una línea.
-
-### El nombre "La Semilla"
+## Guía de Implementación
 
 Así como una semilla contiene toda la información genética de un árbol pero aún no ha germinado, el Reto 0 contiene la estructura y el modelo del ERP Balmis pero aún no persiste datos en una base de datos real. Es la **potencialidad** antes de la **manifestación**.
 
