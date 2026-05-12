@@ -547,7 +547,7 @@ public interface ClienteRepository extends JpaRepository<Cliente, Long> {
     Optional<Cliente> findByCodigoCliente(String codigoCliente);
     boolean existsByEmail(String email);
     boolean existsByCodigoCliente(String codigoCliente);
-}```
+}
 ```
 
 ### ¿Cómo funciona?
@@ -577,7 +577,7 @@ public interface ProductoRepository extends JpaRepository<Producto, Long> {
     
     Optional<Producto> findByReferencia(String referencia);
     boolean existsByReferencia(String referencia);
-}```
+}
 ```
 
 ### 7.3 EmpleadoRepository
@@ -599,7 +599,7 @@ public interface EmpleadoRepository extends JpaRepository<Empleado, Long> {
     Optional<Empleado> findByNumeroEmpleado(String numeroEmpleado);
     boolean existsByEmail(String email);
     boolean existsByNumeroEmpleado(String numeroEmpleado);
-}```
+}
 ```
 
 ---
