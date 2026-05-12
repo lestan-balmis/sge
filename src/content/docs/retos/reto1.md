@@ -501,6 +501,30 @@ logging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE
 
 ## 7. Crear Repositorios con JpaRepository
 
+### Paso previo: Eliminar los repositorios del Reto 0
+
+Antes de crear los nuevos repositorios JPA, **elimina la carpeta `repositorio/`** del proyecto `erpbalmis_1`. Esos ficheros implementaban CRUD manualmente con `ArrayList` y ya no tienen ningún uso; mantenerlos causaría conflictos de nombres y confusión.
+
+```
+# Carpeta a eliminar:
+src/main/java/com/iesdoctorbalmis/spring/repositorio/
+    ├── ClienteRepositorio.java    ← borrar
+    ├── ProductoRepositorio.java   ← borrar
+    └── EmpleadoRepositorio.java   ← borrar
+```
+
+Puedes hacerlo desde el explorador de VS Code (clic derecho → *Delete*) o desde la terminal:
+
+```powershell
+Remove-Item -Recurse -Force src\main\java\com\iesdoctorbalmis\spring\repositorio
+```
+
+:::caution
+Si algún servicio o controlador del Reto 0 importaba las clases `ClienteRepositorio`, `ProductoRepositorio` o `EmpleadoRepositorio`, IntelliJ/VS Code mostrará errores de compilación hasta que actualices esas referencias para que apunten a los nuevos repositorios JPA (sección 7.1–7.3).
+:::
+
+---
+
 ### 7.1 ClienteRepository: Del ArrayList a la BD
 
 Crea: `src/main/java/com/iesdoctorbalmis/spring/repository/ClienteRepository.java`
