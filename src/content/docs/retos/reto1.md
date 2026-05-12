@@ -608,6 +608,50 @@ public interface EmpleadoRepository extends JpaRepository<Empleado, Long> {
 
 Ahora, en lugar de usar `@PostConstruct` para crear datos hardcodeados en ArrayList, usamos un script SQL.
 
+### Paso previo: Limpiar la clase Application
+
+Si en el Reto 0 el fichero `ErpBalmisReto0Application.java` (o alguna clase de servicio) tenía un método `@PostConstruct` que inicializaba datos con los repositorios y modelos antiguos, **hay que eliminarlo** junto a sus imports obsoletos:
+
+```java
+// ELIMINAR: imports a paquetes del Reto 0
+import com.iesdoctorbalmis.spring.modelo.Cliente;
+import com.iesdoctorbalmis.spring.modelo.TipoCliente;
+import com.iesdoctorbalmis.spring.repositorio.ClienteRepositorio;
+import jakarta.annotation.PostConstruct;
+
+// ELIMINAR: el bloque @PostConstruct completo
+@PostConstruct
+public void inicializar() {
+    clienteRepositorio.guardar(new Cliente(...));
+    clienteRepositorio.guardar(new Cliente(...));
+    // ...
+}
+```
+
+La clase Application debe quedar limpia, **sin imports ni métodos de datos**:
+
+```java
+package com.iesdoctorbalmis.spring;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class ErpBalmisReto0Application {
+    public static void main(String[] args) {
+        SpringApplication.run(ErpBalmisReto0Application.class, args);
+    }
+}
+```
+
+:::note
+Los datos de inicialización ya no son responsabilidad del código Java: `import.sql` (que crearás a continuación) se encargará de poblar las tablas automáticamente cada vez que arranque la aplicación.
+:::
+
+---
+
+### Crear import.sql
+
 Crea: `src/main/resources/import.sql`
 
 **Nota importante:** Usamos `import.sql` en lugar de `data.sql` porque Hibernate lo ejecuta **después** de crear las tablas (DDL). Cada sentencia INSERT debe estar **en una sola línea** para evitar errores de parsing.
