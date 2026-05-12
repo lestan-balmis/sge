@@ -501,13 +501,13 @@ logging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE
 
 ## 7. Crear Repositorios con JpaRepository
 
-### Paso previo: Eliminar los repositorios del Reto 0
+### Paso previo: Eliminar los ficheros de repositorio del Reto 0
 
-Antes de crear los nuevos repositorios JPA, **elimina la carpeta `repositorio/`** del proyecto `erpbalmis_1`. Esos ficheros implementaban CRUD manualmente con `ArrayList` y ya no tienen ningún uso; mantenerlos causaría conflictos de nombres y confusión.
+La carpeta `repository/` ya existe del Reto 0, por lo que **no hay que crearla**. Sin embargo, dentro de ella hay tres ficheros con implementación manual en `ArrayList` y nombres en español que deben borrarse antes de añadir los nuevos:
 
 ```
-# Carpeta a eliminar:
-src/main/java/com/iesdoctorbalmis/spring/repositorio/
+# Ficheros a eliminar dentro de repository/:
+src/main/java/com/iesdoctorbalmis/spring/repository/
     ├── ClienteRepositorio.java    ← borrar
     ├── ProductoRepositorio.java   ← borrar
     └── EmpleadoRepositorio.java   ← borrar
@@ -516,7 +516,9 @@ src/main/java/com/iesdoctorbalmis/spring/repositorio/
 Puedes hacerlo desde el explorador de VS Code (clic derecho → *Delete*) o desde la terminal:
 
 ```powershell
-Remove-Item -Recurse -Force src\main\java\com\iesdoctorbalmis\spring\repositorio
+Remove-Item src\main\java\com\iesdoctorbalmis\spring\repository\ClienteRepositorio.java
+Remove-Item src\main\java\com\iesdoctorbalmis\spring\repository\ProductoRepositorio.java
+Remove-Item src\main\java\com\iesdoctorbalmis\spring\repository\EmpleadoRepositorio.java
 ```
 
 :::caution
