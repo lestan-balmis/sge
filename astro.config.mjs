@@ -28,6 +28,12 @@ export default defineConfig({
 					],
 				},
 				{
+					label: 'Fase Spring Boot',
+					items: [
+						{ label: 'UD4 — Introducción a Spring Boot', slug: 'spring/ud4' },
+					],
+				},
+				{
 					label: 'Fase Retos — ERP Balmis',
 					items: [
 						{ label: 'UD4 — Reto 0: La Semilla', slug: 'retos/reto0' },
