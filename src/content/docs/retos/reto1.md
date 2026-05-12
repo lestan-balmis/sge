@@ -606,25 +606,35 @@ public interface EmpleadoRepository extends JpaRepository<Empleado, Long> {
 
 ## 8. Inicialización de datos con data.sql
 
-Ahora, en lugar de usar `@PostConstruct` para crear datos hardcodeados en ArrayList, usamos un script SQL.
+Ahora, en lugar de usar un `@Bean CommandLineRunner` para crear datos hardcodeados, usamos un script SQL.
 
 ### Paso previo: Limpiar la clase Application
 
-Si en el Reto 0 el fichero `ErpBalmisReto0Application.java` (o alguna clase de servicio) tenía un método `@PostConstruct` que inicializaba datos con los repositorios y modelos antiguos, **hay que eliminarlo** junto a sus imports obsoletos:
+En el Reto 0, el fichero `Application.java` tenía un método `@Bean` que devolvía un `CommandLineRunner` para probar el repositorio con datos de ejemplo y referencias a las clases antiguas. **Hay que eliminarlo** junto a todos sus imports obsoletos:
 
 ```java
-// ELIMINAR: imports a paquetes del Reto 0
-import com.iesdoctorbalmis.spring.modelo.Cliente;
-import com.iesdoctorbalmis.spring.modelo.TipoCliente;
-import com.iesdoctorbalmis.spring.repositorio.ClienteRepositorio;
-import jakarta.annotation.PostConstruct;
+// ELIMINAR: estos imports del Reto 0
+import com.iesdoctorbalmis.spring.model.Cliente;
+import com.iesdoctorbalmis.spring.model.TipoCliente;
+import com.iesdoctorbalmis.spring.repository.ClienteRepositorio;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Bean;
+import java.time.LocalDate;
 
-// ELIMINAR: el bloque @PostConstruct completo
-@PostConstruct
-public void inicializar() {
-    clienteRepositorio.guardar(new Cliente(...));
-    clienteRepositorio.guardar(new Cliente(...));
-    // ...
+// ELIMINAR: el método @Bean completo
+@Bean
+public CommandLineRunner testRepositorio(ClienteRepositorio clienteRepositorio) {
+    return args -> {
+        System.out.println("=== Prueba ClienteRepositorio ===");
+        Cliente cliente1 = new Cliente();
+        cliente1.setCodigoCliente("CLI-001");
+        cliente1.setNombre("Acme Corporation");
+        cliente1.setEmail("info@acme.com");
+        cliente1.setTipoCliente(TipoCliente.PROSPECTO);
+        cliente1.setFechaAlta(LocalDate.now());
+        Cliente guardado = clienteRepositorio.guardar(cliente1);
+        // ...
+    };
 }
 ```
 
