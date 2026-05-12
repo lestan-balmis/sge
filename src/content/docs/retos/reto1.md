@@ -647,9 +647,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ErpBalmisReto0Application {
+public class Application {
     public static void main(String[] args) {
-        SpringApplication.run(ErpBalmisReto0Application.class, args);
+        SpringApplication.run(Application.class, args);
     }
 }
 ```
@@ -696,7 +696,7 @@ INSERT INTO empleados (numero_empleado, nombre, apellidos, cargo, departamento, 
 
 1. **Ejecuta el proyecto**: `mvn spring-boot:run`
 2. **Abre tu navegador**: `http://localhost:9000/h2-console`
-3. Verás una interfaz de login. Rellena:
+3. Verás una interfaz de login. Rellena si falta:
    - **Saved Settings**: `Generic H2`
    - **Setting Name**: `Generic H2`
    - **Driver Class**: `org.h2.Driver`
@@ -712,13 +712,7 @@ En el panel izquierdo verás:
 - `PRODUCTOS`
 - `EMPLEADOS`
 
-Puedes escribir SQL directamente:
-
-```sql
-SELECT * FROM clientes;
-SELECT COUNT(*) FROM productos WHERE activo = true;
-UPDATE empleados SET departamento = 'VENTAS' WHERE numero_empleado = 'EMP003';
-```
+Puedes seleccionar una de las tablas, por ejemplo `CLIENTES`: aparecerá automáticamente la orden `SELECT` genérica para mostrar todo su contenido. Con el botón **Run** se ejecutará y se mostrarán los datos en la parte inferior. Con el botón **Clear** se borrará la instrucción y podrás repetir el proceso con otra tabla.
 
 ---
 
