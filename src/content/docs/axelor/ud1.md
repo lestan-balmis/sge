@@ -4,7 +4,7 @@ description: Manual de uso · Axelor Open Suite. Módulo SGE · DAM · IES Docto
 ---
 
 ### Manual de uso · Axelor Open Suite
-**Módulo SGE · DAM · IES Balmis**
+**Módulo SGE · DAM · IES Doctor Balmis**
 
 ---
 
