@@ -23,11 +23,11 @@ description: Fundamentos de Spring Boot, Maven, persistencia y arquitectura Java
 5. [Lombok: Reducción de código repetitivo](#5-lombok-reducción-de-código-repetitivo)
 6. [Inyección de dependencias](#6-inyección-de-dependencias)
 7. [El patrón Repositorio con ArrayList](#7-el-patrón-repositorio-con-arraylist)
-8. [🎯 PAUSA: Aquí puedes hacer el **Reto 0** ](#-pausa-aquí-puedes-hacer-el-reto-0)
+8. [🎯 PAUSA: Aquí puedes hacer el **Reto 0** ](#8--pausa-aquí-puedes-hacer-el-reto-0)
 9. [JPA: Java Persistence API](#9-jpa-java-persistence-api)
 10. [Hibernate y el mapeo objeto-relacional](#10-hibernate-y-el-mapeo-objeto-relacional)
 11. [H2 Database: Base de datos en memoria](#11-h2-database-base-de-datos-en-memoria)
-12. [🎯 PAUSA: Aquí puedes hacer el **Reto 1** ](#-pausa-aquí-puedes-hacer-el-reto-1)
+12. [🎯 PAUSA: Aquí puedes hacer el **Reto 1** ](#12--pausa-aquí-puedes-hacer-el-reto-1)
 13. [Testing con Spring Boot](#13-testing-con-spring-boot)
 
 ---
@@ -533,7 +533,7 @@ Ya hemos cubierto toda la teoría necesaria para desarrollar el **Reto 0 — La 
 3. Implementar repositorios basados en ArrayList
 4. Comprender cómo Spring gestiona dependencias
 
-[📖 Ir al Reto 0: La Semilla](/docs/retos/reto0)
+[📖 Ir al Reto 0: La Semilla](/retos/reto0)
 
 ---
 
@@ -722,7 +722,7 @@ Ya hemos cubierto toda la teoría necesaria para desarrollar el **Reto 1 — De 
 4. Cargar datos iniciales con `data.sql`
 5. Inspeccionar la BD con H2 Console
 
-[📖 Ir al Reto 1: De la Semilla a la Raíz](/docs/retos/reto1)
+[📖 Ir al Reto 1: De la Semilla a la Raíz](/retos/reto1)
 
 ---
 
