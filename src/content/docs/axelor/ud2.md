@@ -4,7 +4,7 @@ description: Configuración de empresa, ciclo de negocio completo y prácticas d
 ---
 
 ### Implantación de una Empresa Ficticia en Axelor
-**Módulo SGE · DAM · IES Balmis**
+**Módulo SGE · DAM · IES Doctor Balmis**
 
 ---
 

@@ -4,7 +4,7 @@ description: Consultas avanzadas, filtros, informes y dashboard - Especificació
 ---
 
 ### Consultas, Informes y Dashboard de Axelor
-**Módulo SGE · DAM · IES Balmis**
+**Módulo SGE · DAM · IES Doctor Balmis**
 
 ---
 

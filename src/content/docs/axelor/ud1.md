@@ -1,6 +1,6 @@
 ---
 title: UD1 — Identificación ERP-CRM
-description: Manual de uso · Axelor Open Suite. Módulo SGE · DAM · IES Balmis
+description: Manual de uso · Axelor Open Suite. Módulo SGE · DAM · IES Doctor Balmis
 ---
 
 ### Manual de uso · Axelor Open Suite
@@ -1193,5 +1193,5 @@ Entidad principal: Empleado
 
 ---
 
-*Documento elaborado para el módulo SGE · DAM · IES Balmis · Curso 2026-2027*  
+*Documento elaborado para el módulo SGE · DAM · IES Doctor Balmis · Curso 2026-2027*  
 *Proyecto ERP Balmis — En homenaje a Francisco Javier Balmis (1753-1819), médico alicantino impulsor de la primera expedición vacunadora global de la historia.*

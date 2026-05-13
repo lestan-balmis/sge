@@ -4,7 +4,7 @@ description: Transformar Reto 0 (ArrayList) en Entidades JPA persistentes con H2
 ---
 
 ### Reto 1 · De la Semilla a la Raíz
-**Módulo SGE · DAM · IES Balmis**
+**Módulo SGE · DAM · IES Doctor Balmis**
 
 ---
 

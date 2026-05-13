@@ -4,7 +4,7 @@ description: Fundamentos de Spring Boot, Maven, persistencia y arquitectura Java
 ---
 
 ### Introducción a Spring Boot
-**Módulo SGE · DAM · IES Balmis**
+**Módulo SGE · DAM · IES Doctor Balmis**
 
 ---
 
@@ -533,7 +533,7 @@ Ya hemos cubierto toda la teoría necesaria para desarrollar el **Reto 0 — La 
 3. Implementar repositorios basados en ArrayList
 4. Comprender cómo Spring gestiona dependencias
 
-[📖 Ir al Reto 0: La Semilla](/retos/reto0)
+[📖 Ir al Reto 0: La Semilla](/sge/retos/reto0/)
 
 ---
 
@@ -722,7 +722,7 @@ Ya hemos cubierto toda la teoría necesaria para desarrollar el **Reto 1 — De 
 4. Cargar datos iniciales con `data.sql`
 5. Inspeccionar la BD con H2 Console
 
-[📖 Ir al Reto 1: De la Semilla a la Raíz](/retos/reto1)
+[📖 Ir al Reto 1: De la Semilla a la Raíz](/sge/retos/reto1/)
 
 ---
 
