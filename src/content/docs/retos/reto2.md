@@ -366,6 +366,8 @@ El proyecto `erpbalmis_2` debe tener:
 - Servidor ejecutándose en `http://localhost:9000` mostrando el panel de control
 - Navegación funcional entre todas las secciones
 
+<!-- 
 ## Repositorio
 
 [github.com/lestan-balmis/sge-reto2](https://github.com/lestan-balmis/sge-reto2)
+-->
