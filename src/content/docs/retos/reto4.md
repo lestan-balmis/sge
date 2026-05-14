@@ -85,15 +85,7 @@ List<Contacto> findByClienteId(Long clienteId);
 
 ## Paso 3 — DTOs
 
-### ¿Por qué usar DTOs?
-
-Con una entidad JPA expuesta directamente en la API (Reto 3) tenemos tres problemas:
-
-1. Los **campos internos** (relaciones lazy, auditoría) se serializan sin control.
-2. Cambiar el modelo interno **rompe el contrato** de la API.
-3. Las **validaciones de entrada** (`@NotBlank`, `@Email`…) no deberían vivir en la entidad.
-
-El patrón DTO resuelve los tres.
+> **Concepto:** El patrón DTO y sus ventajas se explican en [UD5 — sección 10](/sge/spring/ud5#10-el-patrón-dto).
 
 ### ClienteDTO (respuesta)
 

@@ -24,64 +24,11 @@ Transformarás el Reto 1 añadiendo:
 
 ---
 
-## 1. El patrón MVC en Spring Boot
-
-**MVC** (Model-View-Controller) es el patrón arquitectónico que Spring MVC implementa para aplicaciones web.
-
-```
-Navegador
-    │
-    │  HTTP GET /clientes
-    ▼
-Controller (@Controller)
-    │
-    │  clienteRepository.findAll()
-    ▼
-Repository (JpaRepository)
-    │
-    │  List<Cliente>
-    ▼
-Controller
-    │
-    │  model.addAttribute("clientes", lista)
-    │  return "clientes/lista"
-    ▼
-Thymeleaf (Motor de plantillas)
-    │
-    │  HTML generado
-    ▼
-Navegador (respuesta HTML)
-```
-
-### Los tres elementos
-
-| Elemento | Responsabilidad | En nuestro proyecto |
-|---|---|---|
-| **Model** | Datos que se pasan a la vista | `Model model` en el controlador |
-| **View** | Presentación HTML | Plantillas `.html` en `templates/` |
-| **Controller** | Lógica de petición HTTP | Clases con `@Controller` |
+> **Conceptos teóricos:** El patrón MVC, Thymeleaf y los atributos `th:*` se explican en detalle en [UD5 — secciones 1, 2 y 3](/sge/spring/ud5).
 
 ---
 
-## 2. ¿Qué es Thymeleaf?
-
-**Thymeleaf** es el motor de plantillas oficial de Spring Boot para generar HTML dinámico en el servidor. Sus plantillas son **HTML válido** que puede abrirse en un navegador sin servidor (modo estático), pero cuando Spring lo procesa, sustituye los valores dinámicos.
-
-### Atributos `th:*` más habituales
-
-| Atributo | Función | Ejemplo |
-|---|---|---|
-| `th:text` | Reemplaza el texto del elemento | `th:text="${cliente.nombre}"` |
-| `th:each` | Bucle sobre una colección | `th:each="c : ${clientes}"` |
-| `th:href` | URL generada por Spring | `th:href="@{/clientes}"` |
-| `th:if` | Condición para mostrar | `th:if="${#lists.isEmpty(lista)}"` |
-| `th:classappend` | Añade clase CSS condicional | `th:classappend="${activo} ? 'bg-success'"` |
-| `th:replace` | Sustituye con un fragmento | `th:replace="~{fragments/layout :: layout(...)}"` |
-| `th:fragment` | Declara un fragmento reutilizable | `th:fragment="layout(title, content)"` |
-
----
-
-## 3. Preparación
+## 1. Preparación
 
 ### Crea una copia del proyecto
 
@@ -120,7 +67,7 @@ erpbalmis_2/
 
 ---
 
-## 4. Añadir Thymeleaf al proyecto
+## 2. Añadir Thymeleaf al proyecto
 
 En el `pom.xml`, añade la dependencia de Thymeleaf:
 
@@ -136,7 +83,7 @@ En el `pom.xml`, añade la dependencia de Thymeleaf:
 
 ---
 
-## 5. Controladores MVC
+## 3. Controladores MVC
 
 Un `@Controller` en Spring MVC es una clase que:
 1. Recibe peticiones HTTP mediante `@GetMapping`, `@PostMapping`, etc.
@@ -208,7 +155,7 @@ Siguen exactamente el mismo patrón que `ClienteController`, adaptando el reposi
 
 ---
 
-## 6. Plantillas Thymeleaf
+## 4. Plantillas Thymeleaf
 
 ### Layout base con fragmentos
 
@@ -315,7 +262,7 @@ Incluye formateo de números decimales para los precios:
 
 ---
 
-## 7. Expresiones Thymeleaf
+## 5. Expresiones Thymeleaf
 
 | Sintaxis | Tipo | Uso |
 |---|---|---|
@@ -333,7 +280,7 @@ Incluye formateo de números decimales para los precios:
 
 ---
 
-## 8. Verificación
+## 6. Verificación
 
 ```bash
 # Compilar

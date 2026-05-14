@@ -24,32 +24,11 @@ Añadirás una capa de API REST al proyecto del Reto 2:
 
 ---
 
-## 1. El momento de la transición
-
-### `@Controller` vs `@RestController`
-
-Esta es la diferencia fundamental entre el Reto 2 y el Reto 3:
-
-| | `@Controller` (Reto 2) | `@RestController` (Reto 3) |
-|---|---|---|
-| **Devuelve** | Nombre de una plantilla HTML | JSON directamente |
-| **Para quién** | Navegador | Aplicación cliente (móvil, SPA, Postman...) |
-| **Thymeleaf** | Necesario | No necesario |
-| **Equivale a** | `@Controller` | `@Controller` + `@ResponseBody` |
-
-```
-                          erpbalmis_2 (Reto 2)
-Navegador → GET /clientes → @Controller → Model + "clientes/lista" → Thymeleaf → HTML
-
-                          erpbalmis_3 (Reto 3)
-Postman   → GET /api/clientes → @RestController → List<Cliente> → Jackson → JSON
-```
-
-**Reflexión clave:** Los dos controladores usan exactamente el mismo repositorio (`clienteRepository.findAll()`). Solo cambia cómo se presenta la respuesta.
+> **Conceptos teóricos:** La diferencia entre `@Controller` y `@RestController`, Jackson y los códigos de estado HTTP se explican en [UD5 — secciones 5 a 8](/sge/spring/ud5).
 
 ---
 
-## 2. Preparación
+## 1. Preparación
 
 ### Crea una copia del proyecto
 
@@ -80,7 +59,7 @@ erpbalmis_3/
 
 ---
 
-## 3. `ClienteRestController`
+## 2. `ClienteRestController`
 
 ```java
 package com.iesdoctorbalmis.spring.controller.rest;
@@ -133,7 +112,7 @@ public class ClienteRestController {
 
 ---
 
-## 4. `ProductoRestController`
+## 3. `ProductoRestController`
 
 ```java
 package com.iesdoctorbalmis.spring.controller.rest;
@@ -168,9 +147,7 @@ public class ProductoRestController {
 
 ---
 
-## 5. ¿Qué es JSON?
-
-**JSON** (JavaScript Object Notation) es el formato estándar para intercambio de datos en APIs REST. Spring Boot lo genera automáticamente gracias a **Jackson**, que serializa objetos Java a JSON.
+## 4. Ejemplos de respuesta JSON
 
 Ejemplo de respuesta de `GET /api/clientes/1`:
 
@@ -207,7 +184,7 @@ Ejemplo de respuesta de `GET /api/clientes` (lista):
 
 ---
 
-## 6. Verificación
+## 5. Verificación
 
 ```bash
 # Compilar
