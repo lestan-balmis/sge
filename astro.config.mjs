@@ -11,6 +11,7 @@ export default defineConfig({
 			title: 'SGE — IES Doctor Balmis',
 			description: 'Módulo Sistemas de Gestión Empresarial · DAM · IES Doctor Balmis · Curso 2026-2027',
 			expressiveCode: false,
+			editUrl: false,
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/lestan-balmis' }],
 			sidebar: [
 				{
