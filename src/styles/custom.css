@@ -7,8 +7,8 @@
 
 /* Reducir ancho de la tabla de contenidos (derecha) */
 aside[data-component="table-of-contents"] {
-	width: 220px !important;
-	max-width: 220px !important;
+	width: 200px !important;
+	max-width: 200px !important;
 }
 
 /* Ajustar el layout general para acomodar los nuevos anchos */
