@@ -4,7 +4,11 @@
 	/* Ancho del menú lateral izquierdo */
 	--sl-sidebar-width: 25rem;
 	/* Ancho fijo del panel derecho (tabla de contenidos) */
-	--sl-right-sidebar-width: 20rem;
+	--sl-right-sidebar-width: 25rem;
+	/* Ancho máximo del área de contenido central (por defecto 45rem) */
+	--sl-content-width: 55rem;
+	/* Relleno lateral del panel de contenido (por defecto 1.5rem en escritorio) */
+	--sl-content-pad-x: 0.75rem;
 }
 
 @media (min-width: 72rem) {
