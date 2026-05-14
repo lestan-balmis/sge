@@ -1,32 +1,29 @@
 /* Personalización de anchos de menús */
 
 :root {
-	/* Aumentar ancho del menú lateral (izquierda) */
+	/* Ancho del menú lateral izquierdo */
 	--sl-sidebar-width: 28rem;
-	/* Ancho base para el panel derecho (tabla de contenidos) — independiente del izquierdo */
+	/* Ancho fijo del panel derecho (tabla de contenidos) */
 	--sl-right-sidebar-width: 16rem;
 }
 
-/* Ajustar el ancho del contenedor del panel derecho usando su propia variable */
 @media (min-width: 72rem) {
+	/* Panel derecho: ancho fijo — no crece con la pantalla */
 	.right-sidebar-container {
-		width: calc(
-			var(--sl-right-sidebar-width) +
-			(100% - var(--sl-content-width) - var(--sl-right-sidebar-width)) / 2
-		);
+		width: var(--sl-right-sidebar-width);
+		flex-shrink: 0;
 	}
 
+	/* Sidebar fijo: limitar a ese mismo ancho para eliminar el margen derecho */
+	.right-sidebar {
+		max-width: var(--sl-right-sidebar-width);
+		overflow-x: hidden;
+	}
+
+	/* Contenido central: ocupa todo el espacio restante, centrado */
 	[data-has-sidebar][data-has-toc] .main-pane {
-		width: calc(
-			var(--sl-content-width) +
-			(100% - var(--sl-content-width) - var(--sl-right-sidebar-width)) / 2
-		);
+		flex: 1;
+		min-width: 0;
+		--sl-content-margin-inline: auto;
 	}
-}
-
-/* Sobreescribir --sl-sidebar-width localmente dentro del sidebar derecho.
-   Así el .sl-container interior calcula su ancho con 16rem en vez de 28rem,
-   eliminando el desbordamiento hacia la derecha. */
-.right-sidebar {
-	--sl-sidebar-width: var(--sl-right-sidebar-width);
 }
