@@ -7,7 +7,7 @@
 	--sl-right-sidebar-width: 16rem;
 }
 
-/* Ancho del contenedor del panel derecho usando su propia variable */
+/* Ajustar el ancho del contenedor del panel derecho usando su propia variable */
 @media (min-width: 72rem) {
 	.right-sidebar-container {
 		width: calc(
@@ -21,5 +21,11 @@
 			var(--sl-content-width) +
 			(100% - var(--sl-content-width) - var(--sl-right-sidebar-width)) / 2
 		);
+	}
+
+	/* Corregir el contenedor interior de la TOC para que no desborde a la derecha */
+	.right-sidebar-panel .sl-container {
+		width: calc(var(--sl-right-sidebar-width) - 2 * var(--sl-sidebar-pad-x));
+		max-width: calc(var(--sl-right-sidebar-width) - 2 * var(--sl-sidebar-pad-x));
 	}
 }
