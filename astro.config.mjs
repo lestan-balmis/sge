@@ -31,6 +31,7 @@ export default defineConfig({
 					label: 'Fase Spring Boot',
 					items: [
 						{ label: 'UD4 — Introducción a Spring Boot', slug: 'spring/ud4' },
+						{ label: 'UD5 — Spring MVC, REST y Arquitectura por Capas', slug: 'spring/ud5' },
 					],
 				},
 				{
