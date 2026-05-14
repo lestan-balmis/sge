@@ -2,7 +2,7 @@
 
 :root {
 	/* Aumentar ancho del menú lateral (izquierda) */
-	--sl-sidebar-width: 24rem;
+	--sl-sidebar-width: 28rem;
 }
 
 /* Reducir ancho de la tabla de contenidos (derecha) */
