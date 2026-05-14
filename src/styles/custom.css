@@ -23,9 +23,11 @@
 		);
 	}
 
-	/* Corregir el contenedor interior de la TOC para que no desborde a la derecha */
-	.right-sidebar-panel .sl-container {
-		width: calc(var(--sl-right-sidebar-width) - 2 * var(--sl-sidebar-pad-x));
-		max-width: calc(var(--sl-right-sidebar-width) - 2 * var(--sl-sidebar-pad-x));
+	/* El sidebar fijo usa 100vw como referencia — limitar su ancho para eliminar el margen derecho */
+	.right-sidebar {
+		width: calc(
+			var(--sl-right-sidebar-width) +
+			(100vw - var(--sl-sidebar-width) - var(--sl-content-width) - var(--sl-right-sidebar-width)) / 2
+		);
 	}
 }
