@@ -3,19 +3,19 @@
 :root {
 	/* Aumentar ancho del menú lateral (izquierda) */
 	--sl-sidebar-width: 28rem;
-	/* Variable personalizada para el ancho de la tabla de contenidos */
-	--sl-right-sidebar-width: 175px;
 }
 
-/* Reducir ancho de la tabla de contenidos (derecha) */
-.right-sidebar-panel {
-	max-width: var(--sl-right-sidebar-width) !important;
-	width: var(--sl-right-sidebar-width) !important;
-}
-
+/* Reducir ancho de la tabla de contenidos (derecha) SOLO dentro de right-sidebar-panel */
 .right-sidebar-panel .sl-container {
-	width: var(--sl-right-sidebar-width) !important;
-	max-width: var(--sl-right-sidebar-width) !important;
+	width: 175px !important;
+	max-width: 175px !important;
+}
+
+/* Sobreescribir el cálculo de max-width en la media query para right-sidebar-panel */
+@media (min-width: 72rem) {
+	.right-sidebar-panel .sl-container {
+		max-width: 175px !important;
+	}
 }
 
 /* Ajustar el layout general para acomodar los nuevos anchos */
