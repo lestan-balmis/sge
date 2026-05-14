@@ -2,9 +2,9 @@
 
 :root {
 	/* Ancho del menú lateral izquierdo */
-	--sl-sidebar-width: 28rem;
+	--sl-sidebar-width: 25rem;
 	/* Ancho fijo del panel derecho (tabla de contenidos) */
-	--sl-right-sidebar-width: 16rem;
+	--sl-right-sidebar-width: 20rem;
 }
 
 @media (min-width: 72rem) {
