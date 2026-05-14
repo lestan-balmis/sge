@@ -3,8 +3,6 @@ title: Reto 4 - El CRM
 description: UD5/UD6 - CRUD completo, DTOs, validaciones, Swagger UI y módulo de Contactos
 ---
 
-import { Steps, Aside, Tabs, TabItem } from '@astrojs/starlight/components';
-
 ## Objetivo
 
 Completar el módulo CRM añadiendo la entidad **Contacto**, convirtiendo el REST de clientes en una **API CRUD completa**, introduciendo **DTOs**, **Bean Validation**, un servicio de negocio y documentación automática con **Swagger UI / OpenAPI**.
