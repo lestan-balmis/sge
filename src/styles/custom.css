@@ -1,0 +1,19 @@
+/* Personalización de anchos de menús */
+
+:root {
+	/* Aumentar ancho del menú lateral (izquierda) */
+	--sl-sidebar-width: 24rem;
+}
+
+/* Reducir ancho de la tabla de contenidos (derecha) */
+aside[data-component="table-of-contents"] {
+	width: 220px !important;
+	max-width: 220px !important;
+}
+
+/* Ajustar el layout general para acomodar los nuevos anchos */
+@media (min-width: 72rem) {
+	body {
+		--sl-content-pad-x: 2rem;
+	}
+}
