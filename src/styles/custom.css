@@ -22,12 +22,11 @@
 			(100% - var(--sl-content-width) - var(--sl-right-sidebar-width)) / 2
 		);
 	}
+}
 
-	/* El sidebar fijo usa 100vw como referencia — limitar su ancho para eliminar el margen derecho */
-	.right-sidebar {
-		width: calc(
-			var(--sl-right-sidebar-width) +
-			(100vw - var(--sl-sidebar-width) - var(--sl-content-width) - var(--sl-right-sidebar-width)) / 2
-		);
-	}
+/* Sobreescribir --sl-sidebar-width localmente dentro del sidebar derecho.
+   Así el .sl-container interior calcula su ancho con 16rem en vez de 28rem,
+   eliminando el desbordamiento hacia la derecha. */
+.right-sidebar {
+	--sl-sidebar-width: var(--sl-right-sidebar-width);
 }
