@@ -1,6 +1,6 @@
 ---
 title: "UD5 — Spring MVC, REST y Arquitectura por Capas"
-description: MVC, Thymeleaf, REST, DTOs, Bean Validation, capa de servicio y manejo de excepciones. Base teórica para los Retos 2, 3 y la parte UD5 del Reto 4.
+description: MVC, Thymeleaf, REST, DTOs, Bean Validation, capa de servicio y manejo de excepciones. Base teórica para los Retos 2 y 3.
 ---
 
 ### UD5 — Spring MVC, REST y Arquitectura por Capas
@@ -31,8 +31,7 @@ description: MVC, Thymeleaf, REST, DTOs, Bean Validation, capa de servicio y man
 12. [La capa de Servicio (@Service)](#12-la-capa-de-servicio-service)
 13. [Excepciones personalizadas y @RestControllerAdvice](#13-excepciones-personalizadas-y-restcontrolleradvice)
 14. [OpenAPI / Swagger UI con SpringDoc](#14-openapi--swagger-ui-con-springdoc)
-15. [🎯 PAUSA: Aquí puedes hacer la parte UD5 del **Reto 4** ](#15--pausa-aquí-puedes-hacer-la-parte-ud5-del-reto-4)
-16. [Relaciones entre entidades: @ManyToOne](#16-relaciones-entre-entidades-manytoone)
+15. [Relaciones entre entidades: @ManyToOne](#15-relaciones-entre-entidades-manytoone)
 
 ---
 
@@ -428,7 +427,7 @@ Exponer la entidad JPA en la API tiene tres problemas:
 
 ### DTO de respuesta vs DTO de entrada
 
-En el Reto 4 usamos dos DTOs para el módulo de clientes:
+Usamos dos DTOs para el módulo de clientes:
 
 ```
 Request (entrada) ──→  ClienteRequestDTO  ──→  Controller  ──→  Service  ──→  ClienteRepository  ──→  BD
@@ -732,23 +731,9 @@ public class ClienteRestController {
 
 ---
 
-## 15. 🎯 PAUSA: Aquí puedes hacer la parte UD5 del **Reto 4**
+## 15. Relaciones entre entidades: @ManyToOne
 
-Con DTOs, Bean Validation, capa de Servicio, `@RestControllerAdvice` y Swagger ya tienes las herramientas para construir un CRUD completo y robusto.
-
-> **[→ Ir al Reto 4: El CRM](/sge/retos/reto4)**
->
-> - Crear `ClienteDTO` y `ClienteRequestDTO`
-> - Implementar `ClienteService` con validación de email único
-> - CRUD completo: GET, POST, PUT, PATCH, DELETE
-> - `GlobalExceptionHandler` con respuestas JSON para 404, 400 y 409
-> - Integrar Swagger UI con SpringDoc
-
----
-
-## 16. Relaciones entre entidades: @ManyToOne
-
-En el Reto 4 se introduce la entidad `Contacto`, que pertenece a un `Cliente`. Esta es la relación más frecuente en bases de datos relacionales.
+La entidad `Contacto` pertenece a un `Cliente`. Esta es la relación más frecuente en bases de datos relacionales.
 
 ### ¿Qué es @ManyToOne?
 
@@ -816,4 +801,4 @@ public interface ContactoRepository extends JpaRepository<Contacto, Long> {
 | Reto 1 | Persistencia real | JPA + H2 + `import.sql` |
 | **Reto 2** | **Capa de presentación web** | **Thymeleaf + MVC** |
 | **Reto 3** | **API REST básica** | **`@RestController` + JSON** |
-| **Reto 4 (UD5)** | **Capa de servicio + DTOs + Validación + Errores + Swagger** | **`@Service` + Bean Validation + `@RestControllerAdvice` + SpringDoc** |
+| **Reto 4** | **Capa de servicio + DTOs + Validación + Errores + Swagger + Formularios MVC** | **`@Service` + Bean Validation + `@RestControllerAdvice` + SpringDoc + `th:field`/`th:errors`** |
