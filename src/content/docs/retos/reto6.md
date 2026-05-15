@@ -433,7 +433,7 @@ Las contraseñas se generan con BCrypt (`BCryptPasswordEncoder.encode("admin123"
 |---------|-----------|-----|--------------------|
 | `admin` | `admin123` | ADMIN | Todo: ver, crear, editar, eliminar, confirmar |
 | `manager` | `manager123` | MANAGER | Ver, crear, editar, confirmar (sin eliminar) |
-| `empleado` | `empleado123` | EMPLEADO | Solo lectura (sin botones de acción) |
+| `empleado` | `emp123` | EMPLEADO | Solo lectura (sin botones de acción) |
 
 ---
 
@@ -535,7 +535,7 @@ erpbalmis_6/
 1. Abre `http://localhost:9000/clientes` → redirige a `/login`.
 2. Introduce `admin` / `admin123` → accede a la lista de clientes con todos los botones visibles.
 3. Cierra sesión → redirige a `/login?logout` con mensaje de confirmación.
-4. Entra con `empleado` / `empleado123` → la lista se muestra pero **sin** botones Nuevo/Editar/Eliminar.
+4. Entra con `empleado` / `emp123` → la lista se muestra pero **sin** botones Nuevo/Editar/Eliminar.
 
 ### Flujo JWT (Postman)
 

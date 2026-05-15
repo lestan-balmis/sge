@@ -1,6 +1,6 @@
 ---
-title: "UD6 — Formularios Web con Thymeleaf"
-description: Formularios MVC, th:object, th:field, th:errors, @Valid + BindingResult, RedirectAttributes y patrón POST-Redirect-GET. Base teórica para la parte de vistas del Reto 4.
+title: "UD6 — Formularios, Ventas y Seguridad"
+description: Formularios MVC con Thymeleaf (Reto 4), relaciones JPA y workflows de estado (Reto 5), y Spring Security con sesión + JWT (Reto 6). Unidad teórica completa de la 2ª evaluación.
 ---
 
 ### UD6 — Formularios Web con Thymeleaf
@@ -429,3 +429,424 @@ Con la teoría de formularios MVC ya tienes todas las herramientas para implemen
 | **Mensajes entre requests** | No aplica | `RedirectAttributes.addFlashAttribute()` |
 | **Errores de negocio** | Excepción → `@RestControllerAdvice` | `BindingResult.rejectValue()` |
 | **Comparten** | El mismo `@Service` y los mismos DTOs |  |
+
+---
+
+## 🎯 PAUSA: Aquí puedes completar el **Reto 5**
+
+Con los formularios MVC de la UD6 y la arquitectura REST de la UD5 ya tienes todo lo necesario para implementar el módulo de ventas.
+
+> **[→ Ir al Reto 5: Las Ventas](/sge/retos/reto5)**
+>
+> - Crear `ProductoFormDTO` y `PedidoFormDTO` (`@Data` mutable para form-binding)
+> - Implementar `ProductoController` CRUD MVC
+> - Implementar `PedidoController` con vistas lista, formulario y detalle
+> - API REST de Productos y Pedidos con control de stock
+> - Workflow de estados `BORRADOR → CONFIRMADO → ENVIADO → FACTURADO`
+
+---
+
+## 10. Relaciones JPA: `@OneToMany` y `@ManyToOne`
+
+En el Reto 5 se introducen relaciones entre entidades. Un `Pedido` tiene muchas `LineaPedido`, y cada `LineaPedido` pertenece a un `Pedido`.
+
+### `@ManyToOne` — el lado «muchos»
+
+Es la anotación más habitual. La entidad que tiene la clave foránea la declara con `@ManyToOne`:
+
+```java
+@Entity
+public class LineaPedido {
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "pedido_id", nullable = false)
+    private Pedido pedido;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "producto_id", nullable = false)
+    private Producto producto;
+
+    private Integer cantidad;
+    private BigDecimal precioUnitario; // snapshot del precio al crear la línea
+    private BigDecimal subtotal;
+}
+```
+
+> **`fetch = FetchType.LAZY`** — por defecto JPA carga las relaciones en modo EAGER (carga inmediata), lo que puede generar consultas innecesarias. Con LAZY la relación se carga solo cuando se accede al campo.
+
+### `@OneToMany` — el lado «uno»
+
+En la entidad «padre» se declara la lista de hijos con `@OneToMany`. La opción `cascade = ALL` indica que las operaciones (guardar, eliminar) se propagan a los hijos, y `orphanRemoval = true` borra automáticamente las líneas que se eliminen de la lista:
+
+```java
+@Entity
+public class Pedido {
+
+    @OneToMany(
+        mappedBy = "pedido",       // ← nombre del campo @ManyToOne en LineaPedido
+        cascade = CascadeType.ALL,
+        orphanRemoval = true
+    )
+    private List<LineaPedido> lineas = new ArrayList<>();
+}
+```
+
+> **`mappedBy`** indica que el «dueño» de la relación es `LineaPedido.pedido`. Sin él JPA crearía una tabla intermedia de unión innecesaria.
+
+### Snapshot de precios
+
+En un sistema de ventas, el precio del producto puede cambiar en el futuro. Para conservar el precio que tenía **en el momento de la venta**, se guarda como `precioUnitario` en `LineaPedido`:
+
+```java
+// Al crear la línea se copia el precio actual del producto
+lineaPedido.setPrecioUnitario(producto.getPrecioVenta());
+lineaPedido.setSubtotal(producto.getPrecioVenta()
+        .multiply(BigDecimal.valueOf(cantidad)));
+```
+
+Así el histórico de pedidos no se ve afectado por cambios de precio posteriores.
+
+---
+
+## 11. Workflow de estados con enums
+
+Un pedido no salta directamente de «creado» a «facturado». Atraviesa una secuencia de estados:
+
+```
+BORRADOR → CONFIRMADO → ENVIADO → FACTURADO
+```
+
+En Java se modela con un `enum`:
+
+```java
+public enum EstadoPedido {
+    BORRADOR, CONFIRMADO, ENVIADO, FACTURADO
+}
+```
+
+El servicio valida que la transición es legal antes de cambiar el estado:
+
+```java
+public PedidoDTO actualizarEstado(Long id, EstadoPedido nuevoEstado) {
+    Pedido pedido = pedidoRepository.findById(id).orElseThrow(...);
+
+    // Solo se permiten transiciones hacia adelante
+    if (nuevoEstado.ordinal() <= pedido.getEstado().ordinal()) {
+        throw new TransicionEstadoInvalidaException(
+            "No se puede pasar de " + pedido.getEstado() + " a " + nuevoEstado);
+    }
+    pedido.setEstado(nuevoEstado);
+    return toDTO(pedidoRepository.save(pedido));
+}
+```
+
+### Control de stock al confirmar
+
+El stock solo se descuenta cuando el pedido pasa de `BORRADOR` a `CONFIRMADO`. La lógica tiene dos fases para garantizar la consistencia:
+
+```java
+@Transactional
+public PedidoDTO confirmar(Long id) {
+    Pedido pedido = pedidoRepository.findById(id).orElseThrow(...);
+
+    // Fase 1: validar TODO el stock antes de modificar nada
+    for (LineaPedido linea : pedido.getLineas()) {
+        Producto p = linea.getProducto();
+        if (p.getStock() < linea.getCantidad()) {
+            throw new StockInsuficienteException(
+                "Stock insuficiente para '" + p.getReferencia() +
+                "': disponible " + p.getStock() +
+                ", solicitado " + linea.getCantidad());
+        }
+    }
+
+    // Fase 2: descontar stock solo si toda la validación pasa
+    for (LineaPedido linea : pedido.getLineas()) {
+        Producto p = linea.getProducto();
+        p.setStock(p.getStock() - linea.getCantidad());
+        productoRepository.save(p);
+    }
+
+    pedido.setEstado(EstadoPedido.CONFIRMADO);
+    pedido.setFechaConfirmacion(LocalDate.now());
+    return toDTO(pedidoRepository.save(pedido));
+}
+```
+
+> **`@Transactional`** garantiza que si falla algún paso, **ningún cambio se persiste**. O todo se guarda, o nada. Si lanzamos `StockInsuficienteException` en la Fase 1, el stock nunca se modifica.
+
+---
+
+## 12. Seguridad en aplicaciones web: conceptos fundamentales
+
+### Autenticación vs. Autorización
+
+Son dos conceptos distintos que a menudo se confunden:
+
+| Concepto | Pregunta | Ejemplo |
+|----------|----------|---------|
+| **Autenticación** | ¿Quién eres? | Introducir usuario y contraseña |
+| **Autorización** | ¿Qué puedes hacer? | Solo ADMIN puede eliminar registros |
+
+Primero se autentica (identidad), luego se autoriza (permisos). Sin autenticación no puede haber autorización.
+
+### El modelo de seguridad de Spring Security
+
+Spring Security actúa como una **cadena de filtros** (`FilterChain`) que intercepta cada petición HTTP **antes** de que llegue al controlador. Si la petición no supera los filtros, el controlador nunca se ejecuta.
+
+```
+Petición HTTP
+    ↓
+[Filtro 1: extrae token/sesión]
+    ↓
+[Filtro 2: valida credenciales]
+    ↓
+[Filtro 3: comprueba permisos]
+    ↓
+Controlador (Spring MVC)
+    ↓
+Respuesta HTTP
+```
+
+---
+
+## 13. Sesión HTTP vs. JWT
+
+Existen dos estrategias principales para mantener la identidad del usuario entre peticiones:
+
+### Sesión HTTP (stateful)
+
+El servidor guarda en memoria la información del usuario. El navegador recibe una **cookie de sesión** (`JSESSIONID`) y la envía automáticamente en cada petición:
+
+```
+1. POST /login {username, password}
+   → Servidor valida, crea sesión, devuelve cookie JSESSIONID=abc123
+
+2. GET /clientes
+   Cookie: JSESSIONID=abc123
+   → Servidor busca la sesión abc123, encuentra al usuario, devuelve datos
+```
+
+**Ventajas:** Simple, gestión automática de expiración, fácil de invalidar (logout).  
+**Desventajas:** Escala mal (el servidor debe guardar todas las sesiones activas).
+
+### JWT — JSON Web Token (stateless)
+
+El servidor **no guarda nada**. En su lugar, genera un **token firmado** que el cliente incluye en cada petición:
+
+```
+1. POST /api/auth/login {username, password}
+   → Servidor valida y devuelve token: eyJhbGciOiJIUzI1NiJ9...
+
+2. GET /api/clientes
+   Authorization: Bearer eyJhbGciOiJIUzI1NiJ9...
+   → Servidor valida la firma del token, extrae el usuario, devuelve datos
+```
+
+Un JWT tiene tres partes separadas por `.`:
+
+| Parte | Contenido | Ejemplo |
+|-------|-----------|--------|
+| **Header** | Algoritmo de firma | `{"alg": "HS256"}` |
+| **Payload** | Datos del usuario (claims) | `{"sub": "admin", "roles": ["ROLE_ADMIN"]}` |
+| **Signature** | HMAC del header+payload con la clave secreta | `HMAC-SHA256(...)` |
+
+> **El payload no está cifrado**, solo firmado en Base64. No almacenes datos sensibles en el token (contraseñas, etc.).
+
+**Ventajas:** Escala perfectamente (stateless), ideal para APIs consumidas por apps móviles o SPA.  
+**Desventajas:** No se puede invalidar un token antes de que expire (sin un almacén de tokens revocados).
+
+### ¿Cuándo usar cada uno?
+
+| Escenario | Estrategia recomendada |
+|-----------|------------------------|
+| Vistas HTML en navegador (Thymeleaf) | Sesión HTTP |
+| API REST consumida por Postman/app móvil | JWT |
+| Arquitectura dual (ERP Balmis) | **Ambas** con cadenas independientes |
+
+---
+
+## 14. BCrypt y almacenamiento seguro de contraseñas
+
+**Nunca** se almacenan contraseñas en texto claro. Si la base de datos se filtra, las contraseñas quedan expuestas. La solución es almacenar el **hash** de la contraseña.
+
+### ¿Por qué BCrypt y no MD5/SHA?
+
+MD5 y SHA son algoritmos rápidos, diseñados para integridad de datos. Un atacante puede probar miles de millones de combinaciones por segundo (*brute force*).
+
+BCrypt es deliberadamente **lento** y añade una cadena aleatoria (**salt**) a cada hash:
+
+```
+admin123 + salt_aleatorio → $2a$10$N9qo8uLO...
+admin123 + otro_salt     → $2a$10$wSRJzF8k...
+```
+
+Dos contraseñas iguales producen hashes **diferentes** porque el salt es distinto. Esto imposibilita las tablas *rainbow*.
+
+### `BCryptPasswordEncoder` en Spring
+
+```java
+@Bean
+public PasswordEncoder passwordEncoder() {
+    return new BCryptPasswordEncoder(); // factor de coste 10 por defecto
+}
+
+// Codificar al guardar el usuario:
+String hash = passwordEncoder.encode("admin123");
+// → "$2a$10$..."
+
+// Verificar al hacer login (Spring lo hace internamente):
+boolean valido = passwordEncoder.matches("admin123", hash);
+// → true
+```
+
+> Spring Security llama a `passwordEncoder.matches()` automáticamente durante la autenticación. No necesitas verificar la contraseña manualmente.
+
+---
+
+## 15. `UserDetailsService` y `DaoAuthenticationProvider`
+
+Spring Security delega la carga del usuario en la interfaz `UserDetailsService`:
+
+```java
+@Service
+public class UserDetailsServiceImpl implements UserDetailsService {
+
+    private final UsuarioRepository usuarioRepository;
+
+    @Override
+    public UserDetails loadUserByUsername(String username)
+            throws UsernameNotFoundException {
+
+        Usuario usuario = usuarioRepository.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException(
+                        "Usuario no encontrado: " + username));
+
+        if (!usuario.isActivo()) {
+            throw new UsernameNotFoundException("Usuario inactivo: " + username);
+        }
+
+        // Spring Security espera el prefijo ROLE_ para hasRole()
+        String autoridad = "ROLE_" + usuario.getRol().name();
+
+        return User.builder()
+                .username(usuario.getUsername())
+                .password(usuario.getPassword()) // hash BCrypt de la BD
+                .authorities(List.of(new SimpleGrantedAuthority(autoridad)))
+                .build();
+    }
+}
+```
+
+`DaoAuthenticationProvider` conecta el `UserDetailsService` con el `PasswordEncoder` para verificar las credenciales:
+
+```java
+@Bean
+public DaoAuthenticationProvider authenticationProvider() {
+    DaoAuthenticationProvider provider =
+            new DaoAuthenticationProvider(userDetailsService);
+    provider.setPasswordEncoder(passwordEncoder());
+    return provider;
+}
+```
+
+Flujo interno cuando el usuario envía el formulario de login:
+
+```
+POST /login {username=admin, password=admin123}
+    ↓
+UsernamePasswordAuthenticationFilter
+    ↓
+DaoAuthenticationProvider.authenticate()
+    ↓
+UserDetailsServiceImpl.loadUserByUsername("admin")  → carga Usuario de la BD
+    ↓
+passwordEncoder.matches("admin123", hash_de_bd)     → true
+    ↓
+Autenticación correcta → sesión creada, redirección a /
+```
+
+---
+
+## 16. `sec:authorize` en Thymeleaf
+
+La dependencia `thymeleaf-extras-springsecurity6` añade atributos especiales a los templates para mostrar u ocultar elementos según el estado de autenticación:
+
+```html
+<!-- Namespace obligatorio en la etiqueta <html> -->
+<html xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+```
+
+### Expresiones más habituales
+
+| Expresión | Cuándo se muestra el elemento |
+|-----------|-------------------------------|
+| `sec:authorize="isAuthenticated()"` | El usuario ha iniciado sesión |
+| `sec:authorize="!isAuthenticated()"` | El usuario NO ha iniciado sesión |
+| `sec:authorize="hasRole('ADMIN')"` | El usuario tiene rol ADMIN |
+| `sec:authorize="hasAnyRole('ADMIN','MANAGER')"` | Tiene ADMIN o MANAGER |
+| `sec:authentication="name"` | Renderiza el nombre del usuario actual |
+
+### Ejemplo en la navbar
+
+```html
+<!-- Menú visible solo tras autenticarse -->
+<ul class="navbar-nav me-auto" sec:authorize="isAuthenticated()">
+    <li class="nav-item"><a th:href="@{/clientes}">Clientes</a></li>
+    <li class="nav-item"><a th:href="@{/pedidos}">Pedidos</a></li>
+</ul>
+
+<!-- Botón de login cuando NO hay sesión -->
+<a th:href="@{/login}" sec:authorize="!isAuthenticated()">Iniciar sesión</a>
+
+<!-- Nombre del usuario y logout cuando SÍ hay sesión -->
+<div sec:authorize="isAuthenticated()">
+    Hola, <strong sec:authentication="name"></strong>
+    <form th:action="@{/logout}" method="post">
+        <button type="submit">Cerrar sesión</button>
+    </form>
+</div>
+```
+
+### `sec:authorize` en botones de acción
+
+```html
+<!-- Solo ADMIN y MANAGER crean / editan -->
+<a th:href="@{/clientes/nuevo}"
+   sec:authorize="hasAnyRole('ADMIN','MANAGER')">+ Nuevo cliente</a>
+
+<!-- Solo ADMIN elimina -->
+<a th:href="@{/clientes/{id}/eliminar(id=${c.id})}"
+   sec:authorize="hasRole('ADMIN')">Eliminar</a>
+```
+
+> **Importante:** `sec:authorize` **oculta el elemento HTML** para mejorar la UX, pero **no protege el endpoint** en el servidor. La protección real la hace `SecurityConfig`. Ambas capas son necesarias y complementarias.
+
+---
+
+## 🎯 PAUSA: Aquí puedes completar el **Reto 6**
+
+Con la teoría de seguridad ya tienes las bases para implementar la autenticación y el control de acceso por roles en el ERP Balmis.
+
+> **[→ Ir al Reto 6: La Seguridad](/sge/retos/reto6)**
+>
+> - Crear `Usuario` entity, `RolUsuario` enum, `UsuarioRepository`
+> - Implementar `UserDetailsServiceImpl`
+> - Crear `auth/login.html` (standalone, sin layout)
+> - Configurar `SecurityConfig` con arquitectura dual: sesión para MVC + JWT para `/api/**`
+> - Añadir `sec:authorize` a `layout.html`, `clientes/lista.html` y `productos/lista.html`
+> - Implementar `JwtUtil`, `JwtAuthFilter` y `AuthController`
+> - Crear `DataLoader` para inicializar usuarios con BCrypt correcto
+
+---
+
+## Resumen: Sesión HTTP vs. JWT vs. sin seguridad
+
+| Aspecto | Sin seguridad | Sesión HTTP | JWT |
+|---------|--------------|-------------|-----|
+| **Estado en servidor** | — | Sí (sesión) | No (stateless) |
+| **Cliente** | Cualquiera | Navegador (cookie) | Postman / app / SPA |
+| **Expiración** | — | Configurable | En el propio token |
+| **Logout** | — | Invalida la sesión | No invalida el token |
+| **Escala** | — | Requiere sesión compartida | Escala sin coordinación |
+| **En ERP Balmis** | Retos 0-5 | Reto 6 MVC | Reto 6 API |
