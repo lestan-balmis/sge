@@ -4,7 +4,7 @@ description: UD7 — Módulo Compras con vistas Thymeleaf de Proveedores y Órde
 ---
 
 > **Conceptos teóricos:** Entidades `Proveedor` y `OrdenCompra`, relación `ManyToOne`, lógica de recepción con incremento de stock, `sec:authorize` en formulario POST.  
-> Consulta [UD7 — Cierre del ERP Balmis](/sge/spring/ud7) para los fundamentos teóricos completos.
+> Consulta [UD7 — Módulos de Negocio Avanzados y Dashboard](/sge/spring/ud7) para los fundamentos teóricos completos.
 
 ## Duración
 
