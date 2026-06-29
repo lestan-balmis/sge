@@ -31,7 +31,7 @@ description: Módulo de Compras con Proveedores y Órdenes de Compra (Reto 7), D
 12. [EmpleadoService — CRUD con usuario opcional](#12-empleadoservice--crud-con-usuario-opcional)
 13. [EmpleadoController — CRUD completo MVC con detalle](#13-empleadocontroller--crud-completo-mvc-con-detalle)
 14. [Navbar reutilizable y fragmento de layout](#14-navbar-reutilizable-y-fragmento-de-layout)
-15. [🎯 PAUSA: Aquí puedes completar el **Reto Final**](#15--pausa-aquí-puedes-completar-el-reto-final)
+15. [🎯 PAUSA: Aquí puedes completar el **Reto 8 Final**](#15--pausa-aquí-puedes-completar-el-reto-8-final)
 
 ---
 
@@ -1299,9 +1299,9 @@ Todas las páginas del ERP usan el fragmento con `th:replace`:
 
 ---
 
-## 15. 🎯 PAUSA: Aquí puedes completar el **Reto Final**
+## 15. 🎯 PAUSA: Aquí puedes completar el **Reto 8 Final**
 
-> Con los conceptos de esta sección ya tienes todo lo necesario para completar el **[Reto Final — Dashboard, RRHH y Presentación](/sge/retos/reto8-final)**.
+> Con los conceptos de esta sección ya tienes todo lo necesario para completar el **[Reto 8 Final — Dashboard, RRHH y Presentación](/sge/retos/reto8-final)**.
 
 ---
 
