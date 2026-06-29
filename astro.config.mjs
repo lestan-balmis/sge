@@ -34,6 +34,7 @@ export default defineConfig({
 						{ label: 'UD4 — Introducción a Spring Boot', slug: 'spring/ud4' },
 						{ label: 'UD5 — Spring MVC, REST y Arquitectura por Capas', slug: 'spring/ud5' },
 						{ label: 'UD6 — Formularios Web con Thymeleaf', slug: 'spring/ud6' },
+						{ label: 'UD7 — Cierre del ERP Balmis', slug: 'spring/ud7' },
 					],
 				},
 				{
