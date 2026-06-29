@@ -1,9 +1,9 @@
 ---
-title: "UD7 — Módulos de Negocio Avanzados y Dashboard"
+title: "UD7 — Módulos Avanzados y Dashboard"
 description: Módulo de Compras con Proveedores y Órdenes de Compra (Reto 7), Dashboard de KPIs y módulo RRHH de Empleados (Reto Final). Unidad teórica de cierre del proyecto integrador.
 ---
 
-### UD7 — Módulos de Negocio Avanzados y Dashboard
+### UD7 — Módulos Avanzados y Dashboard
 **Módulo SGE · DAM · IES Doctor Balmis**
 
 ---

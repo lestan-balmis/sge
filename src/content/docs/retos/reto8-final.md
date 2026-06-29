@@ -4,7 +4,7 @@ description: UD7 — ERP Balmis completo con Dashboard de KPIs, módulo RRHH de 
 ---
 
 > **Conceptos teóricos:** `DashboardService` con agregación multi-repositorio, `@Value` para configuración, `@Query` personalizada, relación opcional `ManyToOne` entre `Empleado` y `Usuario`, fragmento `layout.html` con `sec:authentication`.  
-> Consulta [UD7 — Módulos de Negocio Avanzados y Dashboard](/sge/spring/ud7) para los fundamentos teóricos completos.
+> Consulta [UD7 — Módulos Avanzados y Dashboard](/sge/spring/ud7) para los fundamentos teóricos completos.
 
 ## Duración
 
