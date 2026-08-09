@@ -559,5 +559,3 @@ https://TU_USUARIO_HF-erpbalmis.hf.space
 - ✅ URL pública en Hugging Face Spaces (incluir en el CV)
 - ✅ Badge CI/CD verde en el README del repositorio de GitHub
 - ✅ Pipeline automático: cada `git push` a `main` despliega la nueva versión
-
-> **Para la entrevista de prácticas:** abre el portátil, muestra la URL del Space, haz una pregunta al asistente IA, muestra el pipeline verde en GitHub Actions, y explica brevemente qué hace cada capa. Eso es un portfolio profesional.
