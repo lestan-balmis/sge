@@ -1,5 +1,5 @@
 ﻿---
-title: Reto Final — Dashboard, RRHH y Presentación
+title: "Reto 8: Dashboard, RRHH y Presentación"
 description: UD7 — ERP Balmis completo con Dashboard de KPIs, módulo RRHH de empleados, navbar reutilizable y presentación final del proyecto
 ---
 

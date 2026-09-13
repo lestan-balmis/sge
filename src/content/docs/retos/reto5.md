@@ -1,5 +1,5 @@
 ﻿---
-title: Reto 5 — Las Ventas
+title: "Reto 5: Las Ventas"
 description: UD6 — Módulo Ventas con vistas Thymeleaf de Productos y Pedidos, API REST y workflow de estados
 ---
 

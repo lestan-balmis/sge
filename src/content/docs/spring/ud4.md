@@ -1,5 +1,5 @@
 ---
-title: "UD4 — Introducción a Spring Boot"
+title: "UD4: Introducción a Spring Boot"
 description: Fundamentos de Spring Boot, Maven, persistencia y arquitectura Java. Base teórica para los Retos 0 y 1.
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "UD5 — Spring MVC, REST y Arquitectura por Capas"
+title: "UD5: Spring MVC, REST y Arquitectura por Capas"
 description: MVC, Thymeleaf, REST, DTOs, Bean Validation, capa de servicio y manejo de excepciones. Base teórica para los Retos 2 y 3.
 ---
 

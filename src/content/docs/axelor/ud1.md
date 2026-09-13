@@ -1,5 +1,5 @@
 ---
-title: UD1 — Identificación ERP-CRM
+title: "UD1: Identificación ERP-CRM"
 description: Manual de uso · Axelor Open Suite. Módulo SGE · DAM · IES Doctor Balmis
 ---
 

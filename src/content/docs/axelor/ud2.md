@@ -1,5 +1,5 @@
 ---
-title: UD2 — Implantación de Axelor
+title: "UD2: Implantación de Axelor"
 description: Configuración de empresa, ciclo de negocio completo y prácticas de gestión integrada
 ---
 

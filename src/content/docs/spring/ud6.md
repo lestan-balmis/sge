@@ -1,5 +1,5 @@
 ---
-title: "UD6 — Formularios, Ventas y Seguridad"
+title: "UD6: Formularios, Ventas y Seguridad"
 description: Formularios MVC con Thymeleaf (Reto 4), relaciones JPA y workflows de estado (Reto 5), y Spring Security con sesión + JWT (Reto 6). Unidad teórica completa de la 2ª evaluación.
 ---
 

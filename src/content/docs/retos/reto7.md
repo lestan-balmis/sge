@@ -1,5 +1,5 @@
 ﻿---
-title: Reto 7 — Las Compras
+title: "Reto 7: Las Compras"
 description: UD7 — Módulo Compras con vistas Thymeleaf de Proveedores y Órdenes de Compra, más API REST documentada con Swagger
 ---
 

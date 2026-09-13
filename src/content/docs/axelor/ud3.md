@@ -1,5 +1,5 @@
 ---
-title: UD3 — Gestión y Consultas en Axelor
+title: "UD3: Gestión y Consultas en Axelor"
 description: Consultas avanzadas, filtros, informes y dashboard - Especificación para Reto Final del ERP Balmis
 ---
 

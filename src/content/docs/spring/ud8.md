@@ -1,5 +1,5 @@
 ---
-title: "UD8 — Despliegue, IA y Cloud"
+title: "UD8: Despliegue, IA y Cloud"
 description: Perfiles Spring Boot, base de datos cloud con Neon, asistente IA con Spring AI, containerización Docker y despliegue continuo con Hugging Face Spaces y GitHub Actions.
 ---
 

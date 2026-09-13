@@ -1,5 +1,5 @@
 ﻿---
-title: Reto 6 — La Seguridad
+title: "Reto 6: La Seguridad"
 description: UD6 — Spring Security con login visual, control de acceso por roles con sec:authorize, y JWT para la API REST
 ---
 
