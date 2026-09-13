@@ -49,8 +49,8 @@ export default defineConfig({
 						{ label: 'Reto 5: Las Ventas — UD6', slug: 'retos/reto5' },
 						{ label: 'Reto 6: La Seguridad — UD6', slug: 'retos/reto6' },
 						{ label: 'Reto 7: Las Compras — UD7', slug: 'retos/reto7' },
-						{ label: 'Reto 8 Final: Dashboard — UD7', slug: 'retos/reto8-final' },
-					{ label: 'Reto 9: La Nube y la IA — UD8', slug: 'retos/reto9-nube' },
+					{ label: 'Reto 8: Dashboard — UD7', slug: 'retos/reto8' },
+					{ label: 'Reto 9: La Nube y la IA — UD8', slug: 'retos/reto9' },
 				],
 				},
 				// {
