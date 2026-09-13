@@ -8,9 +8,8 @@ description: Consultas avanzadas, filtros, informes y dashboard - Especificació
 
 ---
 
-> **Duración:** 4 horas  
 > **Herramienta:** Axelor (referencia funcional del ERP Balmis)  
-> **Objetivo:** Aprender a extraer información consolidada de los datos del ERP mediante filtros, consultas, informes y dashboards. Comprender los KPIs y cómo se visualizan, para posteriormente implementarlos en el endpoint `GET /api/dashboard` del ERP Balmis en el Reto Final.
+> **Objetivo:** Aprender a extraer información consolidada de los datos del ERP mediante filtros, consultas, informes y dashboards. Comprender los KPIs y cómo se visualizan, para posteriormente implementarlos en el endpoint `GET /api/dashboard` del ERP Balmis en el Reto 8.
 
 ---
 
@@ -31,11 +30,11 @@ description: Consultas avanzadas, filtros, informes y dashboard - Especificació
    - 5.1 [Concepto: Control de Acceso Basado en Roles (RBAC)](#51-concepto-control-de-acceso-basado-en-roles-rbac)
    - 5.2 [Tutorial: Explorar la Gestión de Roles en Axelor](#52-tutorial-explorar-la-gestión-de-roles-en-axelor)
 6. [Actividades Prácticas: UD3](#6-actividades-prácticas-ud3)
-   - 6.1 [Actividad 1: Filtrado de Clientes por Estado (0.5h)](#actividad-1-filtrado-de-clientes-por-estado-05h)
-   - 6.2 [Actividad 2: Exploración del Dashboard (0.5h)](#actividad-2-exploración-del-dashboard-05h)
-   - 6.3 [Actividad 3: Generación de Informe de Ventas (1h)](#actividad-3-generación-de-informe-de-ventas-1h)
-   - 6.4 [Actividad 4: Análisis de Roles y Permisos (0.5h)](#actividad-4-análisis-de-roles-y-permisos-05h)
-   - 6.5 [Actividad 5: Exportación de Datos a Excel (0.5h)](#actividad-5-exportación-de-datos-a-excel-05h)
+   - 6.1 [Actividad 1: Filtrado de Clientes por Estado](#actividad-1-filtrado-de-clientes-por-estado-05h)
+   - 6.2 [Actividad 2: Exploración del Dashboard](#actividad-2-exploración-del-dashboard-05h)
+   - 6.3 [Actividad 3: Generación de Informe de Ventas](#actividad-3-generación-de-informe-de-ventas-1h)
+   - 6.4 [Actividad 4: Análisis de Roles y Permisos](#actividad-4-análisis-de-roles-y-permisos-05h)
+   - 6.5 [Actividad 5: Exportación de Datos a Excel](#actividad-5-exportación-de-datos-a-excel-05h)
 7. [Cuaderno de Referencia Axelor: Resumen para ERP Balmis](#7-cuaderno-de-referencia-axelor-resumen-para-erp-balmis)
    - 7.1 [Sección 1: Ficha de Entidades](#71-sección-1-ficha-de-entidades)
    - 7.2 [Sección 2: Flujo de Negocio Completo](#72-sección-2-flujo-de-negocio-completo)
@@ -323,7 +322,7 @@ Esto es lo que implementaremos en el **Reto 6** (Spring Security + JWT) del ERP 
 
 ## 6. Actividades Prácticas: UD3
 
-### Actividad 1: Filtrado de Clientes por Estado (0.5h)
+### Actividad 1: Filtrado de Clientes por Estado
 
 **Objetivo**: Practicar el filtrado en listados.
 
@@ -340,7 +339,7 @@ Esto es lo que implementaremos en el **Reto 6** (Spring Security + JWT) del ERP 
 
 ---
 
-### Actividad 2: Exploración del Dashboard (0.5h)
+### Actividad 2: Exploración del Dashboard
 
 **Objetivo**: Entender los KPIs que mostrar en el Dashboard del Reto Final.
 
@@ -360,7 +359,7 @@ Esto es lo que implementaremos en el **Reto 6** (Spring Security + JWT) del ERP 
 
 ---
 
-### Actividad 3: Generación de Informe de Ventas (1h)
+### Actividad 3: Generación de Informe de Ventas
 
 **Objetivo**: Crear un informe de ventas que documente el estado actual de la empresa ficticia.
 
@@ -380,7 +379,7 @@ Esto es lo que implementaremos en el **Reto 6** (Spring Security + JWT) del ERP 
 
 ---
 
-### Actividad 4: Análisis de Roles y Permisos (0.5h)
+### Actividad 4: Análisis de Roles y Permisos
 
 **Objetivo**: Entender la matriz de permisos para diseñar el Reto 6.
 
@@ -399,7 +398,7 @@ Esto es lo que implementaremos en el **Reto 6** (Spring Security + JWT) del ERP 
 
 ---
 
-### Actividad 5: Exportación de Datos a Excel (0.5h)
+### Actividad 5: Exportación de Datos a Excel
 
 **Objetivo**: Practicar la exportación de datos (herramienta útil para análisis posterior).
 
@@ -503,9 +502,9 @@ La tabla siguiente muestra cómo cada elemento de UD3 (Axelor) se traduce a cód
 | Concepto en Axelor | Implementación en ERP Balmis | Reto |
 |---|---|---|
 | Filtro de clientes por estado | `ClienteRepository.findByTipoCliente(tipo)` | Reto 4 |
-| Dashboard de ventas | Endpoint `GET /api/dashboard` | Reto Final |
-| KPI: Clientes activos | `clienteRepository.countByTipoCliente(ACTIVO)` | Reto Final |
-| KPI: Pedidos por estado | `pedidoRepository.findByEstado(...)` | Reto Final |
+| Dashboard de ventas | Endpoint `GET /api/dashboard` | Reto 8 |
+| KPI: Clientes activos | `clienteRepository.countByTipoCliente(ACTIVO)` | Reto 8 |
+| KPI: Pedidos por estado | `pedidoRepository.findByEstado(...)` | Reto 8 |
 | Informe de ventas | `GET /api/pedidos/estadisticas` | Reto 5 |
 | Gestión de roles | Spring Security + `@PreAuthorize` | Reto 6 |
 | Matriz de permisos | `SecurityConfig` + roles ADMIN/MANAGER/EMPLEADO | Reto 6 |

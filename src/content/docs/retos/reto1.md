@@ -8,7 +8,6 @@ description: Transformar Reto 0 (ArrayList) en Entidades JPA persistentes con H2
 
 ---
 
-> **Duración:** 6 horas  
 > **Teoría requerida:** [UD4 — JPA, Hibernate, H2](/docs/spring/ud4#9-jpa-java-persistence-api)  
 > **Reto anterior:** [Reto 0 — La Semilla](/docs/retos/reto0)
 

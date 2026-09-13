@@ -8,7 +8,6 @@ description: Configuración de empresa, ciclo de negocio completo y prácticas d
 
 ---
 
-> **Duración:** 6 horas  
 > **Herramienta:** Axelor (referencia funcional del ERP Balmis)  
 > **Objetivo:** Recorrer el ciclo de negocio completo del ERP Axelor configurando una empresa ficticia: desde la creación de clientes hasta la generación de una factura, comprendiendo cómo todos los módulos (CRM, Ventas, Compras, Inventario) trabajan de forma integrada.
 
@@ -45,12 +44,12 @@ En una empresa real, una implantación ERP puede durar meses o años. En esta UD
 
 ### Ciclo de Vida de la Implantación
 
-| Fase | Duración | Objetivo |
-|---|---|---|
-| **Configuración** | 1h | Crear la empresa, definir moneda, ejercicio fiscal |
-| **Datos Maestros** | 2h | Dar de alta clientes, proveedores, productos |
-| **Flujos de Negocio** | 2h | Crear documentos reales: pedidos, órdenes de compra |
-| **Validación** | 1h | Verificar que todo funciona integrado |
+| Fase | Objetivo |
+|---|---|
+| **Configuración** | Crear la empresa, definir moneda, ejercicio fiscal |
+| **Datos Maestros** | Dar de alta clientes, proveedores, productos |
+| **Flujos de Negocio** | Crear documentos reales: pedidos, órdenes de compra |
+| **Validación** | Verificar que todo funciona integrado |
 
 ---
 
@@ -585,7 +584,7 @@ En Axelor, puedes filtrar documentos por:
 
 ## 10. Actividades Prácticas
 
-### Actividad 1: Configurar la Empresa Ficticia (1 hora)
+### Actividad 1: Configurar la Empresa Ficticia
 
 **Objetivo**: Crear la estructura base de Balmis Tech Solutions.
 
@@ -598,7 +597,7 @@ En Axelor, puedes filtrar documentos por:
 
 ---
 
-### Actividad 2: Crear Clientes en el CRM (1 hora)
+### Actividad 2: Crear Clientes en el CRM
 
 **Objetivo**: Registrar 3 clientes en diferentes estados del ciclo de vida.
 
@@ -611,7 +610,7 @@ En Axelor, puedes filtrar documentos por:
 
 ---
 
-### Actividad 3: Crear Catálogo de Productos (1 hora)
+### Actividad 3: Crear Catálogo de Productos
 
 **Objetivo**: Definir los productos/servicios que venderá Balmis Tech Solutions.
 
@@ -624,7 +623,7 @@ En Axelor, puedes filtrar documentos por:
 
 ---
 
-### Actividad 4: Registrar Proveedores (0.5 horas)
+### Actividad 4: Registrar Proveedores
 
 **Objetivo**: Dar de alta 2 proveedores de servicios.
 
@@ -637,7 +636,7 @@ En Axelor, puedes filtrar documentos por:
 
 ---
 
-### Actividad 5: Ciclo Completo Presupuesto-Factura (1.5 horas)
+### Actividad 5: Ciclo Completo Presupuesto-Factura
 
 **Objetivo**: Ejecutar el ciclo completo de ventas desde presupuesto hasta factura.
 
@@ -657,7 +656,7 @@ En Axelor, puedes filtrar documentos por:
 
 ---
 
-### Actividad 6: Crear Orden de Compra (0.5 horas)
+### Actividad 6: Crear Orden de Compra
 
 **Objetivo**: Registrar una compra a CloudServices Global.
 

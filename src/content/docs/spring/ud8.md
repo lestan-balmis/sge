@@ -8,7 +8,6 @@ description: Perfiles Spring Boot, base de datos cloud con Neon, asistente IA co
 
 ---
 
-> **Duración:** 12 horas (Reto 9: 4 partes × 3h)  
 > **Herramientas:** Spring Profiles, Neon, Spring AI, Docker, Hugging Face Spaces, GitHub Actions  
 > **Prerequisito:** [UD7 — Módulos Avanzados y Dashboard](/sge/spring/ud7)  
 > **Objetivo:** Llevar el ERP Balmis a producción real: base de datos en la nube, asistente de IA integrado, contenedor Docker y pipeline CI/CD automático.

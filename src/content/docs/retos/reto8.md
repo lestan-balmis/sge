@@ -6,17 +6,13 @@ description: UD7 — ERP Balmis completo con Dashboard de KPIs, módulo RRHH de 
 > **Conceptos teóricos:** `DashboardService` con agregación multi-repositorio, `@Value` para configuración, `@Query` personalizada, relación opcional `ManyToOne` entre `Empleado` y `Usuario`, fragmento `layout.html` con `sec:authentication`.  
 > Consulta [UD7 — Módulos Avanzados y Dashboard](/sge/spring/ud7) para los fundamentos teóricos completos.
 
-## Duración
-
-6 horas
-
 ## Objetivo
 
 Cerrar el ERP Balmis con:
 
-- **Parte A (2 h):** Dashboard de KPIs con vista Thymeleaf y endpoint JSON.
-- **Parte B (2 h):** Módulo RRHH — CRUD completo de Empleados con relación opcional a `Usuario`.
-- **Parte C (2 h):** Navbar reutilizable completa, limpieza y presentación final.
+- **Parte A:** Dashboard de KPIs con vista Thymeleaf y endpoint JSON.
+- **Parte B:** Módulo RRHH — CRUD completo de Empleados con relación opcional a `Usuario`.
+- **Parte C:** Navbar reutilizable completa, limpieza y presentación final.
 
 ## Descripción del reto
 
@@ -442,8 +438,8 @@ La presentación del ERP Balmis terminado sigue este guión de demo en vivo:
 | JWT para API | — | Spring Security + jjwt | Reto 6 |
 | Gestión de Proveedores | Módulo Compras | `ProveedorController` + formulario | Reto 7 |
 | Órdenes de Compra + stock | Módulo Compras | `OrdenCompraService.recibirOrden()` | Reto 7 |
-| Gestión de Empleados | Módulo RRHH | `EmpleadoController` + formulario | Reto Final |
-| Dashboard KPIs | Jasper/BIRT | `dashboard/index.html` + `DashboardService` | Reto Final |
+| Gestión de Empleados | Módulo RRHH | `EmpleadoController` + formulario | Reto 8 |
+| Dashboard KPIs | Jasper/BIRT | `dashboard/index.html` + `DashboardService` | Reto 8 |
 | Documentación API | — | Swagger UI en `/swagger-ui.html` | Reto 4 |
 
 ---

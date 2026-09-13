@@ -8,7 +8,6 @@ description: Transformar los controladores MVC del Reto 2 en una primera API RES
 
 ---
 
-> **Duración:** 4 horas  
 > **Reto anterior:** [Reto 2 — La Vista](/sge/retos/reto2)
 
 ---

@@ -8,7 +8,6 @@ description: Proyecto Spring Boot con entidades POJO y repositorios ArrayList.
 
 ---
 
-> **Duración:** 4 horas  
 > **Teoría requerida:** [UD4 — Introducción a Spring Boot](/docs/spring/ud4)
 
 ---
@@ -887,28 +886,28 @@ Eso es la potencia de una arquitectura bien diseñada: cambios sin quebrantos.
 
 ## 10. Actividades a realizar
 
-### Actividad 1: Crear el Proyecto (1h)
+### Actividad 1: Crear el Proyecto
 
 - [ ] Acceder a https://start.spring.io/ y generar el proyecto con las dependencias especificadas.
 - [ ] Descomprimir el ZIP y abrir en tu IDE.
 - [ ] Ejecutar `mvn clean verify` para asegurar que el proyecto compila sin errores.
 - [ ] Cambiar el puerto de 8080 a 9000 en `application.properties`.
 
-### Actividad 2: Modelar las Entidades (1h)
+### Actividad 2: Modelar las Entidades
 
 - [ ] Crear la clase `Cliente` en `src/main/java/com/iesbal/erpbalmis/model/Cliente.java` con anotaciones Lombok.
 - [ ] Crear el enum `TipoCliente` con tres valores: PROSPECTO, ACTIVO, INACTIVO.
 - [ ] Crear las clases `Producto` y `Empleado` siguiendo el mismo patrón.
 - [ ] Verificar que las clases compilan sin errores.
 
-### Actividad 3: Implementar Repositorios (1.5h)
+### Actividad 3: Implementar Repositorios
 
 - [ ] Crear `ClienteRepositorio` en `src/main/java/com/iesbal/erpbalmis/repository/ClienteRepositorio.java` con métodos CRUD.
 - [ ] Crear `ProductoRepositorio` con métodos CRUD.
 - [ ] Crear `EmpleadoRepositorio` con métodos CRUD.
 - [ ] Anotar cada repositorio con `@Component`.
 
-### Actividad 4: Verificar y Probar (0.5h)
+### Actividad 4: Verificar y Probar
 
 - [ ] Ejecutar `mvn spring-boot:run` para iniciar la aplicación.
 - [ ] Crear un `CommandLineRunner` que cree, busque, actualice y liste clientes.

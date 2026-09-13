@@ -6,17 +6,13 @@ description: UD6 — Spring Security con login visual, control de acceso por rol
 > **Conceptos teóricos:** Spring Security 7, sesión HTTP vs. JWT, `SecurityFilterChain`, `@Order`, formularios de login, `sec:authorize`.  
 > Consulta [UD6 — Seguridad con Spring Security](/sge/spring/ud6) para los fundamentos de autenticación y autorización.
 
-## Duración
-
-12 horas
-
 ## Objetivo
 
 Proteger el ERP Balmis con **dos mecanismos de seguridad complementarios**:
 
-- **Parte A (5 h):** Formulario de login visual con sesión HTTP para las vistas Thymeleaf. El alumno experimenta la seguridad directamente en el navegador: redirige a `/login` sin autenticar, introduce credenciales y ve cómo cambian los botones según su rol.
-- **Parte B (3 h):** Control de acceso por roles en los templates con `sec:authorize`. Los botones Eliminar, Editar y Nuevo aparecen o desaparecen según el rol del usuario autenticado.
-- **Parte C (4 h):** JWT para la API REST. La misma aplicación gestiona dos cadenas de seguridad paralelas: sesión para MVC, token para `/api/**`.
+- **Parte A:** Formulario de login visual con sesión HTTP para las vistas Thymeleaf. El alumno experimenta la seguridad directamente en el navegador: redirige a `/login` sin autenticar, introduce credenciales y ve cómo cambian los botones según su rol.
+- **Parte B:** Control de acceso por roles en los templates con `sec:authorize`. Los botones Eliminar, Editar y Nuevo aparecen o desaparecen según el rol del usuario autenticado.
+- **Parte C:** JWT para la API REST. La misma aplicación gestiona dos cadenas de seguridad paralelas: sesión para MVC, token para `/api/**`.
 
 ## Descripción del reto
 

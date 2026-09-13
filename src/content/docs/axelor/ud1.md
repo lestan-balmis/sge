@@ -8,7 +8,6 @@ description: Manual de uso · Axelor Open Suite. Módulo SGE · DAM · IES Docto
 
 ---
 
-> **Duración:** 4 horas  
 > **Herramienta:** Axelor (referencia funcional del ERP Balmis)  
 > **Objetivo:** Entender qué es un ERP, qué módulos tiene Axelor y cómo están organizados sus datos, antes de comenzar a programar el ERP Balmis con Spring Boot.
 
@@ -1002,7 +1001,7 @@ Esta unidad sienta las bases conceptuales de todo lo que se construirá durante 
 | **Vista lista** en Axelor | Endpoint `GET /api/clientes` → devuelve JSON array | Reto 3 |
 | **Vista formulario** en Axelor | Endpoint `GET /api/clientes/{id}` → devuelve JSON objeto | Reto 3 |
 | **Filtrado por tipo** en Axelor | Endpoint `GET /api/clientes?tipo=ACTIVO` | Reto 4 |
-| **Dashboard KPIs** de Axelor | Endpoint `GET /api/dashboard` | Reto Final |
+| **Dashboard KPIs** de Axelor | Endpoint `GET /api/dashboard` | Reto 8 |
 
 ### 10.2 Arquitectura paralela
 
@@ -1022,7 +1021,7 @@ Base de datos (PostgreSQL)   ←→   H2 (desarrollo) / MySQL (producción)
 
 ## 11. Actividades a realizar
 
-### Actividad 1 — Exploración de la interfaz de Axelor (1h)
+### Actividad 1 — Exploración de la interfaz de Axelor
 
 **Objetivo:** Identificar cada módulo de Axelor y entender para qué sirve.
 
@@ -1044,7 +1043,7 @@ Base de datos (PostgreSQL)   ←→   H2 (desarrollo) / MySQL (producción)
 
 ---
 
-### Actividad 2 — Comparativa de ERPs (30 min)
+### Actividad 2 — Comparativa de ERPs
 
 **Objetivo:** Contextualizar Axelor dentro del panorama de ERPs del mercado.
 
@@ -1062,7 +1061,7 @@ Base de datos (PostgreSQL)   ←→   H2 (desarrollo) / MySQL (producción)
 
 ---
 
-### Actividad 3 — Ficha del Cliente en Axelor (30 min)
+### Actividad 3 — Ficha del Cliente en Axelor
 
 **Objetivo:** Identificar los campos del formulario de Cliente en Axelor para usarlos como referencia al diseñar `Cliente.java`.
 
@@ -1083,7 +1082,7 @@ Base de datos (PostgreSQL)   ←→   H2 (desarrollo) / MySQL (producción)
 
 ---
 
-### Actividad 4 — Mapa mental del ERP Balmis (1h)
+### Actividad 4 — Mapa mental del ERP Balmis
 
 **Objetivo:** Relacionar los módulos de Axelor con las clases Java que se construirán en el ERP Balmis.
 

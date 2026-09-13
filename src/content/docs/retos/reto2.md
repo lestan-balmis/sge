@@ -8,7 +8,6 @@ description: Añadir una capa de presentación web al ERP Balmis usando Thymelea
 
 ---
 
-> **Duración:** 6 horas  
 > **Reto anterior:** [Reto 1 — De la Semilla a la Raíz](/docs/retos/reto1)
 
 ---

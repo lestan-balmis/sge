@@ -8,7 +8,6 @@ description: Módulo de Compras con Proveedores y Órdenes de Compra (Reto 7), D
 
 ---
 
-> **Duración:** 12 horas (Reto 7: 6h · Reto Final: 6h)  
 > **Herramientas:** Spring MVC, Thymeleaf, Spring Data JPA, Swagger/OpenAPI  
 > **Prerequisito:** [UD6 — Formularios Web con Thymeleaf](/sge/spring/ud6)  
 > **Objetivo:** Completar el ciclo de negocio del ERP Balmis añadiendo el módulo de Compras (proveedores y órdenes), el Dashboard de KPIs y el módulo RRHH de empleados.

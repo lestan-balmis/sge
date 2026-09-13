@@ -6,13 +6,9 @@ description: UD6 — Módulo Ventas con vistas Thymeleaf de Productos y Pedidos,
 > **Conceptos teóricos:** Patrones REST avanzados, relaciones JPA OneToMany/ManyToOne, validación en cascada y workflows de estados.
 > Consulta [UD6 — Formularios Web con Thymeleaf](/sge/spring/ud6) para los conceptos de `th:field`, `th:errors`, `@Valid` y `BindingResult` aplicados en la Parte A.
 
-## Duración
-
-10 horas
-
 ## Objetivo
 
-Implementar el **Módulo de Ventas** con **doble interfaz**: formularios Thymeleaf navegables para el catálogo de productos y el ciclo de pedidos (Parte A, 4 h), y una API REST completa con workflow de estados y control de stock (Parte B, 6 h).
+Implementar el **Módulo de Ventas** con **doble interfaz**: formularios Thymeleaf navegables para el catálogo de productos y el ciclo de pedidos (Parte A), y una API REST completa con workflow de estados y control de stock (Parte B).
 
 ## Descripción del reto
 

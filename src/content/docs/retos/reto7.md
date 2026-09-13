@@ -6,16 +6,12 @@ description: UD7 — Módulo Compras con vistas Thymeleaf de Proveedores y Órde
 > **Conceptos teóricos:** Entidades `Proveedor` y `OrdenCompra`, relación `ManyToOne`, lógica de recepción con incremento de stock, `sec:authorize` en formulario POST.  
 > Consulta [UD7 — Módulos Avanzados y Dashboard](/sge/spring/ud7) para los fundamentos teóricos completos.
 
-## Duración
-
-6 horas
-
 ## Objetivo
 
 Completar el ciclo de negocio del ERP Balmis añadiendo el módulo de Compras con:
 
-- **Parte A (3 h):** Vistas Thymeleaf completas para Proveedores (CRUD) y lista de Órdenes de Compra con botón "Recibir" que actualiza el stock.
-- **Parte B (3 h):** API REST de Proveedores y Órdenes de Compra, documentada con Swagger y probada con Postman.
+- **Parte A:** Vistas Thymeleaf completas para Proveedores (CRUD) y lista de Órdenes de Compra con botón "Recibir" que actualiza el stock.
+- **Parte B:** API REST de Proveedores y Órdenes de Compra, documentada con Swagger y probada con Postman.
 
 ## Descripción del reto
 

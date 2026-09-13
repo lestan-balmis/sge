@@ -8,7 +8,6 @@ description: Fundamentos de Spring Boot, Maven, persistencia y arquitectura Java
 
 ---
 
-> **Duración:** 10 horas teóricas + prácticas  
 > **Herramientas:** Spring Boot, Maven, Lombok, H2 Database, JPA/Hibernate  
 > **Objetivo:** Comprender los fundamentos de Spring Boot y la persistencia Java antes de desarrollar los Retos 0 y 1 del ERP Balmis.
 

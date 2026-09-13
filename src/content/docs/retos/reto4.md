@@ -7,7 +7,7 @@ description: UD5/UD6 - CRUD completo, DTOs, validaciones, Swagger UI, módulo de
 
 Completar el módulo CRM añadiendo la entidad **Contacto**, convirtiendo el REST de clientes en una **API CRUD completa**, introduciendo **DTOs**, **Bean Validation**, un servicio de negocio y documentación automática con **Swagger UI / OpenAPI**. Como novedad respecto a versiones anteriores del plan, también se añaden **formularios Thymeleaf** para el alta, edición y baja de clientes directamente desde el navegador.
 
-**Duración estimada:** 14 h  
+
 **Unidades didácticas:** UD5 / UD6
 
 ---

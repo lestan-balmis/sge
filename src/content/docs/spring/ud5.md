@@ -8,7 +8,6 @@ description: MVC, Thymeleaf, REST, DTOs, Bean Validation, capa de servicio y man
 
 ---
 
-> **Duración:** 20 horas teóricas + prácticas  
 > **Herramientas:** Spring MVC, Thymeleaf, Bootstrap, Jackson, Bean Validation, SpringDoc OpenAPI  
 > **Prerequisito:** [UD4 — Introducción a Spring Boot](/sge/spring/ud4) (Retos 0 y 1)  
 > **Objetivo:** Construir una aplicación web completa con vistas HTML y API REST, aplicando arquitectura por capas, DTOs y gestión de errores.
