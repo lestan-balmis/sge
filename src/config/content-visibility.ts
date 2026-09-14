@@ -5,21 +5,21 @@
  * Formato: 'seccion/modulo' o 'modulo' para la sección Inicio
  */
 export const VISIBLE_MODULES = [
-	'presentacion',           // Semana 1 - Siempre visible
+	'presentacion',           
 
-	// Fase Axelor - Descomenta según avance del curso
-	// 'axelor/ud1',
+	Fase Axelor
+	 'axelor/ud1',
 	// 'axelor/ud2',
 	// 'axelor/ud3',
 
-	// Fase Spring Boot - Descomenta según avance del curso
+	// Fase Spring Boot
 	// 'spring/ud4',
 	// 'spring/ud5',
 	// 'spring/ud6',
 	// 'spring/ud7',
 	// 'spring/ud8',
 
-	// Fase Retos ERP Balmis - Descomenta según avance del curso
+	// Fase Retos ERP Balmis
 	// 'retos/reto0',
 	// 'retos/reto1',
 	// 'retos/reto2',
