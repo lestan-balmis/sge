@@ -7,7 +7,7 @@
 export const VISIBLE_MODULES = [
 	'presentacion',           
 
-	Fase Axelor
+	// Fase Axelor
 	 'axelor/ud1',
 	// 'axelor/ud2',
 	// 'axelor/ud3',
