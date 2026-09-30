@@ -20,7 +20,7 @@ export const VISIBLE_MODULES = [
 	// 'spring/ud8',
 
 	// Fase Retos ERP Balmis
-	// 'retos/reto0',
+	'retos/reto0',
 	// 'retos/reto1',
 	// 'retos/reto2',
 	// 'retos/reto3',
