@@ -14,6 +14,8 @@ export const VISIBLE_MODULES = [
 
 	// Fase Odoo
 	'odoo/ud1',
+	'odoo/ud2',
+	'odoo/ud3',
 
 	// Fase Spring Boot
 	// 'spring/ud4',
