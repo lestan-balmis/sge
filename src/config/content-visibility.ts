@@ -12,6 +12,9 @@ export const VISIBLE_MODULES = [
 	// 'axelor/ud2',
 	// 'axelor/ud3',
 
+	// Fase Odoo
+	'odoo/ud1',
+
 	// Fase Spring Boot
 	// 'spring/ud4',
 	// 'spring/ud5',

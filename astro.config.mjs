@@ -32,6 +32,9 @@ const ALL_MODULES = {
 		{ label: 'Reto 8: Dashboard — UD7', slug: 'retos/reto8' },
 		{ label: 'Reto 9: La Nube y la IA — UD8', slug: 'retos/reto9' },
 	],
+	odoo: [
+		{ label: 'UD1 — Odoo', slug: 'odoo/ud1' },
+	],
 };
 
 // Función para filtrar items según visibilidad
@@ -74,6 +77,13 @@ export default defineConfig({
 					{
 						label: 'Fase Retos — ERP Balmis',
 						items: filterVisibleItems(ALL_MODULES.retos),
+					},
+				] : []),
+				// Fase Odoo - Solo si hay items visibles
+				...(filterVisibleItems(ALL_MODULES.odoo).length > 0 ? [
+					{
+						label: 'Fase Odoo',
+						items: filterVisibleItems(ALL_MODULES.odoo),
 					},
 				] : []),
 			],
