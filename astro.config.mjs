@@ -13,11 +13,6 @@ const ALL_MODULES = {
 		{ label: 'UD2 — Implantación de Odoo', slug: 'odoo/ud2' },
 		{ label: 'UD3 — Gestión de Odoo', slug: 'odoo/ud3' },
 	],
-	axelor: [
-		{ label: 'UD1 — Identificación ERP-CRM', slug: 'axelor/ud1' },
-		{ label: 'UD2 — Implantación Axelor', slug: 'axelor/ud2' },
-		{ label: 'UD3 — Gestión y Consultas', slug: 'axelor/ud3' },
-	],
 	spring: [
 		{ label: 'UD4 — Introducción a Spring Boot', slug: 'spring/ud4' },
 		{ label: 'UD5 — Spring MVC, REST y Arquitectura por Capas', slug: 'spring/ud5' },
