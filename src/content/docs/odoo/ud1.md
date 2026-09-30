@@ -1,6 +1,6 @@
 ---
-title: UD1.Identificación ERP-CRM
-description: UD1.Identificación ERP-CRM
+title: UD1. Identificación ERP-CRM
+description: UD1. Identificación ERP-CRM
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
@@ -12,7 +12,7 @@ En esta unidad estudiaremos los conceptos fundamentales de los sistemas ERP y CR
 ### Documentación y Prácticas
 
 <CardGrid>
-	<Card title="UD1.Identificación ERP-CRM" icon="document">
+	<Card title="UD1. Identificación ERP-CRM" icon="document">
 		Teoría sobre sistemas de gestión empresarial y relaciones con clientes.
 		<a href="/sge/1. Identificación ERP-CRM.pdf" target="_blank" style="display: inline-block; margin-top: 1rem; padding: 0.5rem 1rem; background-color: #3f51b5; color: white; border-radius: 4px; text-decoration: none;">Descargar</a>
 	</Card>

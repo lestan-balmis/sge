@@ -8,6 +8,11 @@ const ALL_MODULES = {
 	inicio: [
 		{ label: 'Presentación del módulo', slug: 'presentacion' },
 	],
+	odoo: [
+		{ label: 'UD1 — Identificación ERP-CRM', slug: 'odoo/ud1' },
+		{ label: 'UD2 — Implantación de Odoo', slug: 'odoo/ud2' },
+		{ label: 'UD3 — Gestión de Odoo', slug: 'odoo/ud3' },
+	],
 	axelor: [
 		{ label: 'UD1 — Identificación ERP-CRM', slug: 'axelor/ud1' },
 		{ label: 'UD2 — Implantación Axelor', slug: 'axelor/ud2' },
@@ -31,9 +36,6 @@ const ALL_MODULES = {
 		{ label: 'Reto 7: Las Compras — UD7', slug: 'retos/reto7' },
 		{ label: 'Reto 8: Dashboard — UD7', slug: 'retos/reto8' },
 		{ label: 'Reto 9: La Nube y la IA — UD8', slug: 'retos/reto9' },
-	],
-	odoo: [
-		{ label: 'UD1 — Odoo', slug: 'odoo/ud1' },
 	],
 };
 
