@@ -5,10 +5,10 @@
  * Formato: 'seccion/modulo' o 'modulo' para la sección Inicio
  */
 export const VISIBLE_MODULES = [
-	'presentacion',           // Semana 1 - Siempre visible
+	'presentacion',           
 
 	// Fase Axelor - Descomenta según avance del curso
-	// 'axelor/ud1',
+	 'axelor/ud1',
 	// 'axelor/ud2',
 	// 'axelor/ud3',
 
