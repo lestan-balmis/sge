@@ -14,11 +14,11 @@ En esta unidad estudiaremos los conceptos fundamentales de los sistemas ERP y CR
 <CardGrid>
 	<Card title="UD1.Identificación ERP-CRM" icon="document">
 		Teoría sobre sistemas de gestión empresarial y relaciones con clientes.
-		<a href="/1. Identificación ERP-CRM.pdf" target="_blank" style="display: inline-block; margin-top: 1rem; padding: 0.5rem 1rem; background-color: #3f51b5; color: white; border-radius: 4px; text-decoration: none;">Descargar</a>
+		<a href="/sge/1. Identificación ERP-CRM.pdf" target="_blank" style="display: inline-block; margin-top: 1rem; padding: 0.5rem 1rem; background-color: #3f51b5; color: white; border-radius: 4px; text-decoration: none;">Descargar</a>
 	</Card>
 	<Card title="Práctica 1.1" icon="pencil">
 		Ejercicio práctico.
-		<a href="/Práctica 1.1.docx" target="_blank" style="display: inline-block; margin-top: 1rem; padding: 0.5rem 1rem; background-color: #4caf50; color: white; border-radius: 4px; text-decoration: none;">Descargar</a>
+		<a href="/sge/Práctica 1.1.docx" target="_blank" style="display: inline-block; margin-top: 1rem; padding: 0.5rem 1rem; background-color: #4caf50; color: white; border-radius: 4px; text-decoration: none;">Descargar</a>
 	</Card>
 </CardGrid>
 
