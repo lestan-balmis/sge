@@ -3,8 +3,6 @@ title: UD2. Implantación de Odoo
 description: Implantación y configuración de Odoo
 ---
 
-# UD2. Implantación de Odoo
-
 En esta unidad estudiaremos el proceso de implantación y configuración del sistema ERP Odoo.
 
 ## Recursos

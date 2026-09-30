@@ -3,8 +3,6 @@ title: UD3. Gestión de Odoo
 description: Gestión de Odoo
 ---
 
-# UD3. Gestión de Odoo
-
 En esta unidad estudiaremos la gestión del sistema ERP Odoo.
 
 ## Recursos
