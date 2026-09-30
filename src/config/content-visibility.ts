@@ -12,14 +12,14 @@ export const VISIBLE_MODULES = [
 	// 'axelor/ud2',
 	// 'axelor/ud3',
 
-	// Fase Spring Boot - Descomenta según avance del curso
+	// Fase Spring Boot
 	// 'spring/ud4',
 	// 'spring/ud5',
 	// 'spring/ud6',
 	// 'spring/ud7',
 	// 'spring/ud8',
 
-	// Fase Retos ERP Balmis - Descomenta según avance del curso
+	// Fase Retos ERP Balmis
 	// 'retos/reto0',
 	// 'retos/reto1',
 	// 'retos/reto2',
