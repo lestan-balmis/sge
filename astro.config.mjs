@@ -55,11 +55,11 @@ export default defineConfig({
 					label: 'Inicio',
 					items: filterVisibleItems(ALL_MODULES.inicio),
 				},
-				// Fase Axelor - Solo si hay items visibles
-				...(filterVisibleItems(ALL_MODULES.axelor).length > 0 ? [
+				// Fase Odoo - Solo si hay items visibles
+				...(filterVisibleItems(ALL_MODULES.odoo).length > 0 ? [
 					{
-						label: 'Fase Axelor',
-						items: filterVisibleItems(ALL_MODULES.axelor),
+						label: 'Fase Odoo',
+						items: filterVisibleItems(ALL_MODULES.odoo),
 					},
 				] : []),
 				// Fase Spring Boot - Solo si hay items visibles
@@ -74,13 +74,6 @@ export default defineConfig({
 					{
 						label: 'Fase Retos — ERP Balmis',
 						items: filterVisibleItems(ALL_MODULES.retos),
-					},
-				] : []),
-				// Fase Odoo - Solo si hay items visibles
-				...(filterVisibleItems(ALL_MODULES.odoo).length > 0 ? [
-					{
-						label: 'Fase Odoo',
-						items: filterVisibleItems(ALL_MODULES.odoo),
 					},
 				] : []),
 			],
