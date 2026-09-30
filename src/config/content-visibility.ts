@@ -13,7 +13,7 @@ export const VISIBLE_MODULES = [
 	'odoo/ud3',
 
 	// Fase Spring Boot
-	// 'spring/ud4',
+	'spring/ud4',
 	// 'spring/ud5',
 	// 'spring/ud6',
 	// 'spring/ud7',
