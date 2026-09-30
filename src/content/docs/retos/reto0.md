@@ -3,11 +3,6 @@ title: "Reto 0: La Semilla"
 description: Proyecto Spring Boot con entidades POJO y repositorios ArrayList.
 ---
 
-### Reto 0 · La Semilla
-**Módulo SGE · DAM · IES Doctor Balmis**
-
----
-
 > **Teoría requerida:** [UD4 — Introducción a Spring Boot](/docs/spring/ud4)
 
 ---
