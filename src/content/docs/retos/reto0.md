@@ -7,7 +7,7 @@ description: Proyecto Spring Boot con entidades POJO y repositorios ArrayList.
 
 ---
 
-<a href="/sge/4. Uso de Spring Initializr.pdf" target="_blank" style="display: inline-block; margin-top: 1rem; padding: 0.5rem 1rem; background-color: #3f51b5; color: white; border-radius: 4px; text-decoration: none;">4. Uso de Spring Initializr</a>
+<a href="/sge/4. Uso de Spring Initializr.pdf" target="_blank" style="display: inline-block; margin-top: 1rem; padding: 0.5rem 1rem; background-color: #3f51b5; color: white; border-radius: 4px; text-decoration: none;">Uso de Spring Initializr</a>
 
 ## 📌 Resumen del Reto
 
