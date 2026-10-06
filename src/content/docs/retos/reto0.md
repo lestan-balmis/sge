@@ -21,7 +21,7 @@ Implementarás un proyecto Spring Boot inicial con:
 
 ---
 
-## Guía de Implementación
+## 1. Guía de Implementación
 
 Así como una semilla contiene toda la información genética de un árbol pero aún no ha germinado, el Reto 0 contiene la estructura y el modelo del ERP Balmis pero aún no persiste datos en una base de datos real. Es la **potencialidad** antes de la **manifestación**.
 
@@ -71,36 +71,12 @@ Comprenderás realmente por qué JPA existe y por qué es tan poderosa. No será
 
 ## 3. Creación del proyecto con VS Code
 
-### Paso 1: Abrir VS Code
-
-Abre **Visual Studio Code** en tu equipo.
-
-### Paso 2: Instalar la extensión Spring Boot Extension Pack
-
-Si no la tienes instalada:
-1. Haz clic en **Extensions** (Ctrl+Shift+X)
-2. Busca **"Spring Boot Extension Pack"**
-3. Haz clic en **Install**
-
-Esta extensión incluye Spring Tools, Java Extensions Pack, y otras herramientas necesarias.
-
-### Paso 3: Instalar la extensión Lombok
-
-Si no la tienes instalada:
-1. Haz clic en **Extensions** (Ctrl+Shift+X)
-2. Busca **"Lombok Annotations Support for VS Code"**
-3. Instala la de **GabrielBB** (icono de guindilla roja)
-
-Esta extensión es necesaria para que VS Code reconozca los métodos generados por Lombok (`getters`, `setters`, constructores...) y no muestre errores falsos en el editor.
-
-### Paso 4: Crear el proyecto
-
 1. Abre la Paleta de Comandos: **Ctrl+Shift+P**
-2. Escribe: **"Spring Boot: Create Java Project"**
-3. Selecciona **"Create Java Project"**
+2. Escribe: **"Spring Initializr: Create a Maven Project"**
+3. Selecciona **"Crear un Proyecto Maven"**
 4. Se abrirá VS Code con un asistente para crear el proyecto
 
-### Paso 5: Configuración del Proyecto
+### Configuración del Proyecto
 
 Rellena los campos siguientes:
 
@@ -108,16 +84,16 @@ Rellena los campos siguientes:
 |---|---|
 | **Project** | Maven Project |
 | **Language** | Java |
-| **Spring Boot** | 4.0.x (la versión más reciente disponible) |
+| **Spring Boot** | 4.1.x (la versión más reciente disponible) |
 | **Project Metadata → Group** | `com.iesdoctorbalmis` |
 | **Project Metadata → Artifact** | `spring` |
 | **Project Metadata → Name** | `spring` |
-| **Project Metadata → Description** | `La Semilla: Proyecto Spring Boot con ArrayList y POJO` |
+| **Project Metadata → Description** | `ERP Balmis` |
 | **Project Metadata → Package name** | `com.iesdoctorbalmis.spring` |
 | **Packaging** | Jar |
 | **Java** | 25 |
 
-### Paso 6: Seleccionar Dependencias
+### Seleccionar Dependencias
 
 Haz clic en **"Add Dependencies"** y selecciona:
 
@@ -130,11 +106,11 @@ Haz clic en **"Add Dependencies"** y selecciona:
 
 Sigue el asistente y confirma los parámetros indicados en el paso anterior. VS Code creará automáticamente la estructura del proyecto.
 
-### Paso 7: Verificación del proyecto en VS Code
+### Verificación del proyecto en VS Code
 
 Una vez creado, VS Code abrirá automáticamente el proyecto. Verás notificaciones de descarga de dependencias Maven en la esquina inferior derecha.
 
-### Paso 8: Verificar la Estructura
+### Verificar la Estructura
 
 Abre el terminal del IDE y ejecuta:
 
