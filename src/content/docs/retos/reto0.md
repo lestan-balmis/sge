@@ -861,29 +861,29 @@ Eso es la potencia de una arquitectura bien diseñada: cambios sin quebrantos.
 
 ### Actividad 1: Crear el Proyecto
 
-- [ ] Desde tu IDE como VSCode, generar el proyecto con las dependencias especificadas.
-- [ ] Ejecutar `mvn clean verify` para asegurar que el proyecto compila sin errores.
-- [ ] Cambiar el puerto de 8080 a 9000 en `application.properties`.
+- Desde tu IDE como VSCode, generar el proyecto con las dependencias especificadas.
+- Ejecutar `mvn clean verify` para asegurar que el proyecto compila sin errores.
+- Cambiar el puerto de 8080 a 9000 en `application.properties`.
 
 ### Actividad 2: Modelar las Entidades
 
-- [ ] Crear la clase `Cliente` en `src/main/java/com/iesbal/erpbalmis/model/Cliente.java` con anotaciones Lombok.
-- [ ] Crear el enum `TipoCliente` con tres valores: PROSPECTO, ACTIVO, INACTIVO.
-- [ ] Crear las clases `Producto` y `Empleado` siguiendo el mismo patrón.
-- [ ] Verificar que las clases compilan sin errores.
+- Crear la clase `Cliente` en `src/main/java/com/iesbal/erpbalmis/model/Cliente.java` con anotaciones Lombok.
+- rear el enum `TipoCliente` con tres valores: PROSPECTO, ACTIVO, INACTIVO.
+- Crear las clases `Producto` y `Empleado` siguiendo el mismo patrón.
+- Verificar que las clases compilan sin errores.
 
 ### Actividad 3: Implementar Repositorios
 
-- [ ] Crear `ClienteRepositorio` en `src/main/java/com/iesbal/erpbalmis/repository/ClienteRepositorio.java` con métodos CRUD.
-- [ ] Crear `ProductoRepositorio` con métodos CRUD.
-- [ ] Crear `EmpleadoRepositorio` con métodos CRUD.
-- [ ] Anotar cada repositorio con `@Component`.
+- Crear `ClienteRepositorio` en `src/main/java/com/iesbal/erpbalmis/repository/ClienteRepositorio.java` con métodos CRUD.
+- Crear `ProductoRepositorio` con métodos CRUD.
+- Crear `EmpleadoRepositorio` con métodos CRUD.
+- Anotar cada repositorio con `@Component`.
 
 ### Actividad 4: Verificar y Probar
 
-- [ ] Ejecutar `mvn spring-boot:run` para iniciar la aplicación.
-- [ ] Crear un `CommandLineRunner` que cree, busque, actualice y liste clientes.
-- [ ] Verificar en consola que todos los CRUD funcionan correctamente.
+- Ejecutar `mvn spring-boot:run` para iniciar la aplicación.
+- Crear un `CommandLineRunner` que cree, busque, actualice y liste clientes.
+- Verificar en consola que todos los CRUD funcionan correctamente.
 
 ---
 
