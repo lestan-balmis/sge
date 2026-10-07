@@ -861,8 +861,7 @@ Eso es la potencia de una arquitectura bien diseñada: cambios sin quebrantos.
 
 ### Actividad 1: Crear el Proyecto
 
-- [ ] Acceder a https://start.spring.io/ y generar el proyecto con las dependencias especificadas.
-- [ ] Descomprimir el ZIP y abrir en tu IDE.
+- [ ] Desde tu IDE como VSCode, generar el proyecto con las dependencias especificadas.
 - [ ] Ejecutar `mvn clean verify` para asegurar que el proyecto compila sin errores.
 - [ ] Cambiar el puerto de 8080 a 9000 en `application.properties`.
 
@@ -916,20 +915,15 @@ spring/
 └── .git/                            # Repositorio Git inicializado
 ```
 
-### Contenido de README.md (mínimo requerido)
+Utilizando tu cuenta de Git, crea un repositorio para tus prácticas y retos de Spring Boot, que tienes por ejemplo, en la carpeta **wokspace-spring**, con el proyecto **demo** y el actual **reto0**.
 
-```markdown
-# ERP Balmis — Reto 0: La Semilla
+Crea también una organización y me añades a mi, para que pueda acceder a tus trabajos, igual que en el módulo de Desarrollo de Interfaces (**DI**). El nombre de la organización estará formado por **SGE2627** + **Grupo** + **_Apellido1_Nombre**, por ejemplo, para mi, el nombre de la organización tendrá la siguiente forma según el grupo.
 
-## Requisitos
-
-- Java 21 o superior
-- Maven 3.8.x o superior
-
-## Cómo ejecutar
-
-mvn spring-boot:run
-```
+| Grupo | Nombre de la organización |
+|--------|----------|
+|2º DAM A| SGE2627A_Estañ_Luis |
+|2º DAM B| SGE2627B_Estañ_Luis |
+|2º DAM D| SGE2627D_Estañ_Luis |
 
 ## Estructura
 
@@ -946,28 +940,3 @@ mvn spring-boot:run
 ## Reflexión: Reto 0 → Reto 1
 
 En el Reto 1, sustituiremos ArrayList por JPA, pero la arquitectura seguirá siendo la misma.
-```
-
-### Criterios de Evaluación
-
-- **Funcionamiento correcto (40%):** La aplicación compila y ejecuta sin errores. Los CRUD funcionan en ArrayList.
-- **Arquitectura (30%):** Las clases están bien organizadas en paquetes. Hay separación entre model y repository.
-- **Uso de Lombok (20%):** Las entidades usan `@Data`, `@NoArgsConstructor`, `@AllArgsConstructor` correctamente.
-- **Documentación (10%):** README.md presente con instrucciones claras. Código comentado en métodos complejos.
-
----
-
-### Próximos pasos
-
-Felicidades, has completado el **Reto 0 — La Semilla**. Ya tienes un proyecto Spring Boot sólido, modelo de datos, repositorios funcionales y inyección de dependencias.
-
-En el **Reto 1 — El Modelo**, transformarás este proyecto:
-- Sustituirás ArrayList por JPA.
-- Conectarás a una base de datos H2 real.
-- Verás cómo `List<Cliente>` se convierte en una tabla SQL completa.
-
-**La semilla está lista para germinar.**
-
----
-
-*Reto 0 — La Semilla. Duración: 4 horas. Spring Boot inicialización · POJOs · ArrayList · @Component. Siguiente: Reto 1 — El Modelo (JPA, JpaRepository, H2).*
