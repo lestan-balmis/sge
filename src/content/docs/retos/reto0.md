@@ -868,7 +868,7 @@ Eso es la potencia de una arquitectura bien diseñada: cambios sin quebrantos.
 ### Actividad 2: Modelar las Entidades
 
 - Crear la clase `Cliente` en `src/main/java/com/iesbal/erpbalmis/model/Cliente.java` con anotaciones Lombok.
-- rear el enum `TipoCliente` con tres valores: PROSPECTO, ACTIVO, INACTIVO.
+- Crear el enum `TipoCliente` con tres valores: PROSPECTO, ACTIVO, INACTIVO.
 - Crear las clases `Producto` y `Empleado` siguiendo el mismo patrón.
 - Verificar que las clases compilan sin errores.
 
