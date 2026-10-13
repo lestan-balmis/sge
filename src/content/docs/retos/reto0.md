@@ -915,15 +915,15 @@ spring/
 └── .git/                            # Repositorio Git inicializado
 ```
 
-Utilizando tu cuenta de Git, crea un repositorio para tus prácticas y retos de Spring Boot, que tienes por ejemplo, en la carpeta **wokspace-spring**, con el proyecto **demo** y el actual **reto0**.
+Utilizando tu cuenta de Git, crea un repositorio para cada reto de Spring Boot, que tienes por ejemplo, en la carpeta **wokspace-spring**. Para este caso, el nombre del repositorio estará formado por **Reto0** + **_Apellido1_Nombre**, por ejemplo, el nombre del repositorio para mi seria **Reto0_Estañ_Luis**.
 
-Crea también una organización y me añades a mi, para que pueda acceder a tus trabajos, igual que en el módulo de Desarrollo de Interfaces (**DI**). El nombre de la organización estará formado por **SGE2627** + **Grupo** + **_Apellido1_Nombre**, por ejemplo, para mi, el nombre de la organización tendrá la siguiente forma según el grupo.
+Crea también una organización y me añades a mi, para que pueda acceder a tus trabajos, igual que en el módulo de Desarrollo de Interfaces (**DI**). El nombre de la organización estará formado por **SGE2627** + **Grupo** + **-Apellido1-Nombre**, por ejemplo, para mi, el nombre de la organización tendrá la siguiente forma según el grupo.
 
 | Grupo | Nombre de la organización |
 |--------|----------|
-|2º DAM A| SGE2627A_Estañ_Luis |
-|2º DAM B| SGE2627B_Estañ_Luis |
-|2º DAM D| SGE2627D_Estañ_Luis |
+|2º DAM A| SGE2627A-Estañ-Luis |
+|2º DAM B| SGE2627B-Estañ-Luis |
+|2º DAM D| SGE2627D-Estañ-Luis |
 
 ## Estructura
 
