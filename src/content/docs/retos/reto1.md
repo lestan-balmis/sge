@@ -3,11 +3,6 @@ title: "Reto 1: De la Semilla a la Raíz"
 description: Transformar Reto 0 (ArrayList) en Entidades JPA persistentes con H2 Database.
 ---
 
-### Reto 1 · De la Semilla a la Raíz
-**Módulo SGE · DAM · IES Doctor Balmis**
-
----
-
 > **Teoría requerida:** [UD4 — JPA, Hibernate, H2](/docs/spring/ud4#9-jpa-java-persistence-api)  
 > **Reto anterior:** [Reto 0 — La Semilla](/docs/retos/reto0)
 
@@ -361,28 +356,18 @@ Abre `http://localhost:9000/h2-console` para inspeccionar la BD.
 
 ## Actividades a realizar
 
-1. [ ] Transforma POJOs en Entidades JPA (@Entity, @Column, @Enumerated)
-2. [ ] Configura H2 en application.properties
-3. [ ] Crea los 3 repositorios JpaRepository
-4. [ ] Crea import.sql con datos iniciales
-5. [ ] Limpia Application.java (elimina CommandLineRunner)
-6. [ ] Ejecuta la aplicación sin errores
-7. [ ] Accede a H2 Console y consulta las tablas
-8. [ ] Haz commit en Git con mensaje "Reto 1 completado"
+1. Transforma POJOs en Entidades JPA (@Entity, @Column, @Enumerated)
+2. Configura H2 en application.properties
+3. Crea los 3 repositorios JpaRepository
+4. Crea import.sql con datos iniciales
+5. Limpia Application.java (elimina CommandLineRunner)
+6. Ejecuta la aplicación sin errores
+7. Accede a H2 Console y consulta las tablas
+8. Crea el repositorio en Git para el Reto 1
 
 ---
 
 ## Entregable
-
-### Validación
-
-- [ ] Compila sin errores (`mvn clean compile`)
-- [ ] Contiene entidades JPA con anotaciones correctas
-- [ ] Repositorios extienden `JpaRepository`
-- [ ] H2 Console accesible en `http://localhost:9000/h2-console`
-- [ ] Tablas creadas automáticamente
-- [ ] Datos de import.sql insertados correctamente
-- [ ] Commit realizado en Git
 
 ### Estructura esperada
 
