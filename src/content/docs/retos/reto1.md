@@ -28,7 +28,7 @@ Transformarás el Reto 0 añadiendo:
 
 ### 1. Prepara el Reto 0 para evolucionar
 
-Copia tu proyecto del Reto 0 y trabaja sobre la copia. Mueve las entidades de `model/` a `entity/` y actualiza los `package`:
+Desde tu carpeta de trabajo **workspace-spring** copia tu carpeta **spring** con el nombre **reto0** y modificamos el proyecto original **spring** desde el IDE de VSCode. Mueve las entidades de `model/` a `entity/` y actualiza los `package`:
 
 ```java
 // Cambiar de:
@@ -272,6 +272,7 @@ public interface ClienteRepository extends JpaRepository<Cliente, Long> {
     boolean existsByCodigoCliente(String codigoCliente);
 }
 ```
+Usaremos el tipo del método `Optional<Cliente>` cuando se busca por un identificador único (como el email, dni, username) y es completamente normal o posible que el registro no exista (por ejemplo, durante el inicio de sesión o un registro de usuario).
 
 **ProductoRepository.java**
 
@@ -398,6 +399,7 @@ spring/
 │       └── import.sql (datos iniciales)
 └── target/
 ```
+Utilizando tu cuenta de Git, crea un repositorio formado por **Reto1** + **_Apellido1_Nombre**, por ejemplo, el nombre del repositorio para mi seria **Reto1_Estañ_Luis**.
 
 ---
 
