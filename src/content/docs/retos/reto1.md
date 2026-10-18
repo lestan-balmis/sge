@@ -354,16 +354,99 @@ Abre `http://localhost:9000/h2-console` para inspeccionar la BD.
 
 ---
 
+## 🔧 Instalación de Extensiones para Gestión de Git
+
+A partir de este reto, utilizarás **GitLens** y **Git Graph** para facilitar la gestión de tus cambios en Git desde VSCode sin necesidad de usar la terminal.
+
+### Instalación de GitLens
+
+1. Abre VSCode
+2. Ve a **Extensions** (Ctrl+Shift+X en Windows/Linux, Cmd+Shift+X en Mac)
+3. Busca **"GitLens"** (autor: Eric Amodio)
+4. Haz clic en **Install**
+5. Una vez instalado, verás un icono de Git en la barra lateral izquierda
+
+**GitLens te permite:**
+- Ver quién cambió cada línea de código (Blame annotations)
+- Acceder al historial completo de cambios
+- Ver detalles de commits (mensaje, autor, fecha)
+- Navegar por el historial de archivos
+
+### Instalación de Git Graph
+
+1. En **Extensions** (Ctrl+Shift+X), busca **"Git Graph"** (autor: mhutchie)
+2. Haz clic en **Install**
+3. Una vez instalado, tendrás acceso a una visualización gráfica de tu historial de commits
+
+**Git Graph te permite:**
+- Ver el árbol de commits de forma visual
+- Entender el flujo de desarrollo
+- Ver ramas y fusiones claramente
+- Realizar operaciones de Git (commit, push, pull) desde la interfaz gráfica
+
+---
+
+## 📝 Flujo de Trabajo con GitLens y Git Graph
+
+### Paso 1: Clonar o abrir tu repositorio
+
+```bash
+git clone https://github.com/tu-usuario/Reto1_Apellido1_Nombre.git
+```
+
+Luego abre la carpeta en VSCode.
+
+### Paso 2: Visualizar el historial con Git Graph
+
+1. Haz clic en el icono de **Git Graph** en la barra lateral (parece un árbol)
+2. Verás una visualización gráfica de tu repositorio
+3. Desde aquí puedes ver todos los commits realizados
+
+### Paso 3: Hacer cambios y commitear
+
+1. Modifica tu código en VSCode
+2. En la barra lateral izquierda, haz clic en **Source Control** (icono de rama)
+3. Verás los archivos modificados en rojo
+4. Escribe un mensaje descriptivo en el campo de commit
+5. Presiona **Ctrl+Enter** o haz clic en el icono de ✓ para hacer commit
+6. Haz clic en el icono de flecha hacia arriba para hacer **Push** al repositorio remoto
+
+### Paso 4: Revisar cambios con GitLens
+
+1. Abre cualquier archivo que hayas modificado
+2. Haz clic sobre una línea de código
+3. GitLens mostrará información sobre quién cambió esa línea y cuándo
+4. Si necesitas ver el commit completo, haz clic en el mensaje que aparece
+
+### Paso 5: Sincronizar cambios
+
+Regularmente, asegúrate de que tu repositorio esté actualizado:
+- Haz clic en **Source Control** → **Pull** para traer cambios del servidor
+- Haz clic en **Push** para enviar tus cambios
+
+---
+
+## 💡 Consejos prácticos
+
+- **Commits frecuentes:** Haz commit cada vez que termines una funcionalidad pequeña
+- **Mensajes claros:** Escribe mensajes descriptivos (ej: "Añadir anotaciones JPA a Cliente" en lugar de "cambios")
+- **Push diario:** Envía tus cambios al repositorio al final de cada sesión de trabajo
+- **Revisa el historial:** Usa Git Graph para entender cómo ha evolucionado tu proyecto
+
+---
+
 ## Actividades a realizar
 
-1. Transforma POJOs en Entidades JPA (@Entity, @Column, @Enumerated)
-2. Configura H2 en application.properties
-3. Crea los 3 repositorios JpaRepository
-4. Crea import.sql con datos iniciales
-5. Limpia Application.java (elimina CommandLineRunner)
-6. Ejecuta la aplicación sin errores
-7. Accede a H2 Console y consulta las tablas
-8. Crea el repositorio en Git para el Reto 1
+1. **Instala las extensiones:** GitLens y Git Graph en VSCode (sigue la sección anterior)
+2. Transforma POJOs en Entidades JPA (@Entity, @Column, @Enumerated)
+3. Configura H2 en application.properties
+4. Crea los 3 repositorios JpaRepository
+5. Crea import.sql con datos iniciales
+6. Limpia Application.java (elimina CommandLineRunner)
+7. Ejecuta la aplicación sin errores
+8. Accede a H2 Console y consulta las tablas
+9. Realiza commits regulares con mensajes descriptivos usando Git Graph o Source Control
+10. Haz push de tus cambios al repositorio remoto de tu organización
 
 ---
 
@@ -382,9 +465,37 @@ spring/
 │   └── resources/
 │       ├── application.properties (con H2)
 │       └── import.sql (datos iniciales)
+├── .gitignore
+├── README.md
 └── target/
 ```
-Utilizando tu cuenta de Git, crea un repositorio formado por **Reto1** + **_Apellido1_Nombre**, por ejemplo, el nombre del repositorio para mi seria **Reto1_Estañ_Luis**.
+
+### Requisitos de entrega
+
+1. **Repositorio Git:** Crea un repositorio en tu organización con el nombre **Reto1_Apellido1_Nombre** (ejemplo: **Reto1_Estañ_Luis**)
+
+2. **Commits en Git:** 
+   - Realiza commits regulares conforme avanzas en el reto (mínimo 5 commits)
+   - Usa mensajes descriptivos (ej: "Añadir anotaciones JPA", "Configurar H2 database", etc.)
+   - Usa Git Graph para visualizar tu historial
+
+3. **.gitignore:** Asegúrate de que tu repositorio incluya un `.gitignore` con contenido mínimo:
+   ```
+   target/
+   .DS_Store
+   .vscode/
+   .idea/
+   *.log
+   ```
+
+4. **README.md:** Incluye un archivo `README.md` con:
+   - Título del reto
+   - Descripción breve
+   - Instrucciones para ejecutar la aplicación
+
+5. **Push al repositorio:** Sube todos tus cambios a la rama `main` de tu repositorio remoto antes de la fecha de entrega
+
+6. **Acceso al profesor:** Asegúrate de que tu profesor tiene acceso a tu organización para revisar el trabajo
 
 ---
 
