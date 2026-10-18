@@ -21,7 +21,7 @@ export const VISIBLE_MODULES = [
 
 	// Fase Retos ERP Balmis
 	'retos/reto0',
-	// 'retos/reto1',
+	'retos/reto1',
 	// 'retos/reto2',
 	// 'retos/reto3',
 	// 'retos/reto4',
