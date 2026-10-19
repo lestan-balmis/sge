@@ -293,4 +293,4 @@ Al finalizar el Reto 7 el ERP Balmis dispone de:
 - **API REST de Compras**: `ProveedorRestController` + `OrdenCompraRestController` documentados en Swagger UI.
 - **Módulo completo integrado** en el `SecurityConfig` existente: las rutas `/proveedores/**` y `/ordenes-compra/**` quedan protegidas por la cadena MVC (sesión HTTP).
 
-> **Siguiente paso:** [Reto Final — Dashboard, RRHH y Presentación](/sge/retos/reto8-final)
+> **Siguiente paso:** [Reto Final — Dashboard, RRHH y Presentación](/sge/retos/reto8)

@@ -1300,7 +1300,7 @@ Todas las páginas del ERP usan el fragmento con `th:replace`:
 
 ## 15. 🎯 PAUSA: Aquí puedes completar el **Reto 8 Final**
 
-> Con los conceptos de esta sección ya tienes todo lo necesario para completar el **[Reto 8 Final — Dashboard, RRHH y Presentación](/sge/retos/reto8-final)**.
+> Con los conceptos de esta sección ya tienes todo lo necesario para completar el **[Reto 8 Final — Dashboard, RRHH y Presentación](/sge/retos/reto8)**.
 
 ---
 
