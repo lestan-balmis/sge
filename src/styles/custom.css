@@ -97,11 +97,21 @@ body[data-fullview-left-hidden] .page {
 
 body[data-fullview-left-hidden] .main-frame {
 	margin-inline-start: 0 !important;
+	width: 100% !important;
+	flex: 1 !important;
+}
+
+body[data-fullview-left-hidden] .main-frame > div {
+	width: 100% !important;
+	flex: 1 !important;
 }
 
 body[data-fullview-left-hidden] .main-pane {
 	margin-inline-start: 0 !important;
+	padding-inline-start: 0 !important;
 	flex: 1 !important;
+	width: 100% !important;
+	min-width: 0 !important;
 }
 
 /* MENÚ DERECHO (TOC) - Ocultar right sidebar */
@@ -115,7 +125,10 @@ body[data-fullview-right-hidden] aside.right-sidebar-container {
 /* Expandir contenido cuando menú derecho está oculto */
 body[data-fullview-right-hidden] .main-pane {
 	margin-inline-end: 0 !important;
+	padding-inline-end: 0 !important;
 	flex: 1 !important;
+	width: 100% !important;
+	min-width: 0 !important;
 }
 
 /* Mostrar botones solo en pantallas medianas y grandes */
