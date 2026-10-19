@@ -81,6 +81,13 @@
 
 /* ===== ESTADOS DE VISIBILIDAD ===== */
 
+/* Dejar sitio al botón izquierdo para que no tape la lista del menú */
+@media (min-width: 72rem) {
+	body:not([data-fullview-left-hidden]) nav.sidebar ul.top-level {
+		padding-inline-start: 3.5rem;
+	}
+}
+
 /* MENÚ IZQUIERDO - Ocultar sidebar */
 body[data-fullview-left-hidden] nav.sidebar {
 	display: none !important;
