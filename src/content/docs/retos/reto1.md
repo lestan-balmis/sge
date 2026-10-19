@@ -143,7 +143,7 @@ public class Producto {
     private LocalDate fechaAlta;
     
     @Column(name = "activo", nullable = false)
-    private Boolean activo = true;
+    private Boolean activo;
 }
 ```
 
@@ -191,7 +191,7 @@ public class Empleado {
     private LocalDate fechaIncorporacion;
     
     @Column(name = "activo", nullable = false)
-    private Boolean activo = true;
+    private Boolean activo;
 }
 ```
 
