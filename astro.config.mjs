@@ -3,6 +3,77 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import { VISIBLE_MODULES } from './src/config/content-visibility.ts';
 
+// Inyectar el componente de fullview en cada página
+const fullViewHTML = `
+<div class="fullview-toggle-buttons left-side">
+  <button class="fullview-toggle-btn" id="toggle-left-sidebar" title="Ocultar/Mostrar menú lateral izquierdo" aria-label="Alternar menú lateral izquierdo">◀</button>
+</div>
+<div class="fullview-toggle-buttons right-side">
+  <button class="fullview-toggle-btn" id="toggle-right-sidebar" title="Ocultar/Mostrar tabla de contenidos" aria-label="Alternar tabla de contenidos">▶</button>
+</div>
+<script>
+(function() {
+  function initFullViewMode() {
+    const toggleLeftBtn = document.getElementById('toggle-left-sidebar');
+    const toggleRightBtn = document.getElementById('toggle-right-sidebar');
+    const body = document.body;
+    const STORAGE_LEFT_KEY = 'fullview-left-hidden';
+    const STORAGE_RIGHT_KEY = 'fullview-right-hidden';
+
+    function restoreState() {
+      if (localStorage.getItem(STORAGE_LEFT_KEY) === 'true') {
+        body.setAttribute('data-fullview-left-hidden', '');
+        if (toggleLeftBtn) toggleLeftBtn.textContent = '▶';
+      }
+      if (localStorage.getItem(STORAGE_RIGHT_KEY) === 'true') {
+        body.setAttribute('data-fullview-right-hidden', '');
+        if (toggleRightBtn) toggleRightBtn.textContent = '◀';
+      }
+    }
+
+    if (toggleLeftBtn) {
+      toggleLeftBtn.addEventListener('click', () => {
+        const isHidden = body.hasAttribute('data-fullview-left-hidden');
+        if (isHidden) {
+          body.removeAttribute('data-fullview-left-hidden');
+          localStorage.setItem(STORAGE_LEFT_KEY, 'false');
+          toggleLeftBtn.textContent = '◀';
+        } else {
+          body.setAttribute('data-fullview-left-hidden', '');
+          localStorage.setItem(STORAGE_LEFT_KEY, 'true');
+          toggleLeftBtn.textContent = '▶';
+        }
+      });
+    }
+
+    if (toggleRightBtn) {
+      toggleRightBtn.addEventListener('click', () => {
+        const isHidden = body.hasAttribute('data-fullview-right-hidden');
+        if (isHidden) {
+          body.removeAttribute('data-fullview-right-hidden');
+          localStorage.setItem(STORAGE_RIGHT_KEY, 'false');
+          toggleRightBtn.textContent = '▶';
+        } else {
+          body.setAttribute('data-fullview-right-hidden', '');
+          localStorage.setItem(STORAGE_RIGHT_KEY, 'true');
+          toggleRightBtn.textContent = '◀';
+        }
+      });
+    }
+
+    restoreState();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFullViewMode);
+  } else {
+    initFullViewMode();
+  }
+  document.addEventListener('astro:page-load', initFullViewMode);
+})();
+</script>
+`;
+
 // Definición completa de todos los módulos disponibles
 const ALL_MODULES = {
 	inicio: [
@@ -50,6 +121,93 @@ export default defineConfig({
 			expressiveCode: false,
 			customCss: ['./src/styles/custom.css'],
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/lestan-balmis' }],
+			head: [
+				{
+					tag: 'script',
+					attrs: {
+						type: 'text/javascript',
+					},
+					content: `
+					(function() {
+						// Crear y insertar los botones en el DOM
+						function createFullViewButtons() {
+							const leftDiv = document.createElement('div');
+							leftDiv.className = 'fullview-toggle-buttons left-side';
+							leftDiv.innerHTML = '<button class="fullview-toggle-btn" id="toggle-left-sidebar" title="Ocultar/Mostrar menú lateral izquierdo" aria-label="Alternar menú lateral izquierdo">◀</button>';
+							document.body.appendChild(leftDiv);
+
+							const rightDiv = document.createElement('div');
+							rightDiv.className = 'fullview-toggle-buttons right-side';
+							rightDiv.innerHTML = '<button class="fullview-toggle-btn" id="toggle-right-sidebar" title="Ocultar/Mostrar tabla de contenidos" aria-label="Alternar tabla de contenidos">▶</button>';
+							document.body.appendChild(rightDiv);
+						}
+
+						function initFullViewMode() {
+							// Crear botones si no existen
+							if (!document.getElementById('toggle-left-sidebar')) {
+								createFullViewButtons();
+							}
+
+							const toggleLeftBtn = document.getElementById('toggle-left-sidebar');
+							const toggleRightBtn = document.getElementById('toggle-right-sidebar');
+							const body = document.body;
+							const STORAGE_LEFT_KEY = 'fullview-left-hidden';
+							const STORAGE_RIGHT_KEY = 'fullview-right-hidden';
+
+							function restoreState() {
+								if (localStorage.getItem(STORAGE_LEFT_KEY) === 'true') {
+									body.setAttribute('data-fullview-left-hidden', '');
+									if (toggleLeftBtn) toggleLeftBtn.textContent = '▶';
+								}
+								if (localStorage.getItem(STORAGE_RIGHT_KEY) === 'true') {
+									body.setAttribute('data-fullview-right-hidden', '');
+									if (toggleRightBtn) toggleRightBtn.textContent = '◀';
+								}
+							}
+
+							if (toggleLeftBtn) {
+								toggleLeftBtn.addEventListener('click', () => {
+									const isHidden = body.hasAttribute('data-fullview-left-hidden');
+									if (isHidden) {
+										body.removeAttribute('data-fullview-left-hidden');
+										localStorage.setItem(STORAGE_LEFT_KEY, 'false');
+										toggleLeftBtn.textContent = '◀';
+									} else {
+										body.setAttribute('data-fullview-left-hidden', '');
+										localStorage.setItem(STORAGE_LEFT_KEY, 'true');
+										toggleLeftBtn.textContent = '▶';
+									}
+								});
+							}
+
+							if (toggleRightBtn) {
+								toggleRightBtn.addEventListener('click', () => {
+									const isHidden = body.hasAttribute('data-fullview-right-hidden');
+									if (isHidden) {
+										body.removeAttribute('data-fullview-right-hidden');
+										localStorage.setItem(STORAGE_RIGHT_KEY, 'false');
+										toggleRightBtn.textContent = '▶';
+									} else {
+										body.setAttribute('data-fullview-right-hidden', '');
+										localStorage.setItem(STORAGE_RIGHT_KEY, 'true');
+										toggleRightBtn.textContent = '◀';
+									}
+								});
+							}
+
+							restoreState();
+						}
+
+						if (document.readyState === 'loading') {
+							document.addEventListener('DOMContentLoaded', initFullViewMode);
+						} else {
+							initFullViewMode();
+						}
+						document.addEventListener('astro:page-load', initFullViewMode);
+					})();
+					`,
+				},
+			],
 			components: {
 				Page: './src/overrides/pages/index.astro',
 			},

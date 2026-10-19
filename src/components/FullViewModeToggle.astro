@@ -27,9 +27,9 @@
 	</button>
 </div>
 
-<script>
+<script define:vars={{}} type="module">
 	// Script para manejar la lógica de ocultar/mostrar menús
-	function initFullViewMode() {
+	window.initFullViewMode = function() {
 		const toggleLeftBtn = document.getElementById('toggle-left-sidebar');
 		const toggleRightBtn = document.getElementById('toggle-right-sidebar');
 		const body = document.body;
@@ -110,15 +110,16 @@
 
 		// Restaurar estado al cargar la página
 		restoreState();
-	}
+	};
 
 	// Inicializar cuando el DOM esté listo
 	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', initFullViewMode);
+		document.addEventListener('DOMContentLoaded', window.initFullViewMode);
 	} else {
-		initFullViewMode();
+		window.initFullViewMode();
 	}
 
 	// Reinitialize en navegación (Astro View Transitions)
-	document.addEventListener('astro:page-load', initFullViewMode);
+	document.addEventListener('astro:page-load', window.initFullViewMode);
 </script>
+
