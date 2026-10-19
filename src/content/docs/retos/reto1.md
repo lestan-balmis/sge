@@ -256,10 +256,8 @@ package com.iesdoctorbalmis.spring.repository;
 
 import com.iesdoctorbalmis.spring.entity.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
-@Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {
     Optional<Cliente> findByEmail(String email);
     Optional<Cliente> findByCodigoCliente(String codigoCliente);
@@ -276,10 +274,8 @@ package com.iesdoctorbalmis.spring.repository;
 
 import com.iesdoctorbalmis.spring.entity.Producto;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
-@Repository
 public interface ProductoRepository extends JpaRepository<Producto, Long> {
     Optional<Producto> findByReferencia(String referencia);
     boolean existsByReferencia(String referencia);
@@ -293,10 +289,8 @@ package com.iesdoctorbalmis.spring.repository;
 
 import com.iesdoctorbalmis.spring.entity.Empleado;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
-@Repository
 public interface EmpleadoRepository extends JpaRepository<Empleado, Long> {
     Optional<Empleado> findByEmail(String email);
     Optional<Empleado> findByNumeroEmpleado(String numeroEmpleado);
