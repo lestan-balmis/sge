@@ -80,30 +80,66 @@
 	transform: scale(0.95);
 }
 
-/* Estados de visibilidad */
-.fullview-mode-active body[data-fullview-left-hidden] .sidebar {
-	transform: translateX(-100%);
-	opacity: 0;
-	visibility: hidden;
-	pointer-events: none;
+/* ===== ESTADOS DE VISIBILIDAD ===== */
+
+/* MENÚ IZQUIERDO - Ocultar sidebar */
+body[data-fullview-left-hidden] nav {
+	display: none !important;
+	width: 0 !important;
+	visibility: hidden !important;
+	pointer-events: none !important;
 }
 
-body[data-fullview-left-hidden] [data-has-sidebar]:not([data-has-toc]) .main-pane,
-body[data-fullview-left-hidden] [data-has-sidebar][data-has-toc] .main-pane {
-	margin-inline-start: 0;
-	flex: 1;
+body[data-fullview-left-hidden] .sidebar {
+	display: none !important;
+	width: 0 !important;
+	visibility: hidden !important;
+	pointer-events: none !important;
 }
 
+body[data-fullview-left-hidden] [data-sidebar] {
+	display: none !important;
+	width: 0 !important;
+	visibility: hidden !important;
+}
+
+/* Expandir contenido cuando menú izquierdo está oculto */
+body[data-fullview-left-hidden] main,
+body[data-fullview-left-hidden] .main-pane,
+body[data-fullview-left-hidden] [data-has-sidebar] .main-pane {
+	margin-inline-start: 0 !important;
+	padding-inline-start: 0 !important;
+	width: 100% !important;
+}
+
+/* MENÚ DERECHO (TOC) - Ocultar right sidebar */
 body[data-fullview-right-hidden] .right-sidebar-container {
-	transform: translateX(100%);
-	opacity: 0;
-	visibility: hidden;
-	pointer-events: none;
+	display: none !important;
+	width: 0 !important;
+	visibility: hidden !important;
+	pointer-events: none !important;
 }
 
+body[data-fullview-right-hidden] .right-sidebar {
+	display: none !important;
+	width: 0 !important;
+	visibility: hidden !important;
+}
+
+body[data-fullview-right-hidden] aside {
+	display: none !important;
+	width: 0 !important;
+	visibility: hidden !important;
+	pointer-events: none !important;
+}
+
+/* Expandir contenido cuando menú derecho está oculto */
+body[data-fullview-right-hidden] main,
+body[data-fullview-right-hidden] .main-pane,
 body[data-fullview-right-hidden] [data-has-toc] .main-pane {
-	margin-inline-end: 0;
-	flex: 1;
+	margin-inline-end: 0 !important;
+	padding-inline-end: 0 !important;
+	width: 100% !important;
 }
 
 /* Mostrar botones solo en pantallas medianas y grandes */
