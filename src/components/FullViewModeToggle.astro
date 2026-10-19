@@ -1,0 +1,124 @@
+---
+/**
+ * Componente que proporciona botones para alternar la visibilidad de los menús laterales
+ * Permite ver el contenido en pantalla completa ocultando sidebar izquierdo y derecho
+ */
+---
+
+<div class="fullview-toggle-buttons left-side">
+	<button
+		class="fullview-toggle-btn"
+		id="toggle-left-sidebar"
+		title="Ocultar/Mostrar menú lateral izquierdo"
+		aria-label="Alternar menú lateral izquierdo"
+	>
+		◀
+	</button>
+</div>
+
+<div class="fullview-toggle-buttons right-side">
+	<button
+		class="fullview-toggle-btn"
+		id="toggle-right-sidebar"
+		title="Ocultar/Mostrar tabla de contenidos"
+		aria-label="Alternar tabla de contenidos"
+	>
+		▶
+	</button>
+</div>
+
+<script>
+	// Script para manejar la lógica de ocultar/mostrar menús
+	function initFullViewMode() {
+		const toggleLeftBtn = document.getElementById('toggle-left-sidebar');
+		const toggleRightBtn = document.getElementById('toggle-right-sidebar');
+		const body = document.body;
+
+		// Clave de almacenamiento local
+		const STORAGE_LEFT_KEY = 'fullview-left-hidden';
+		const STORAGE_RIGHT_KEY = 'fullview-right-hidden';
+
+		// Restaurar estado guardado
+		function restoreState() {
+			const leftHidden = localStorage.getItem(STORAGE_LEFT_KEY) === 'true';
+			const rightHidden = localStorage.getItem(STORAGE_RIGHT_KEY) === 'true';
+
+			if (leftHidden) {
+				body.setAttribute('data-fullview-left-hidden', '');
+				updateLeftButtonState(true);
+			}
+
+			if (rightHidden) {
+				body.setAttribute('data-fullview-right-hidden', '');
+				updateRightButtonState(true);
+			}
+		}
+
+		// Actualizar apariencia del botón izquierdo
+		function updateLeftButtonState(isHidden) {
+			if (toggleLeftBtn) {
+				toggleLeftBtn.textContent = isHidden ? '▶' : '◀';
+				toggleLeftBtn.title = isHidden
+					? 'Mostrar menú lateral izquierdo'
+					: 'Ocultar menú lateral izquierdo';
+			}
+		}
+
+		// Actualizar apariencia del botón derecho
+		function updateRightButtonState(isHidden) {
+			if (toggleRightBtn) {
+				toggleRightBtn.textContent = isHidden ? '◀' : '▶';
+				toggleRightBtn.title = isHidden
+					? 'Mostrar tabla de contenidos'
+					: 'Ocultar tabla de contenidos';
+			}
+		}
+
+		// Toggle menú izquierdo
+		if (toggleLeftBtn) {
+			toggleLeftBtn.addEventListener('click', () => {
+				const isHidden = body.hasAttribute('data-fullview-left-hidden');
+
+				if (isHidden) {
+					body.removeAttribute('data-fullview-left-hidden');
+					localStorage.setItem(STORAGE_LEFT_KEY, 'false');
+					updateLeftButtonState(false);
+				} else {
+					body.setAttribute('data-fullview-left-hidden', '');
+					localStorage.setItem(STORAGE_LEFT_KEY, 'true');
+					updateLeftButtonState(true);
+				}
+			});
+		}
+
+		// Toggle menú derecho
+		if (toggleRightBtn) {
+			toggleRightBtn.addEventListener('click', () => {
+				const isHidden = body.hasAttribute('data-fullview-right-hidden');
+
+				if (isHidden) {
+					body.removeAttribute('data-fullview-right-hidden');
+					localStorage.setItem(STORAGE_RIGHT_KEY, 'false');
+					updateRightButtonState(false);
+				} else {
+					body.setAttribute('data-fullview-right-hidden', '');
+					localStorage.setItem(STORAGE_RIGHT_KEY, 'true');
+					updateRightButtonState(true);
+				}
+			});
+		}
+
+		// Restaurar estado al cargar la página
+		restoreState();
+	}
+
+	// Inicializar cuando el DOM esté listo
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initFullViewMode);
+	} else {
+		initFullViewMode();
+	}
+
+	// Reinitialize en navegación (Astro View Transitions)
+	document.addEventListener('astro:page-load', initFullViewMode);
+</script>
