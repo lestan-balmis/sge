@@ -415,7 +415,7 @@ spring/
 1. **Repositorio Git:** Crea un repositorio en tu organización con el nombre **Reto1_Apellido1_Nombre** (ejemplo: **Reto1_Estañ_Luis**)
 
 2. **Commits en Git:** 
-   - Realiza commits regulares conforme avanzas en el reto (mínimo 5 commits)
+   - Realiza commits necesarios conforme avanzas en el reto.
    - Usa mensajes descriptivos (ej: "Añadir anotaciones JPA", "Configurar H2 database", etc.)
    - Usa Control de Código Fuente en VSCode para hacer commit y push
 
