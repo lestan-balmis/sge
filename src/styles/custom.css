@@ -107,7 +107,8 @@ body[data-fullview-left-hidden] .main-frame {
 
 body[data-fullview-left-hidden] .main-pane {
 	margin-inline-start: 0 !important;
-	padding-inline-start: 0 !important;
+	/* Hueco para que el botón izquierdo no tape el contenido */
+	padding-inline-start: 4rem !important;
 	flex: 1 !important;
 	width: 100% !important;
 	max-width: none !important;
@@ -136,7 +137,8 @@ body[data-fullview-right-hidden] {
 
 body[data-fullview-right-hidden] .main-pane {
 	margin-inline-end: 0 !important;
-	padding-inline-end: 0 !important;
+	/* Hueco para que el botón derecho no tape el contenido */
+	padding-inline-end: 4rem !important;
 	flex: 1 !important;
 	width: 100% !important;
 	max-width: none !important;
