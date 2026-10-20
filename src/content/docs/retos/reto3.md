@@ -3,11 +3,6 @@ title: "Reto 3: La Transición"
 description: Transformar los controladores MVC del Reto 2 en una primera API REST con @RestController y Postman.
 ---
 
-### Reto 3 · La Transición
-**Módulo SGE · DAM · IES Doctor Balmis**
-
----
-
 > **Reto anterior:** [Reto 2 — La Vista](/sge/retos/reto2)
 
 ---
@@ -23,7 +18,7 @@ Añadirás una capa de API REST al proyecto del Reto 2:
 
 ---
 
-> **Conceptos teóricos:** La diferencia entre `@Controller` y `@RestController`, Jackson y los códigos de estado HTTP se explican en [UD5 — secciones 5 a 8](/sge/spring/ud5).
+> **Conceptos teóricos:** La diferencia entre `@Controller` y `@RestController`, Jackson y los códigos de estado HTTP se explican en [UD5b — secciones 5 a 8](/sge/spring/ud5b).
 
 ---
 

@@ -3,11 +3,6 @@ title: "Reto 2: La Vista"
 description: Añadir una capa de presentación web al ERP Balmis usando Thymeleaf y el patrón MVC.
 ---
 
-### Reto 2 · La Vista
-**Módulo SGE · DAM · IES Doctor Balmis**
-
----
-
 > **Reto anterior:** [Reto 1 — De la Semilla a la Raíz](/docs/retos/reto1)
 
 ---
@@ -23,45 +18,43 @@ Transformarás el Reto 1 añadiendo:
 
 ---
 
-> **Conceptos teóricos:** El patrón MVC, Thymeleaf y los atributos `th:*` se explican en detalle en [UD5 — secciones 1, 2 y 3](/sge/spring/ud5).
+> **Conceptos teóricos:** El patrón MVC, Thymeleaf y los atributos `th:*` se explican en detalle en [UD5a — secciones 1, 2 y 3](/sge/spring/ud5a).
 
 ---
 
 ## 1. Preparación
 
 ### Crea una copia del proyecto
-
-1. Copia la carpeta `erpbalmis_1` (del Reto 1) y nómbrala `erpbalmis_2`
-2. Trabajaremos sobre `erpbalmis_2` añadiendo la capa de presentación
+- Desde tu carpeta de trabajo **workspace-spring**, haz una copia de tu carpeta **spring**, manteniendo el nombre por defecto de **spring - copia**. Cambia el nombre del proyecto original **spring** por **reto1**, y cambia también el nombre de **spring - copia** por **spring**. 
+- Desde el IDE de VSCode, añadiremos la capa de presentación
 
 La estructura final del proyecto será:
 
 ```
-erpbalmis_2/
-└── src/
-    └── main/
-        ├── java/com/iesdoctorbalmis/spring/
-        │   ├── Application.java
-        │   ├── controller/              ← NUEVO en Reto 2
-        │   │   ├── HomeController.java
-        │   │   ├── ClienteController.java
-        │   │   ├── EmpleadoController.java
-        │   │   └── ProductoController.java
-        │   ├── entity/                  (sin cambios)
-        │   └── repository/             (sin cambios)
-        └── resources/
-            ├── application.properties  (sin cambios)
-            ├── import.sql              (sin cambios)
-            └── templates/              ← NUEVO en Reto 2
-                ├── fragments/
-                │   └── layout.html
-                ├── index.html
-                ├── clientes/
-                │   └── lista.html
-                ├── empleados/
-                │   └── lista.html
-                └── productos/
-                    └── lista.html
+src/
+└── main/
+    ├── java/com/iesdoctorbalmis/spring/
+    │   ├── Application.java
+    │   ├── controller/             ← NUEVO en Reto 2
+    │   │   ├── HomeController.java
+    │   │   ├── ClienteController.java
+    │   │   ├── EmpleadoController.java
+    │   │   └── ProductoController.java
+    │   ├── entity/                 (sin cambios)
+    │   └── repository/             (sin cambios)
+    └── resources/
+        ├── application.properties  (sin cambios)
+        ├── import.sql              (sin cambios)
+        └── templates/              ← NUEVO en Reto 2
+            ├── fragments/
+            │   └── layout.html
+            ├── index.html
+            ├── clientes/
+            │   └── lista.html
+            ├── empleados/
+            │   └── lista.html
+            └── productos/
+                └── lista.html
 ```
 
 ---
@@ -303,7 +296,7 @@ mvn spring-boot:run
 
 ## ✅ Entregable
 
-El proyecto `erpbalmis_2` debe tener:
+El proyecto debe tener:
 - `pom.xml` con la dependencia `spring-boot-starter-thymeleaf`
 - Cuatro controladores en el paquete `controller/`
 - Fragmento de layout en `templates/fragments/layout.html`
@@ -312,8 +305,29 @@ El proyecto `erpbalmis_2` debe tener:
 - Servidor ejecutándose en `http://localhost:9000` mostrando el panel de control
 - Navegación funcional entre todas las secciones
 
-<!-- 
-## Repositorio
+### Requisitos de entrega
 
-[github.com/lestan-balmis/sge-reto2](https://github.com/lestan-balmis/sge-reto2)
--->
+1. **Repositorio Git:** Crea un repositorio en tu organización con el nombre **Reto2_Apellido1_Nombre** (ejemplo: **Reto2_Estañ_Luis**)
+
+2. **Commits en Git:** 
+   - Realiza commits necesarios conforme avanzas en el reto.
+   - Usa mensajes descriptivos (ej: "Reto 2: La Vista")
+   - Usa Control de Código Fuente en VSCode para hacer commit y push
+
+3. **.gitignore:** Asegúrate de que tu repositorio incluya un `.gitignore` con contenido mínimo:
+   ```
+   target/
+   .DS_Store
+   .vscode/
+   .idea/
+   *.log
+   ```
+
+4. **README.md:** Incluye un archivo `README.md` con:
+   - Título del reto
+   - Descripción breve
+   - Instrucciones para ejecutar la aplicación
+
+5. **Push al repositorio:** Sube todos tus cambios a la rama `main` de tu repositorio remoto antes de la fecha de entrega
+
+6. **Acceso al profesor:** Asegúrate de que tu profesor tiene acceso a tu organización para revisar el trabajo

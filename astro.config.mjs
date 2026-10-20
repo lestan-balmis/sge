@@ -86,7 +86,9 @@ const ALL_MODULES = {
 	],
 	spring: [
 		{ label: 'UD4 — Introducción a Spring Boot', slug: 'spring/ud4' },
-		{ label: 'UD5 — Spring MVC, REST y Arquitectura por Capas', slug: 'spring/ud5' },
+		{ label: 'UD5a — Spring MVC y Thymeleaf', slug: 'spring/ud5a' },
+		{ label: 'UD5b — De MVC a REST', slug: 'spring/ud5b' },
+		{ label: 'UD5c — DTOs, validación y arquitectura por capas', slug: 'spring/ud5c' },
 		{ label: 'UD6 — Formularios Web con Thymeleaf', slug: 'spring/ud6' },
 		{ label: 'UD7 — Módulos Avanzados y Dashboard', slug: 'spring/ud7' },
 		{ label: 'UD8 — Despliegue, IA y Cloud', slug: 'spring/ud8' },

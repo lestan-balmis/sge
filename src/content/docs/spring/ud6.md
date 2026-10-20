@@ -9,7 +9,7 @@ description: Formularios MVC con Thymeleaf (Reto 4), relaciones JPA y workflows 
 ---
 
 > **Herramientas:** Spring MVC, Thymeleaf, Bean Validation, Bootstrap  
-> **Prerequisito:** [UD5 — Spring MVC, REST y Arquitectura por Capas](/sge/spring/ud5)  
+> **Prerequisito:** [UD5c — DTOs, validación y arquitectura por capas](/sge/spring/ud5c)  
 > **Objetivo:** Añadir formularios HTML completos para alta, edición y baja de registros; integrar Bean Validation en la capa MVC; y gestionar el flujo POST-Redirect-GET con mensajes de confirmación.
 
 ---

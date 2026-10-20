@@ -88,7 +88,7 @@ List<Contacto> findByClienteId(Long clienteId);
 
 ## Paso 3 — DTOs
 
-> **Concepto:** El patrón DTO y sus ventajas se explican en [UD5 — sección 10](/sge/spring/ud5#10-el-patrón-dto).
+> **Concepto:** El patrón DTO y sus ventajas se explican en [UD5c — sección 10](/sge/spring/ud5c#10-el-patrón-dto).
 
 ### ClienteDTO (respuesta)
 

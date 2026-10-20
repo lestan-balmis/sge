@@ -23,7 +23,8 @@ Transformarás el Reto 0 añadiendo:
 
 ### 1. Prepara el Reto 0 para evolucionar
 
-Desde tu carpeta de trabajo **workspace-spring** copia tu carpeta **spring** con el nombre **reto0** y modificamos el proyecto original **spring** desde el IDE de VSCode. Mueve las entidades de `model/` a `entity/` y actualiza los `package`:
+- Desde tu carpeta de trabajo **workspace-spring**, haz una copia de tu carpeta **spring**, manteniendo el nombre por defecto de **spring - copia**. Cambia el nombre del proyecto original **spring** por **reto0**, y cambia también el nombre de **spring - copia** por **spring**. 
+- Desde el IDE de VSCode, mueve las entidades de `model/` a `entity/`, asegurándote que se han actualizado los `package`:
 
 ```java
 // Cambiar de:
@@ -359,8 +360,8 @@ Edita normalmente en VSCode mientras trabajas en el Reto 1.
 ### Paso 2: Haz commit
 
 1. En la barra lateral izquierda, haz clic en **Control de Código Fuente** (icono de rama con círculos)
-2. Verás los archivos modificados (en rojo)
-3. En el cuadro de texto superior, escribe un **mensaje descriptivo** (ej: "Añadir anotaciones JPA a Cliente")
+2. Verás los archivos modificados (en un círculo azul)
+3. En el cuadro de texto superior, escribe un **mensaje descriptivo** (ej: "Reto 1: De la Semilla a la Raíz")
 4. Presiona **Ctrl+Enter** o haz clic en el icono ✓ para hacer **Confirmación** (commit local)
 
 ### Paso 3: Haz push
@@ -369,10 +370,6 @@ Edita normalmente en VSCode mientras trabajas en el Reto 1.
 2. Haz clic en él para hacer **push** (subir tu código a GitHub)
 3. En la parte inferior de VSCode, verás el progreso del deploy automático
 
-### Paso 4: Verifica que funcionó
-
-- En la parte inferior de VSCode, verás un indicador verde (✅) cuando el deploy esté completado
-- El número de cambio aumentará (ej: 159 → 160)
 
 ---
 
