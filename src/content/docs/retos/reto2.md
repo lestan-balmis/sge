@@ -167,7 +167,6 @@ El **fragmento de layout** es una plantilla maestra que define la estructura HTM
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
 </head>
 <body>
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" th:href="@{/}">ERP Balmis</a>
@@ -186,15 +185,12 @@ El **fragmento de layout** es una plantilla maestra que define la estructura HTM
             </div>
         </div>
     </nav>
-
     <main class="container py-4">
         <th:block th:replace="${content}" />
     </main>
-
     <footer class="text-center py-3 border-top">
         <p class="mb-0">ERP Balmis — IES Doctor Balmis · Módulo SGE</p>
     </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
