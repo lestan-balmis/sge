@@ -95,6 +95,7 @@ public class HomeController {
     private final EmpleadoRepository empleadoRepository;
     private final ProductoRepository productoRepository;
 
+    // Inyección por constructor
     public HomeController(ClienteRepository clienteRepository,
                           EmpleadoRepository empleadoRepository,
                           ProductoRepository productoRepository) {
@@ -127,6 +128,7 @@ public class ClienteController {
 
     private final ClienteRepository clienteRepository;
 
+    // Inyección por constructor
     public ClienteController(ClienteRepository clienteRepository) {
         this.clienteRepository = clienteRepository;
     }
