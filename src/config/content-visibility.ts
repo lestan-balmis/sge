@@ -7,12 +7,12 @@
 export const VISIBLE_MODULES = [
 	'presentacion',           
 
-	// Fase Odoo
+	// Odoo
 	'odoo/ud1',
 	'odoo/ud2',
 	'odoo/ud3',
 
-	// Fase Spring Boot
+	// Spring Boot
 	'spring/ud4',
 	// 'spring/ud5a',
 	// 'spring/ud5b',
@@ -21,7 +21,7 @@ export const VISIBLE_MODULES = [
 	// 'spring/ud7',
 	// 'spring/ud8',
 
-	// Fase Retos ERP Balmis
+	// Retos ERP Balmis
 	'retos/reto0',
 	'retos/reto1',
 	// 'retos/reto2',

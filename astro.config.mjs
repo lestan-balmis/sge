@@ -221,21 +221,21 @@ export default defineConfig({
 				// Fase Odoo - Solo si hay items visibles
 				...(filterVisibleItems(ALL_MODULES.odoo).length > 0 ? [
 					{
-						label: 'Fase Odoo',
+						label: 'Odoo',
 						items: filterVisibleItems(ALL_MODULES.odoo),
 					},
 				] : []),
 				// Fase Spring Boot - Solo si hay items visibles
 				...(filterVisibleItems(ALL_MODULES.spring).length > 0 ? [
 					{
-						label: 'Fase Spring Boot',
+						label: 'Spring Boot',
 						items: filterVisibleItems(ALL_MODULES.spring),
 					},
 				] : []),
 				// Fase Retos ERP Balmis - Solo si hay items visibles
 				...(filterVisibleItems(ALL_MODULES.retos).length > 0 ? [
 					{
-						label: 'Fase Retos — ERP Balmis',
+						label: 'Retos - ERP Balmis',
 						items: filterVisibleItems(ALL_MODULES.retos),
 					},
 				] : []),
