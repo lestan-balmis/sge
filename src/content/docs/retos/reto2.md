@@ -88,6 +88,15 @@ Un `@Controller` en Spring MVC es una clase que:
 El controlador de inicio muestra el panel de control con los totales de cada entidad.
 
 ```java
+package com.iesdoctorbalmis.spring.controller;
+
+import com.iesdoctorbalmis.spring.repository.ClienteRepository;
+import com.iesdoctorbalmis.spring.repository.EmpleadoRepository;
+import com.iesdoctorbalmis.spring.repository.ProductoRepository;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
 @Controller
 public class HomeController {
 
@@ -122,6 +131,14 @@ public class HomeController {
 ### ClienteController
 
 ```java
+package com.iesdoctorbalmis.spring.controller;
+
+import com.iesdoctorbalmis.spring.repository.ClienteRepository;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 @Controller
 @RequestMapping("/clientes")
 public class ClienteController {
@@ -143,10 +160,64 @@ public class ClienteController {
 
 `@RequestMapping("/clientes")` en la clase define el prefijo de ruta para todos los métodos del controlador. El `@GetMapping` sin parámetro responde a `GET /clientes`.
 
-### EmpleadoController y ProductoController
+### ProductoController y EmpleadoController
 
 Siguen exactamente el mismo patrón que `ClienteController`, adaptando el repositorio y la plantilla correspondientes.
 
+```java
+package com.iesdoctorbalmis.spring.controller;
+
+import com.iesdoctorbalmis.spring.repository.ProductoRepository;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/productos")
+public class ProductoController {
+
+    private final ProductoRepository productoRepository;
+
+    public ProductoController(ProductoRepository productoRepository) {
+        this.productoRepository = productoRepository;
+    }
+
+    @GetMapping
+    public String lista(Model model) {
+        model.addAttribute("productos", productoRepository.findAll());
+        return "productos/lista";
+    }
+}
+```
+
+```java
+package com.iesdoctorbalmis.spring.controller;
+
+import com.iesdoctorbalmis.spring.repository.EmpleadoRepository;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/empleados")
+public class EmpleadoController {
+
+    private final EmpleadoRepository empleadoRepository;
+
+    public EmpleadoController(EmpleadoRepository empleadoRepository) {
+        this.empleadoRepository = empleadoRepository;
+    }
+
+    @GetMapping
+    public String lista(Model model) {
+        model.addAttribute("empleados", empleadoRepository.findAll());
+        return "empleados/lista";
+    }
+}
+
+```
 ---
 
 ## 4. Plantillas Thymeleaf
