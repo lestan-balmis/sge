@@ -356,7 +356,7 @@ En `static/css/balmis.css`, Spring Boot sirve automáticamente los archivos de `
 }
 
 #logo_GVA {
-    margin-top: 10px;
+	margin-top: 10px;
 	margin-bottom: 10px;
 }
 
@@ -365,7 +365,7 @@ En `static/css/balmis.css`, Spring Boot sirve automáticamente los archivos de `
   font-weight: bold;
   text-align: center;
   margin-top: 15px;
-  color: #0B2545;
+  color: var(--balmis-navy);
 }
 
 body.balmis-body {
