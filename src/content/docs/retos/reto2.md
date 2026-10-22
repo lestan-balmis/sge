@@ -770,7 +770,9 @@ mvn spring-boot:run
 
 ---
 
-## 7. Realización de Reto2 - Cabecera
+## 7. Pasos para la realización del Reto2
+
+### Paso 1. - Cabecera
 
 Creamos la carpeta o package `controller` desde `com.iesdoctorbalmis.spring`.
 
