@@ -323,7 +323,7 @@ El **fragmento de layout** es una plantilla maestra que define la estructura HTM
 
 ### Contenido de la carpeta static
 
-- Descargamos el fichero <a href="/sge/reto2_static.zip" target="_blank" style="display: inline-block; margin-top: 1rem; padding: 0.25rem 0.25rem; background-color: #3f51b5; color: white; border-radius: 4px; text-decoration: none;">reto2_static.zip</a>
+- Descargamos el fichero <a href="/sge/reto2_static.zip" target="_blank" style="display: inline-block; margin-top: 1rem; padding: 0rem 0.25rem; background-color: #3f51b5; color: white; border-radius: 4px; text-decoration: none;">reto2_static.zip</a>
 - Después de descomprimirlo, copiamos el contenido de la carpeta `static` a la del proyecto, que se encuentra dentro de `resources`.
 
 ### Hoja de estilos del tema
