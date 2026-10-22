@@ -98,11 +98,11 @@ public class ClienteController {
 
 | Atributo | Función | Ejemplo |
 |---|---|---|
-| `th:text` | Sustituye el texto del elemento | `<span th:text="${cliente.nombre}">placeholder</span>` |
-| `th:each` | Bucle sobre una colección | `<tr th:each="c : ${clientes}">` |
-| `th:href` | URL dinámica generada por Spring | `<a th:href="@{/clientes/{id}(id=${c.id})}">Ver</a>` |
+| `th:text` | Sustituye el texto del elemento | `<span th:text="${cliente.nombre}">Nombre</span>` |
+| `th:each` | Bucle sobre una colección | `<tr th:each="cliente : ${clientes}">` |
+| `th:href` | URL dinámica generada por Spring | `<a th:href="@{/clientes/{id}(id=${cliente.id})}">Ver</a>` |
 | `th:if` / `th:unless` | Renderizado condicional | `<p th:if="${#lists.isEmpty(lista)}">Sin resultados</p>` |
-| `th:classappend` | Añade clase CSS de forma condicional | `th:classappend="${activo} ? 'bg-success'"` |
+| `th:classappend` | Añade clase CSS de forma condicional | `th:classappend="${activo} ? 'bg-success' : 'bg-danger'"` |
 | `th:replace` | Sustituye el elemento con un fragmento | `th:replace="~{fragments/layout :: navbar}"` |
 | `th:fragment` | Declara un fragmento reutilizable | `th:fragment="navbar"` |
 | `th:action` | URL del formulario | `<form th:action="@{/clientes}" method="post">` |
@@ -151,7 +151,7 @@ Thymeleaf gestiona automáticamente el contexto de la aplicación con la sintaxi
 <a th:href="@{/clientes}">Ver todos</a>
 
 <!-- Ruta con variable de path -->
-<a th:href="@{/clientes/{id}(id=${c.id})}">Detalle</a>
+<a th:href="@{/clientes/{id}(id=${cliente.id})}">Detalle</a>
 
 <!-- Ruta con parámetro de query -->
 <a th:href="@{/clientes(tipo='ACTIVO')}">Activos</a>
