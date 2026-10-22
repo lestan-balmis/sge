@@ -14,7 +14,7 @@ export const VISIBLE_MODULES = [
 
 	// Spring Boot
 	'spring/ud4',
-	// 'spring/ud5a',
+	'spring/ud5a',
 	// 'spring/ud5b',
 	// 'spring/ud5c',
 	// 'spring/ud6',
@@ -24,7 +24,7 @@ export const VISIBLE_MODULES = [
 	// Retos ERP Balmis
 	'retos/reto0',
 	'retos/reto1',
-	// 'retos/reto2',
+	'retos/reto2',
 	// 'retos/reto3',
 	// 'retos/reto4',
 	// 'retos/reto5',
