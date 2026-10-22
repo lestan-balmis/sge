@@ -770,6 +770,104 @@ mvn spring-boot:run
 
 ---
 
+## 7. Realización de Reto2 - Cabecera
+
+Creamos la carpeta o package `controller` desde `com.iesdoctorbalmis.spring`.
+
+Dentro de `controller`creamos el fichero `HomeController.java` con el siguiente contenido:
+
+```java
+package com.iesdoctorbalmis.spring.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller 
+public class HomeController {
+
+    @GetMapping("/")
+    public String home() {
+        return "index";
+    }
+    
+}
+```
+
+Dentro de la carpeta `templates`, que se encuentra en `resources`, creamos la carpeta `fragments`, y dentro de esa carpeta, creamos el fichero `layout.html` con el siguiente contenido:
+
+```html
+<!-- templates/fragments/layout.html -->
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      th:fragment="layout(title, content)">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title th:replace="${title}">ERP Balmis</title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" th:href="@{/css/balmis.css}" />
+</head>
+<body class="balmis-body">
+    <div class="container-fluid h-custom">
+        <div class="row d-flex justify-content-center h-100">      
+            <div style="text-align: left;" class="col-md-8 col-lg-6 col-xl-2">
+                <img id="logo_IES" src="/img/Logo_IES.png" class="img-fluid" alt="Logo_IES" />
+            </div>
+            <div class="col-md-8 col-lg-6 col-xl-8">
+                <div class="jumbotron">
+                    <p><i class="bi bi-compass"></i> ERP Balmis</p>
+                </div>
+            </div>
+            <div style="text-align: right;" class="col-md-8 col-lg-6 col-xl-2">
+                <img id="logo_GVA" src="/img/gva.png" class="img-fluid" alt="Logo_GVA" />
+            </div>
+        </div>
+    </div>
+    <main class="container-fluid px-4 py-4">
+        <th:block th:replace="${content}" />
+    </main>
+    <footer class="balmis-footer text-center py-3">
+        <p class="mb-0">⚓ ERP Balmis — IES Doctor Balmis · Módulo SGE</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+```
+
+Descargamos el fichero <a href="/sge/ud5/reto2_static.zip" target="_blank" style="display: inline-block; margin-top: 1rem; padding: 0rem 0.25rem; background-color: #3f51b5; color: white; border-radius: 4px; text-decoration: none;">reto2_static.zip</a>
+
+Después de descomprimirlo, copiamos el contenido de la carpeta `static` a la del proyecto, que se encuentra dentro de `resources`.
+
+Dentro de la carpeta `templates`, creamos el fichero `index.html` con el siguiente contenido:
+
+```html
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout(~{::title}, ~{::main-content})}">
+<head>
+    <title>Panel de control — ERP Balmis</title>
+</head>
+<body>
+<th:block th:fragment="main-content">
+    <!-- Aquí va el contenido específico del Panel de control -->
+</th:block>
+</body>
+</html>
+```
+
+Ahora ya podemos ejecutarlo, de forma gráfica, desde el icono lateral de `Spring Boot Dashboard`, o desde el terminal.
+
+```bash
+mvn spring-boot:run
+```
+
+Si todo va bien, desde el navegador ponemos `localhost:9000` o `localhost:9000/` y tendrá que aparecer la cabecera.
+
+![Cabecera del reto 2](/sge/ud5/reto2_cabecera.png)
+
 ## ✅ Entregable
 
 El proyecto debe tener:
