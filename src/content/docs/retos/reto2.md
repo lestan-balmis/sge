@@ -47,8 +47,11 @@ src/
         ├── application.properties  (sin cambios)
         ├── import.sql              (sin cambios)
         ├── static/                 ← NUEVO en Reto 2
-        │   └── css/
-        │       └── balmis.css
+        │   ├── css/
+        │   │   └── balmis.css
+        │   └── img/
+        │       ├── Logo_IES.png
+        │       └── gva.png    
         └── templates/              ← NUEVO en Reto 2
             ├── fragments/
             │   └── layout.html
