@@ -71,8 +71,8 @@ public class HomeController {
 **Puntos clave:**
 - La anotación `@Controller` para indicar que vamos a realizar un controlador.
 - La anotación `@GetMapping` para indicar que vamos a mostrar una página.
+- `("/")` que nos indica el recurso implicado.
 - `public String home()` recoge las acciones que se van a hacer.
-- El recurso `("/")` que nos indica el recurso implicado.
 - `return "index"` indica a Thymeleaf que busque y muestre `templates/index.html`.
 - En general, cuando el recurso sea el directorio raíz del proyecto `/`, tan solo se cargará la página `index.html`
 
