@@ -327,7 +327,7 @@ mvn spring-boot:run
 
 Si todo va bien, desde el navegador ponemos `localhost:9000` o `localhost:9000/` y tendrá que aparecer la cabecera.
 
-![Panel de control del reto 2](/sge/ud5/reto2_06_index.png)
+![Panel de control del reto 2](/sge/ud5/a/reto2_06_index.png)
 
 ## 7. Continuación a Controladores MVC
 
@@ -476,15 +476,15 @@ mvn spring-boot:run
 
 Desde el navegador ponemos `localhost:9000/clientes` y tendrá que aparecer la página básica de Clientes.
 
-![Clientes del reto 2](/sge/ud5/reto2_09_clientes.png)
+![Clientes del reto 2](/sge/ud5/a/reto2_09_clientes.png)
 
 Desde el navegador ponemos `localhost:9000/empleados` y tendrá que aparecer la página básica de Empleados.
 
-![Empleados del reto 2](/sge/ud5/reto2_09_empleados.png)
+![Empleados del reto 2](/sge/ud5/a/reto2_09_empleados.png)
 
 Desde el navegador ponemos `localhost:9000/productos` y tendrá que aparecer la página básica de Productos.
 
-![Productos del reto 2](/sge/ud5/reto2_09_productos.png)
+![Productos del reto 2](/sge/ud5/a/reto2_09_productos.png)
 
 ## 10. Ampliar las Plantillas Thymeleaf
 
@@ -629,15 +629,15 @@ mvn spring-boot:run
 
 Desde el navegador ponemos `localhost:9000/clientes` y tendrá que aparecer la cabecera de Clientes sin los datos.
 
-![Clientes del reto 2](/sge/ud5/reto2_11_clientes.png)
+![Clientes del reto 2](/sge/ud5/a/reto2_11_clientes.png)
 
 Desde el navegador ponemos `localhost:9000/empleados` y tendrá que aparecer la cabecera de Empleados sin los datos.
 
-![Empleados del reto 2](/sge/ud5/reto2_11_empleados.png)
+![Empleados del reto 2](/sge/ud5/a/reto2_11_empleados.png)
 
 Desde el navegador ponemos `localhost:9000/productos` y tendrá que aparecer la cabecera de Productos sin los datos.
 
-![Productos del reto 2](/sge/ud5/reto2_11_productos.png)
+![Productos del reto 2](/sge/ud5/a/reto2_11_productos.png)
 
 ## 12. Terminar los Controladores MVC
 
@@ -937,15 +937,15 @@ mvn spring-boot:run
 
 Desde el navegador ponemos `localhost:9000/clientes` y tendrá que aparecer la página completa de Clientes con los datos.
 
-![Clientes del reto 2](/sge/ud5/reto2_14_clientes.png)
+![Clientes del reto 2](/sge/ud5/a/reto2_14_clientes.png)
 
 Desde el navegador ponemos `localhost:9000/empleados` y tendrá que aparecer la página completa de  Empleados con los datos.
 
-![Empleados del reto 2](/sge/ud5/reto2_14_empleados.png)
+![Empleados del reto 2](/sge/ud5/a/reto2_14_empleados.png)
 
 Desde el navegador ponemos `localhost:9000/productos` y tendrá que aparecer la página completa de  Productos con los datos.
 
-![Productos del reto 2](/sge/ud5/reto2_14_productos.png)
+![Productos del reto 2](/sge/ud5/a/reto2_14_productos.png)
 
 ## 15. Terminar el Reto 2
 
@@ -1358,17 +1358,17 @@ mvn spring-boot:run
 
 Desde el navegador ponemos `localhost:9000` y tendrá que aparecer la página principal con el Panel de control completo.
 
-![Index del reto 2](/sge/ud5/reto2_16_index.png)
+![Index del reto 2](/sge/ud5/a/reto2_16_index.png)
 
 Ahora para ver el resto de páginas no hace falta que escribamos nada en el cuadro del navegador, ya que podemos usar los enlaces de las tarjetas y el menú de navegación.
 
-![Clientes del reto 2](/sge/ud5/reto2_16_clientes.png)
+![Clientes del reto 2](/sge/ud5/a/reto2_16_clientes.png)
 
 
-![Empleados del reto 2](/sge/ud5/reto2_16_empleados.png)
+![Empleados del reto 2](/sge/ud5/a/reto2_16_empleados.png)
 
 
-![Productos del reto 2](/sge/ud5/reto2_16_productos.png)
+![Productos del reto 2](/sge/ud5/a/reto2_16_productos.png)
 
 ## 17. Entrega del Reto 2
 
