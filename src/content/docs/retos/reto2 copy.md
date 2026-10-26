@@ -660,7 +660,7 @@ En `productos/lista` completamos el contenido específico de la lista de product
 </div>
 ```
 
-Fila de cada empleado, con formateo de números decimales para los precios y badge de si está activo (va dentro de `<tbody>`):
+Fila de cada producto, con iteración, formateo de números decimales para los precios y badge de si está activo (va dentro de `<tbody>`):
 
 ```html
 <tr th:each="producto : ${productos}">
@@ -674,7 +674,7 @@ Fila de cada empleado, con formateo de números decimales para los precios y bad
         <span class="badge"
               th:classappend="${producto.activo} ? 'bg-success' : 'bg-secondary'"
               th:text="${producto.activo} ? 'Sí' : 'No'"></span>
-        </td>
+    </td>
 </tr>
 ```
 
