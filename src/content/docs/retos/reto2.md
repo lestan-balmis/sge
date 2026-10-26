@@ -1328,7 +1328,6 @@ Dentro de `templates` terminamos el fichero `index.html` mostrando una tarjeta p
 Añadimos el identificador `portada` en la hoja de estilos `balmis.css` que está en la carpeta `css` de `static`.
 
 ```css
-
 #logo_GVA {
     margin-top: 10px;
 	margin-bottom: 10px;
@@ -1347,7 +1346,6 @@ Añadimos el identificador `portada` en la hoja de estilos `balmis.css` que est�
   margin-top: 15px;
   color: #0B2545;
 }
-
 ```
 
 ## 16. Ejecución Parte 5 con el Reto 2 completo
