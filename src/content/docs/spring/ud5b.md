@@ -168,7 +168,7 @@ public class Cliente {
 
 ### El problema: Ciclos infinitos con relaciones JPA
 
-Cuando una entidad tiene una relación bidireccional (`@OneToMany` ↔ `@ManyToOne`), Jackson puede entrar en un bucle infinito al intentar serializar. La solución es usar **DTOs** (ver [sección 10](/sge/spring/ud5c#10-el-patrón-dto)).
+Cuando una entidad tiene una relación bidireccional (`@OneToMany` ↔ `@ManyToOne`), Jackson puede entrar en un bucle infinito al intentar serializar. La solución es usar **DTOs**, que veremos en el proximo apartado **ud5c**.
 
 ---
 
@@ -181,4 +181,4 @@ Con `@RestController`, `ResponseEntity` y Jackson tienes todo para añadir una p
 > - Crear `ClienteRestController` y `ProductoRestController`
 > - Endpoints GET que devuelven JSON
 > - Respuesta 404 correcta con `ResponseEntity`
-> - Verificar con Postman
+> - Verificar desde el navegador o con Postman

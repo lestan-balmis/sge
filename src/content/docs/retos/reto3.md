@@ -5,8 +5,6 @@ description: Transformar los controladores MVC del Reto 2 en una primera API RES
 
 > **Reto anterior:** [Reto 2 — La Vista](/sge/retos/reto2)
 
----
-
 ## 📌 Resumen del Reto
 
 Añadirás una capa de API REST al proyecto del Reto 2:
@@ -14,46 +12,20 @@ Añadirás una capa de API REST al proyecto del Reto 2:
 - **Endpoints GET JSON:** Clientes y Productos devueltos en formato JSON
 - **404 con `ResponseEntity`:** Respuesta HTTP correcta cuando el recurso no existe
 - **Coexistencia MVC + REST:** Las vistas Thymeleaf y la API comparten los mismos repositorios
-- **Postman:** Verificación de los endpoints con la herramienta de API
-
----
+- **Navegador:** Verificación de los endpoints con la herramienta de API
 
 > **Conceptos teóricos:** La diferencia entre `@Controller` y `@RestController`, Jackson y los códigos de estado HTTP se explican en [UD5b — secciones 5 a 8](/sge/spring/ud5b).
-
----
 
 ## 1. Preparación
 
 ### Crea una copia del proyecto
-
-1. Copia la carpeta `erpbalmis_2` (del Reto 2) y nómbrala `erpbalmis_3`
-2. Trabajaremos sobre `erpbalmis_3` añadiendo la capa REST
-
-La estructura final del proyecto será:
-
-```
-erpbalmis_3/
-└── src/
-    └── main/
-        └── java/com/iesdoctorbalmis/spring/
-            ├── Application.java
-            ├── controller/              (sin cambios — MVC del Reto 2)
-            │   ├── HomeController.java
-            │   ├── ClienteController.java
-            │   ├── EmpleadoController.java
-            │   └── ProductoController.java
-            ├── controller/rest/         ← NUEVO en Reto 3
-            │   ├── ClienteRestController.java
-            │   └── ProductoRestController.java
-            ├── entity/                  (sin cambios)
-            └── repository/             (sin cambios)
-```
-
-> El pom.xml, application.properties, import.sql y las plantillas Thymeleaf no cambian.
-
----
+- Desde tu carpeta de trabajo **workspace-spring**, haz una copia de tu carpeta **spring**, manteniendo el nombre por defecto de **spring - copia**. Cambia el nombre del proyecto original **spring** por **reto2**, y cambia también el nombre de **spring - copia** por **spring**. 
+- Desde el IDE de VSCode, añadiremos la capa REST
 
 ## 2. `ClienteRestController`
+
+Dentro de la carpeta `controller` creamos la carpeta `rest`.
+Dentro de la carpeta `rest` creamos el fichero `ClienteRestController.java` con el siguiente contenido:
 
 ```java
 package com.iesdoctorbalmis.spring.controller.rest;
@@ -96,17 +68,16 @@ public class ClienteRestController {
 }
 ```
 
-### Puntos clave
-
+**Puntos clave:**
 - **`@RestController`:** combina `@Controller` y `@ResponseBody`. Todo método devuelve el objeto serializado como JSON por Jackson (incluido automáticamente con `spring-boot-starter-webmvc`).
 - **`/api/clientes`:** prefijo `api/` para distinguir los endpoints REST de las rutas MVC.
 - **`ResponseEntity<Cliente>`:** permite controlar el código HTTP de respuesta. `ResponseEntity.ok(cliente)` devuelve 200, `ResponseEntity.notFound().build()` devuelve 404 sin cuerpo.
 - **`@PathVariable Long id`:** extrae el valor `{id}` de la URL y lo inyecta como parámetro.
 - **`findById(id).map(...).orElse(...)`:** patrón idiomático con `Optional` — si existe el cliente lo envuelve en 200, si no devuelve 404.
 
----
-
 ## 3. `ProductoRestController`
+
+Dentro de la carpeta `rest` creamos el fichero `ProductoRestController.java` con el siguiente contenido:
 
 ```java
 package com.iesdoctorbalmis.spring.controller.rest;
@@ -138,8 +109,6 @@ public class ProductoRestController {
     }
 }
 ```
-
----
 
 ## 4. Ejemplos de respuesta JSON
 
@@ -176,15 +145,12 @@ Ejemplo de respuesta de `GET /api/clientes` (lista):
 ]
 ```
 
----
+## 5. Ejecución
 
-## 5. Verificación
+Ejecutamos de forma gráfica con el icono lateral de `Spring Boot Dashboard`, o desde el terminal.
 
 ```bash
 # Compilar
-mvn clean compile
-
-# Ejecutar
 mvn spring-boot:run
 ```
 
@@ -205,32 +171,66 @@ Las rutas MVC del Reto 2 siguen funcionando. Se añaden los nuevos endpoints RES
 
 ### Prueba en el navegador
 
-Los endpoints GET se pueden probar directamente en el navegador — verás el JSON en la pantalla (puede que necesites una extensión como JSONViewer para formatearlo).
+Los endpoints GET se pueden probar directamente en el navegador y verse el JSON en la pantalla.
 
-### Prueba con Postman
-
-1. Abre Postman y crea una nueva colección **"ERP Balmis — Reto 3"**
-2. Añade estas peticiones:
+Se pueden probar estas peticiones:
    - `GET http://localhost:9000/api/clientes`
    - `GET http://localhost:9000/api/clientes/1`
    - `GET http://localhost:9000/api/clientes/999` ← debe devolver **404**
    - `GET http://localhost:9000/api/productos`
-3. Ejecuta cada una y comprueba el código HTTP y el cuerpo de la respuesta
+
+## 6. Entrega del Reto 3
+
+### Estructura esperada
+
+La estructura final del proyecto será:
+
+```
+src/
+└── main/
+    ├── java/com/iesdoctorbalmis/spring/
+    │   ├── Application.java
+    │   ├── controller/              (sin cambios — MVC del Reto 2)
+    │   │   ├── HomeController.java
+    │   │   ├── ClienteController.java
+    │   │   ├── EmpleadoController.java
+    │   │   └── ProductoController.java
+    │   ├── controller/rest/         ← NUEVO en Reto 3
+    │   │   ├── ClienteRestController.java
+    │   │   └── ProductoRestController.java
+    │   ├── entity/                  (sin cambios)
+    │   └── repository/              (sin cambios)
+    └── resources/                   (sin cambios — MVC del Reto 2)
+```
+
+> El pom.xml, application.properties, import.sql y las plantillas Thymeleaf no cambian.
+
+
+### Requisitos de entrega
+
+1. **Repositorio Git:** Crea un repositorio en tu organización con el nombre **Reto2_Apellido1_Nombre** (ejemplo: **Reto3_Estañ_Luis**)
+
+2. **Commits en Git:** 
+   - Realiza commits necesarios conforme avanzas en el reto.
+   - Usa mensajes descriptivos (ej: "Añadir anotaciones JPA", "Configurar H2 database", etc.)
+   - Usa Control de Código Fuente en VSCode para hacer commit y push
+
+3. **.gitignore:** Asegúrate de que tu repositorio incluya un `.gitignore` con contenido mínimo:
+   ```
+   target/
+   .DS_Store
+   .vscode/
+   .idea/
+   *.log
+   ```
+
+4. **README.md:** Incluye un archivo `README.md` con:
+   - Título del reto
+   - Descripción breve
+   - Instrucciones para ejecutar la aplicación
+
+5. **Push al repositorio:** Sube todos tus cambios a la rama `main` de tu repositorio remoto antes de la fecha de entrega
+
+6. **Acceso al profesor:** Asegúrate de que tu profesor tiene acceso a tu organización para revisar el trabajo
 
 ---
-
-## ✅ Entregable
-
-El proyecto `erpbalmis_3` debe tener:
-- Carpeta `controller/rest/` con `ClienteRestController.java` y `ProductoRestController.java`
-- Los controladores MVC del Reto 2 sin modificar (coexistencia)
-- `GET /api/clientes` devuelve la lista JSON de clientes
-- `GET /api/clientes/{id}` devuelve el cliente en JSON o 404
-- `GET /api/productos` devuelve la lista JSON de productos
-- Verificación en Postman con capturas de pantalla de los cuatro endpoints
-
-<!-- 
-## Repositorio
-
-[github.com/lestan-balmis/sge-reto3](https://github.com/lestan-balmis/sge-reto3)
--->

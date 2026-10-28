@@ -41,9 +41,9 @@ Exponer la entidad JPA en la API tiene tres problemas:
 Usamos dos DTOs para el módulo de clientes:
 
 ```
-Request (entrada) ──→  ClienteRequestDTO  ──→  Controller  ──→  Service  ──→  ClienteRepository  ──→  BD
+Request (entrada) ──>  ClienteRequestDTO  ──>  Controller  ──>  Service  ──>  ClienteRepository  ──>  BD
                                                                                         │
-Response (salida) ←──  ClienteDTO         ←──  Controller  ←──  Service ←────────────┘
+Response (salida) <──  ClienteDTO         <──  Controller  <──  Service <───────────────┘
 ```
 
 **DTO de respuesta** (`ClienteDTO`) — controla qué se expone:
@@ -140,7 +140,7 @@ En los Retos 0-3 el controlador accedía directamente al repositorio. Eso funcio
 La solución es la **capa de servicio**:
 
 ```
-Controller  ──→  Service  ──→  Repository  ──→  BD
+Controller  ──>  Service  ──>  Repository  ──>  BD
 (HTTP)           (negocio)     (persistencia)
 ```
 
@@ -352,8 +352,8 @@ La entidad `Contacto` pertenece a un `Cliente`. Esta es la relación más frecue
 
 ```
 Tabla contactos                   Tabla clientes
-──────────────────                ───────────────
-id      | cliente_id  ───FK───→  id
+────────────────────              ──────────────
+id      | cliente_id  ─── FK ───> id
 nombre  |                         nombre
 email   |                         codigoCliente
 ```

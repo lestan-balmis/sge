@@ -3,7 +3,7 @@ title: "Reto 2: La Vista"
 description: Añadir una capa de presentación web al ERP Balmis usando Thymeleaf y el patrón MVC.
 ---
 
-> **Reto anterior:** [Reto 1 — De la Semilla a la Raíz](/docs/retos/reto1)
+> **Reto anterior:** [Reto 1 — De la Semilla a la Raíz](/sge/retos/reto1)
 
 ## 📌 Resumen del Reto
 
@@ -49,7 +49,7 @@ Creamos la carpeta o package `controller` desde `com.iesdoctorbalmis.spring`.
 
 ### HomeController
 
-Dentro de `controller`creamos el fichero `HomeController.java` con el siguiente contenido básico por ahora, que **luego ampliaremos**:
+Dentro de `controller` creamos el fichero `HomeController.java` con el siguiente contenido básico por ahora, que **luego ampliaremos**:
 
 ```java
 package com.iesdoctorbalmis.spring.controller;
