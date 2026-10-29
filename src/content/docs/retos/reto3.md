@@ -174,10 +174,10 @@ Las rutas MVC del Reto 2 siguen funcionando. Se añaden los nuevos endpoints RES
 Los endpoints GET se pueden probar directamente en el navegador y verse el JSON en la pantalla.
 
 Se pueden probar estas peticiones:
-   - `GET http://localhost:9000/api/clientes`
-   - `GET http://localhost:9000/api/clientes/1`
-   - `GET http://localhost:9000/api/clientes/999` ← debe devolver **404**
-   - `GET http://localhost:9000/api/productos`
+- `http://localhost:9000/api/clientes`
+- `http://localhost:9000/api/clientes/1`
+- `http://localhost:9000/api/clientes/999` ← debe devolver **404**
+- `http://localhost:9000/api/productos`
 
 ## 6. Entrega del Reto 3
 
