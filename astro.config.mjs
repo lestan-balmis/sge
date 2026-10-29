@@ -105,9 +105,17 @@ const ALL_MODULES = {
 		{ label: 'Reto 8: Dashboard — UD7', slug: 'retos/reto8' },
 		{ label: 'Reto 9: La Nube y la IA — UD8', slug: 'retos/reto9' },
 	],
+	repaso1eval: [
+		{ label: 'Repaso 1 —  UD4 + Reto 0 + Reto 1', slug: 'repaso1eval/repaso4' },
+		{ label: 'Repaso 2 —  UD5a + Reto 2', slug: 'repaso1eval/repaso5a' },
+		{ label: 'Repaso 3 —  UD5b + Reto 3', slug: 'repaso1eval/repaso5b' },
+	],
 };
 
-// Función para filtrar items según visibilidad
+/**
+ * Función para filtrar items según visibilidad
+ * @param {{ label: string, slug: string }[]} items
+ */
 function filterVisibleItems(items) {
 	return items.filter(item => VISIBLE_MODULES.includes(item.slug));
 }
@@ -211,6 +219,7 @@ export default defineConfig({
 				},
 			],
 			components: {
+				// @ts-ignore
 				Page: './src/overrides/pages/index.astro',
 			},
 			sidebar: [
@@ -237,6 +246,13 @@ export default defineConfig({
 					{
 						label: 'Retos - ERP Balmis',
 						items: filterVisibleItems(ALL_MODULES.retos),
+					},
+				] : []),
+				// Fase Repaso 1ª Evaluación - Solo si hay items visibles
+				...(filterVisibleItems(ALL_MODULES.repaso1eval).length > 0 ? [
+					{
+						label: '1ª Evaluación - Repaso',
+						items: filterVisibleItems(ALL_MODULES.repaso1eval),
 					},
 				] : []),
 			],

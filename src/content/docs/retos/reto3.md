@@ -174,10 +174,22 @@ Las rutas MVC del Reto 2 siguen funcionando. Se añaden los nuevos endpoints RES
 Los endpoints GET se pueden probar directamente en el navegador y verse el JSON en la pantalla.
 
 Se pueden probar estas peticiones:
+
 - `http://localhost:9000/api/clientes`
+
+   ![Api Clientes del reto 3](/sge/ud5/b/reto3_api_clientes.png)
+
 - `http://localhost:9000/api/clientes/1`
+
+   ![Api Clientes 1 del reto 3](/sge/ud5/b/reto3_api_clientes_1.png)
+
 - `http://localhost:9000/api/clientes/999` ← debe devolver **404**
+
+   ![Api Clientes 999 del reto 3](/sge/ud5/b/reto3_api_clientes_999.png)
+
 - `http://localhost:9000/api/productos`
+
+   ![Api Productos del reto 3](/sge/ud5/b/reto3_api_productos.png)
 
 ## 6. Entrega del Reto 3
 
@@ -208,7 +220,7 @@ src/
 
 ### Requisitos de entrega
 
-1. **Repositorio Git:** Crea un repositorio en tu organización con el nombre **Reto2_Apellido1_Nombre** (ejemplo: **Reto3_Estañ_Luis**)
+1. **Repositorio Git:** Crea un repositorio en tu organización con el nombre **Reto3_Apellido1_Nombre** (ejemplo: **Reto3_Estañ_Luis**)
 
 2. **Commits en Git:** 
    - Realiza commits necesarios conforme avanzas en el reto.
