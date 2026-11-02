@@ -16,6 +16,7 @@ description: Comenzar el nuevo proyecto siguiendo la UD4 y los Retos 0 y 1.
 
 ## 1. Creación del proyecto con VS Code
 
+- Desde tu carpeta de trabajo **workspace-spring**, cambia el nombre de **spring** por **reto3**. 
 - Abre la Paleta de Comandos: **Ctrl+Shift+P**
 - Escribe: **"Spring Initializr: Create a Maven Project"**
 - Selecciona **"Crear un Proyecto Maven"**
