@@ -371,6 +371,20 @@ logging.level.com.iesdoctorbalmis.spring=DEBUG
 
 ## 5. Repositorios JPA
 
+El **patrón Repositorio** es una capa de abstracción entre la lógica de negocio y el almacenamiento de datos.
+
+Antes de crear los repositorios, crea la carpeta `repository` dentro del paquete principal. En VS Code, haz clic derecho sobre `src/main/java/com/iesdoctorbalmis/spring/` y selecciona **Nueva Carpeta**, con el nombre `repository`.
+
+La estructura quedará así:
+
+```
+src/main/java/com/iesdoctorbalmis/spring/
+└── repository/
+    ├── AlumnosRepository.java
+    ├── CursosRepository.java
+    └── LibrosRepository.java
+```
+
 Por ahora, con que extiendan a `JpaRepository` es suficiente, y podemos dejarlos vacíos.
 
 **AlumnosRepository.java**
