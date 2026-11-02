@@ -1,232 +1,350 @@
 ﻿---
-title: "Reto 1: De la Semilla a la Raíz"
-description: Transformar Reto 0 (ArrayList) en Entidades JPA persistentes con H2 Database.
+title: "Rpaso 1: UD4 + Reto 0 + Reto 1"
+description: Comenzar el nuevo proyecto siguiendo la UD4 y los Retos 0 y 1.
 ---
 
-> **Teoría requerida:** [UD4 — JPA, Hibernate, H2](/docs/spring/ud4#9-jpa-java-persistence-api)  
-> **Reto anterior:** [Reto 0 — La Semilla](/docs/retos/reto0)
-
----
-
-## 📌 Resumen del Reto
-
-Transformarás el Reto 0 añadiendo:
-- **Anotaciones JPA:** `@Entity`, `@Id`, `@Column`, etc.
-- **Repositorios JPA:** `JpaRepository` en lugar de ArrayList
-- **Base de datos H2:** Persistencia real
-- **H2 Console:** Inspeccionar datos en la BD
-- **import.sql:** Datos iniciales
+> **Teoría requerida:** [UD4 — Introducción a Spring Boot](/docs/spring/ud4)  
+> **Retos anteriores:** [Reto 0 — La Semilla](/docs/retos/reto0) - [Reto 1 — De la Semilla a la Raíz](/sge/retos/reto1)
 
 ---
 
-## Guía de Implementación
+## Explicación del proyecto
 
-### 1. Prepara el Reto 0 para evolucionar
+- Se trata de un proyecto para gestionar la Xarxallibres de un instituto.
+- En esta primera parte se creará el proyecto, las entidades, los repositorios y se cargarán los datos iniciales.
+- Al final, obtendremos los datos en H2-console.
 
-- Desde tu carpeta de trabajo **workspace-spring**, haz una copia de tu carpeta **spring**, manteniendo el nombre por defecto de **spring - copia**. Cambia el nombre del proyecto original **spring** por **reto0**, y cambia también el nombre de **spring - copia** por **spring**. 
-- Desde el IDE de VSCode, mueve las entidades de `model/` a `entity/`, asegurándote que se han actualizado los `package`:
+## 1. Creación del proyecto con VS Code
+
+- Abre la Paleta de Comandos: **Ctrl+Shift+P**
+- Escribe: **"Spring Initializr: Create a Maven Project"**
+- Selecciona **"Crear un Proyecto Maven"**
+- Se abrirá VS Code con un asistente para crear el proyecto
+
+### Configuración del Proyecto
+
+Rellena los campos siguientes:
+
+| Campo | Valor |
+|---|---|
+| **Project** | Maven Project |
+| **Spring Boot** | 4.1.x (la versión más reciente disponible) |
+| **Language** | Java |
+| **Project Metadata → Group** | `com.iesdoctorbalmis` |
+| **Project Metadata → Artifact** | `spring` |
+| **Project Metadata → Name** | `spring` |
+| **Project Metadata → Package name** | `com.iesdoctorbalmis.spring` |
+| **Project Metadata → Description** | `Xarxallibres` |
+| **Packaging** | Jar |
+| **Java** | 25 |
+
+### Seleccionar Dependencias
+
+Haz clic en **"Add Dependencies"** y selecciona:
+
+- **Spring Web** → Proporciona `@RestController` y permite iniciar un servidor web.
+- **Spring Data JPA** → Para JPA + Hibernate.
+- **H2 Database** → Base de datos en memoria; la usaremos en Reto 1.
+- **Lombok** → Genera automáticamente getters, setters y constructores.
+- **Validation** → Anotaciones `@NotBlank`, `@Email` para validaciones.
+- **Spring Boot DevTools** → Reinicio automático del servidor al guardar cambios durante el desarrollo.
+- **Thymeleaf** → Motor de plantillas HTML integrado con Spring Boot
+
+Sigue el asistente y confirma los parámetros indicados en el paso anterior, para guardar el proyecto en la carpeta de trabajo **workspace-spring**. VS Code creará automáticamente la estructura del proyecto.
+
+### Verificación del proyecto en VS Code
+
+Una vez creado, VS Code abrirá automáticamente el proyecto. Verás notificaciones de descarga de dependencias Maven en la esquina inferior derecha.
+
+## 2. Modelado del Dominio: Entidades POJO
+
+Antes de crear las entidades, crea la carpeta `model` dentro del paquete principal. En VS Code, haz clic derecho sobre `src/main/java/com/iesdoctorbalmis/spring/` y selecciona **Nueva Carpeta**, con el nombre `model`.
+
+La estructura quedará así:
+
+```
+src/main/java/com/iesdoctorbalmis/spring/
+└── model/
+    ├── Alumnos.java
+    ├── TipoAlumnos.java
+    ├── Cursos.java
+    └── Libros.java
+```
+
+### 2.1 Entidad Alumnos
+
+Crea la clase `src/main/java/com/iesdoctorbalmis/spring/model/Alumnos.java`:
 
 ```java
-// Cambiar de:
 package com.iesdoctorbalmis.spring.model;
 
-// A:
-package com.iesdoctorbalmis.spring.entity;
-```
-
-Verifica que `pom.xml` contenga:
-
-```xml
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-data-jpa</artifactId>
-</dependency>
-
-<dependency>
-    <groupId>com.h2database</groupId>
-    <artifactId>h2</artifactId>
-    <scope>runtime</scope>
-</dependency>
-```
-
-### 2. Anotaciones JPA
-
-Transforma tus POJOs añadiendo `@Entity` y anotaciones de columnas.
-
-Abre o crea: `src/main/java/com/iesdoctorbalmis/spring/entity/Cliente.java`
-
-```java
-package com.iesdoctorbalmis.spring.entity;
-
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.time.LocalDate;
 
-@Entity
-@Table(name = "clientes", uniqueConstraints = {
-    @UniqueConstraint(columnNames = "codigo_cliente"),
-    @UniqueConstraint(columnNames = "email")
-})
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class Cliente {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+@Data 
+@NoArgsConstructor 
+@AllArgsConstructor 
+public class Alumnos {
     private Long id;
-    
-    @Column(name = "codigo_cliente", nullable = false, length = 50)
-    private String codigoCliente;
-    
-    @Column(nullable = false, length = 100)
     private String nombre;
-    
-    @Column(unique = true, nullable = false, length = 100)
-    private String email;
-    
-    @Column(length = 20)
-    private String telefono;
-    
-    @Enumerated(EnumType.STRING)
-    @Column(name = "tipo_cliente", nullable = false)
-    private TipoCliente tipoCliente;
-    
-    @Column(name = "fecha_alta", nullable = false)
-    private LocalDate fechaAlta;
-    
-    @Column(name = "fecha_modificacion")
-    private LocalDate fechaModificacion;
+    private String apellido1;
+    private String apellido2;
+    private TipoAlumno tipoAlumno;
+    private String curso;
 }
 ```
 
-**Producto.java**
+### 2.2 Entidad TipoAlumnos
+
+Crea la clase `src/main/java/com/iesdoctorbalmis/spring/model/TipoAlumnos.java`:
 
 ```java
-package com.iesdoctorbalmis.spring.entity;
+package com.iesdoctorbalmis.spring.model;
 
-import jakarta.persistence.*;
+public enum TipoAlumno {
+    A,
+    B,
+    F,
+    M,
+    P,
+    U,
+    X;
+ }
+
+```
+
+### 2.3 Entidad Cursos
+
+Crea la clase `src/main/java/com/iesdoctorbalmis/spring/model/Cursos.java`:
+
+```java
+package com.iesdoctorbalmis.spring.model;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.math.BigDecimal;
-import java.time.LocalDate;
 
-@Entity
-@Table(name = "productos")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Producto {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class Cursos {
     private Long id;
-    
-    @Column(name = "referencia", nullable = false, unique = true, length = 50)
-    private String referencia;
-    
-    @Column(nullable = false, length = 200)
+    private String curso;
     private String descripcion;
-    
-    @Column(name = "precio_venta", nullable = false, precision = 10, scale = 2)
-    private BigDecimal precioVenta;
-    
-    @Column(name = "precio_coste", nullable = false, precision = 10, scale = 2)
-    private BigDecimal precioCoste;
-    
-    @Column(name = "stock", nullable = false)
-    private Integer stock;
-    
-    @Column(name = "fecha_alta", nullable = false)
-    private LocalDate fechaAlta;
-    
-    @Column(name = "activo", nullable = false)
-    private Boolean activo;
+    private Integer numGrupos;
+    private Integer numAlumnos;
 }
 ```
 
-**Empleado.java**
+### 2.4 Entidad Libros
+
+Crea la clase `src/main/java/com/iesdoctorbalmis/spring/model/Libros.java`:
+
+```java
+package com.iesdoctorbalmis.spring.model;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data 
+@NoArgsConstructor 
+@AllArgsConstructor 
+public class Libros {
+    private Long id;
+    private String curso;
+    private String area;
+    private String isbn;
+    private String titulo;
+    private String observaciones;
+    private String imagen;
+    private Integer cantidad;
+}
+```
+
+## 3. Anotaciones JPA
+
+Mueve las entidades de `model/` a `entity/`, asegurándote que se han actualizado los `package`. Transforma tus POJOs añadiendo `@Entity` y anotaciones de columnas.
+
+**Alumnos.java**
+
+Abre o crea: `src/main/java/com/iesdoctorbalmis/spring/entity/Alumnos.java`
 
 ```java
 package com.iesdoctorbalmis.spring.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.time.LocalDate;
 
 @Entity
-@Table(name = "empleados")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class Empleado {
+@Table(name = "alumnos")
+@Data 
+@NoArgsConstructor 
+@AllArgsConstructor 
+public class Alumnos {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @Column(name = "numero_empleado", nullable = false, unique = true, length = 20)
-    private String numeroEmpleado;
-    
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false, length = 40)
     private String nombre;
+
+    @Column(nullable = false, length = 30)
+    private String apellido1;
+
+    @Column(nullable = false, length = 30)
+    private String apellido2;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "tipo_alumno", nullable = false)
+    private TipoAlumno tipoAlumno;
     
-    @Column(nullable = false, length = 100)
-    private String apellidos;
-    
-    @Column(nullable = false, length = 100)
-    private String cargo;
-    
-    @Column(nullable = false, length = 100)
-    private String departamento;
-    
-    @Column(nullable = false, unique = true, length = 100)
-    private String email;
-    
-    @Column(name = "fecha_incorporacion", nullable = false)
-    private LocalDate fechaIncorporacion;
-    
-    @Column(name = "activo", nullable = false)
-    private Boolean activo;
+    @Column(nullable = false, length = 20)
+    private String curso;
 }
 ```
 
-**TipoCliente.java**
+**Libros.java**
+
+Abre o crea: `src/main/java/com/iesdoctorbalmis/spring/entity/Libros.java`
 
 ```java
 package com.iesdoctorbalmis.spring.entity;
 
-public enum TipoCliente {
-    PROSPECTO("Cliente Potencial"),
-    ACTIVO("Cliente Activo"),
-    INACTIVO("Cliente Inactivo");
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Table(name = "libros")
+@Data 
+@NoArgsConstructor 
+@AllArgsConstructor 
+public class Libros {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false, length = 20)
+    private String curso;
     
+    @Column(nullable = false, length = 30)
+    private String area;
+    
+    @Column(length = 15)
+    private String isbn;
+
+    @Column(nullable = false, length = 60)
+    private String titulo;
+    
+    @Column(length = 30)
+    private String observaciones;
+
+    @Column(length = 20)
+    private String imagen;
+
+    @Column(length = 20)
+    private Integer cantidad;
+}
+```
+
+**Cursos.java**
+
+Abre o crea: `src/main/java/com/iesdoctorbalmis/spring/entity/Cursos.java`
+
+```java
+package com.iesdoctorbalmis.spring.entity;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Table(name = "cursos")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Cursos {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false, length = 20)
+    private String curso;
+    
+    @Column(length = 50)
+    private String descripcion;
+
+    @Column(nullable = false, length = 20)
+    private Integer numGrupos;
+
+    @Column(nullable = false, length = 20)
+    private Integer numAlumnos;
+}
+```
+
+**TipoAlumno.java**
+
+Abre o crea: `src/main/java/com/iesdoctorbalmis/spring/entity/TipoAlumno.java`
+
+```java
+package com.iesdoctorbalmis.spring.entity;
+
+public enum TipoAlumno {
+    A("ABSENTISTA"),
+    B("BAJA"),
+    F("FPB"),
+    M("NO XARXA"),
+    P("PAC"),
+    U("UECO"),
+    X("XARXA");
+
     private final String descripcion;
-    
-    TipoCliente(String descripcion) {
+
+    TipoAlumno(String descripcion) {
         this.descripcion = descripcion;
     }
-    
+
     public String getDescripcion() {
         return descripcion;
     }
 }
 ```
 
-### 3. Configurar H2 Database
+## 4. Configuración de application.properties
 
-Actualiza `src/main/resources/application.properties`:
+Abre el archivo `src/main/resources/application.properties` y añade la siguiente configuración:
 
 ```properties
 spring.application.name=spring
 server.port=9000
 
-spring.datasource.url=jdbc:h2:mem:erpbalmis
+spring.datasource.url=jdbc:h2:mem:xarxallibres
 spring.datasource.driverClassName=org.h2.Driver
 spring.datasource.username=sa
 spring.datasource.password=
@@ -239,107 +357,125 @@ spring.jpa.hibernate.ddl-auto=create-drop
 spring.jpa.show-sql=false
 spring.jpa.properties.hibernate.format_sql=true
 spring.jpa.defer-datasource-initialization=true
+spring.jpa.properties.hibernate.hbm2ddl.import_files=
+spring.jpa.open-in-view=false
 
 spring.sql.init.mode=always
+spring.sql.init.data-locations=classpath:import.sql
+
+spring.thymeleaf.check-template-location=false
 
 logging.level.root=INFO
 logging.level.com.iesdoctorbalmis.spring=DEBUG
 ```
 
-### 4. Repositorios JPA
+## 5. Repositorios JPA
 
-Borra los repositorios ArrayList del Reto 0 y crea los nuevos:
+Por ahora, con que extiendan a `JpaRepository` es suficiente, y podemos dejarlos vacíos.
 
-**ClienteRepository.java**
-
-```java
-package com.iesdoctorbalmis.spring.repository;
-
-import com.iesdoctorbalmis.spring.entity.Cliente;
-import org.springframework.data.jpa.repository.JpaRepository;
-import java.util.Optional;
-
-public interface ClienteRepository extends JpaRepository<Cliente, Long> {
-    Optional<Cliente> findByEmail(String email);
-    Optional<Cliente> findByCodigoCliente(String codigoCliente);
-    boolean existsByEmail(String email);
-    boolean existsByCodigoCliente(String codigoCliente);
-}
-```
-Usaremos el tipo del método `Optional<Cliente>` cuando se busca por un identificador único (como el email, dni, username) y es completamente normal o posible que el registro no exista (por ejemplo, durante el inicio de sesión o un registro de usuario).
-
-**ProductoRepository.java**
+**AlumnosRepository.java**
 
 ```java
 package com.iesdoctorbalmis.spring.repository;
 
-import com.iesdoctorbalmis.spring.entity.Producto;
 import org.springframework.data.jpa.repository.JpaRepository;
-import java.util.Optional;
+import com.iesdoctorbalmis.spring.entity.Alumnos;
 
-public interface ProductoRepository extends JpaRepository<Producto, Long> {
-    Optional<Producto> findByReferencia(String referencia);
-    boolean existsByReferencia(String referencia);
+public interface AlumnosRepository extends JpaRepository<Alumnos, Long> {
+    
 }
+
 ```
 
-**EmpleadoRepository.java**
+**CursosRepository.java**
 
 ```java
 package com.iesdoctorbalmis.spring.repository;
 
-import com.iesdoctorbalmis.spring.entity.Empleado;
 import org.springframework.data.jpa.repository.JpaRepository;
-import java.util.Optional;
+import com.iesdoctorbalmis.spring.entity.Cursos;
 
-public interface EmpleadoRepository extends JpaRepository<Empleado, Long> {
-    Optional<Empleado> findByEmail(String email);
-    Optional<Empleado> findByNumeroEmpleado(String numeroEmpleado);
-    boolean existsByEmail(String email);
-    boolean existsByNumeroEmpleado(String numeroEmpleado);
+public interface CursosRepository extends JpaRepository<Cursos, Long> {
+    
 }
 ```
 
-### 5. Datos Iniciales
+**LibrosRepository.java**
+
+```java
+package com.iesdoctorbalmis.spring.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import com.iesdoctorbalmis.spring.entity.Libros;
+
+public interface LibrosRepository extends JpaRepository<Libros, Long> {
+    
+}
+
+```
+
+## 6. Datos Iniciales
 
 Crea `src/main/resources/import.sql`:
 
 ```sql
--- Clientes
-INSERT INTO clientes (codigo_cliente, nombre, email, telefono, tipo_cliente, fecha_alta, fecha_modificacion) VALUES ('CLI001', 'Acme Corporation', 'contact@acmecorp.com', '+34-91-555-0001', 'ACTIVO', '2025-01-15', '2025-01-15');
-INSERT INTO clientes (codigo_cliente, nombre, email, telefono, tipo_cliente, fecha_alta, fecha_modificacion) VALUES ('CLI002', 'Juan García López', 'juan@example.com', '+34-91-555-0002', 'PROSPECTO', '2025-01-20', '2025-02-01');
-INSERT INTO clientes (codigo_cliente, nombre, email, telefono, tipo_cliente, fecha_alta, fecha_modificacion) VALUES ('CLI003', 'Ayuntamiento de Madrid', 'info@madrid.es', '+34-91-555-0003', 'ACTIVO', '2025-02-01', '2025-02-01');
+INSERT INTO cursos (curso, descripcion, num_grupos, num_alumnos) VALUES
+('1ESO', 'Primero de ESO', 4, 125),
+('2ESO', 'Segundo de ESO', 4, 120),
+('3ESO', 'Tercero de ESO', 4, 110),
+('3ESOPDC', 'Tercero de PDC', 1, 16),
+('4ESO', 'Cuarto de ESO', 3, 78),
+('4ESOPDC', 'Cuarto de PDC', 1, 18);
 
--- Productos
-INSERT INTO productos (referencia, descripcion, precio_venta, precio_coste, stock, fecha_alta, activo) VALUES ('PROD001', 'Juego de Mesa Premium', 29.99, 15.50, 100, '2025-01-10', true);
-INSERT INTO productos (referencia, descripcion, precio_venta, precio_coste, stock, fecha_alta, activo) VALUES ('PROD002', 'Expansion Avanzada', 14.99, 7.00, 50, '2025-01-15', true);
-INSERT INTO productos (referencia, descripcion, precio_venta, precio_coste, stock, fecha_alta, activo) VALUES ('PROD003', 'Pack Accesorios', 9.99, 4.50, 200, '2025-01-20', true);
+INSERT INTO alumnos (nombre, apellido1, apellido2, tipo_alumno, curso) VALUES
+('Aitana', 'Alonso', 'Ruiz', 'X', '1ESO'),
+('Laura', 'Benitez', 'Ramos', 'X', '4ESO'),
+('Lucia', 'Castro', 'Mendez', 'A', '4ESO'),
+('Elena', 'Diaz', 'Castro', 'A', '1ESO'),
+('Mateo', 'Fernandez', 'Ortega', 'X', '4ESO'),
+('Beatriz', 'Garcia', 'Vela', 'P', '2ESO'),
+('Noa', 'Gomez', 'Ruiz', 'X', '4ESOPDC'),
+('Eva', 'Huarte', 'Sanz', 'A', '4ESOPDC'),
+('Clara', 'Ibanez', 'Vidal', 'X', '3ESO'),
+('Nora', 'Jimenez', 'Lara', 'A', '3ESO'),
+('Irene', 'Lopez', 'Serra', 'U', '2ESO'),
+('Hugo', 'Martin', 'Lopez', 'U', '1ESO'),
+('Javier', 'Moreno', 'Pina', 'P', '2ESO'),
+('Diego', 'Navarro', 'Costa', 'P', '3ESO'),
+('Alejandro', 'Pardo', 'Valls', 'M', '4ESOPDC'),
+('Raul', 'Mendez', 'Salas', 'X', '4ESOPDC'),
+('Pablo', 'Sanz', 'Ortega', 'M', '1ESO'),
+('Lucas', 'Roca', 'Flores', 'M', '3ESO'),
+('Tomás', 'Romero', 'Vidal', 'M', '2ESO'),
+('Daniel', 'Ruiz', 'Navas', 'M', '4ESO'),
+('Sara', 'Sanchez', 'Ruiz', 'X', '3ESOPDC'),
+('Paula', 'Torres', 'Luna', 'A', '3ESOPDC'),
+('Adrian', 'Valero', 'Soler', 'X', '3ESOPDC'),
+('Marcos', 'Vidal', 'Rios', 'M', '3ESOPDC');
 
--- Empleados
-INSERT INTO empleados (numero_empleado, nombre, apellidos, cargo, departamento, email, fecha_incorporacion, activo) VALUES ('EMP001', 'Maria', 'Rodriguez Garcia', 'Jefe de Ventas', 'Ventas', 'maria@iesdoctorbalmis.edu', '2024-06-01', true);
-INSERT INTO empleados (numero_empleado, nombre, apellidos, cargo, departamento, email, fecha_incorporacion, activo) VALUES ('EMP002', 'Carlos', 'Martinez Lopez', 'Jefe de Almacen', 'Almacén', 'carlos@iesdoctorbalmis.edu', '2024-07-15', true);
-INSERT INTO empleados (numero_empleado, nombre, apellidos, cargo, departamento, email, fecha_incorporacion, activo) VALUES ('EMP003', 'Sofia', 'Lopez Martinez', 'Administrativo', 'Administración', 'sofia@iesdoctorbalmis.edu', '2024-08-01', true);
+INSERT INTO libros (curso, area, isbn, titulo, observaciones, imagen, cantidad) VALUES
+('1ESO', 'Biología y Geología', '9788469877371', 'Biología y Geología 1', '1 libro', '1eso-01.jpg', 129),
+('1ESO', 'Tecnología', '', 'Tecnología 1 ESO', '1 Cuadernillo', '1eso-02.jpg', 139),
+('1ESO', 'Valenciano', '9788413581781', 'Quadern de llengua. Ambit Linguístic i Social', '1 cuaderno', '1eso-03.jpg', 131),
+('2ESO', 'Física y Química', '9788414300534', '2º ESO Física y Química', '1 Libro', '2eso-01.jpg', 126),
+('2ESO', 'Francés', '9788490494509', 'Transit 2, livre de l`élève', '1 Libro (Optativa)', '2eso-02.jpg', 28),
+('2ESO', 'Castellano', '9788414407455', '2ESO Lengua Castellana y Literatura', '1 Libro', '2eso-03.jpg', 125),
+('3ESO', 'Geografía e Historia', '9788468289724', 'Geografía e Historia 3ª Edición', '2 Volúmenes', '3eso-01.jpg', 108),
+('3ESO', 'Matemáticas', '9788414305324', 'Matemáticas 3', '3 Volúmenes', '3eso-02.jpg', 104),
+('3ESO', 'Valenciano', '978841382344', 'ESO3  Valencià Llengua i literatura', '1 Libro', '3eso-03.jpg', 107),
+('3ESOPDC', 'Ámbito cientifico - matemático', '9788413218311', 'Ámbito Cientifico-Tecnológico I', '1 Libro', '3pdc-01.jpg', 14),
+('3ESOPDC', 'Ámbito sociolingüístico', '9788413218304', 'Ámbito Lingüístico y Social I', '1 Libro', '3pdc-02.jpg', 17),
+('3ESOPDC', 'Inglés', '9781009220170', 'Game Changer Level 2 Student`s Book', '1 Libro', '3pdc-03.jpg', 16),
+('4ESO', 'Educación en Valores', '9788421874479', 'Educación en Valores cívicos y éticos', '1 Libro', '4eso-01.jpg', 80),
+('4ESO', 'Form. y Orien. Pers. y Prof.', '9788448638764', 'Formación y Orientación Personal y Profesional 4º ESO', '1 Libro', '4eso-02.jpg', 45),
+('4ESO', 'Geografía e Historia', '9788468295343', '4rt ESO Geografia i Historia', '2 Volúmenes', '4eso-03.jpg', 80),
+('4ESOPDC', 'Ámbito Lingüístico', '9788411344739', 'Ámbito Lingüístico y Social II', '1 Libro', '4pdc-01.jpg', 16),
+('4ESOPDC', 'Valenciano', '9788413584393', 'Quadern de valencià 4t. ESO', '1 Libro', '4pdc-02.jpg', 16),
+('4ESOPDC', 'Tecnología', '', 'Tecnología 4 ESO', '1 Cuadernillo', '4pdc-03.jpg', 18);
+
 ```
 
-### 6. Limpia Application.java
-
-Elimina el `CommandLineRunner` del Reto 0:
-
-```java
-package com.iesdoctorbalmis.spring;
-
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-@SpringBootApplication
-public class Application {
-    public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
-    }
-}
-```
-
-### 7. Verificación
+## 7. Verificación
 
 ```bash
 mvn spring-boot:run
@@ -347,7 +483,13 @@ mvn spring-boot:run
 
 Abre `http://localhost:9000/h2-console` para inspeccionar la BD.
 
----
+![Repaso de UD4](/sge/repaso4/repaso4_h2-console.png)
+
+![Repaso de UD4](/sge/repaso4/repaso4_Alumnos.png)
+
+![Repaso de UD4](/sge/repaso4/repaso4_Cursos.png)
+
+![Repaso de UD4](/sge/repaso4/repaso4_Libros.png)
 
 ## 📤 Subir tu código a GitHub
 
@@ -361,7 +503,7 @@ Edita normalmente en VSCode mientras trabajas en el Reto 1.
 
 1. En la barra lateral izquierda, haz clic en **Control de Código Fuente** (icono de rama con círculos)
 2. Verás los archivos modificados (en un círculo azul)
-3. En el cuadro de texto superior, escribe un **mensaje descriptivo** (ej: "Reto 1: De la Semilla a la Raíz")
+3. En el cuadro de texto superior, escribe un **mensaje descriptivo** (ej: "Repaso de la Eval 1")
 4. Presiona **Ctrl+Enter** o haz clic en el icono ✓ para hacer **Confirmación** (commit local)
 
 ### Paso 3: Haz push
@@ -369,23 +511,6 @@ Edita normalmente en VSCode mientras trabajas en el Reto 1.
 1. Después de la confirmación, verás un botón que dice **"Sincronizar cambios"**
 2. Haz clic en él para hacer **push** (subir tu código a GitHub)
 3. En la parte inferior de VSCode, verás el progreso del deploy automático
-
-
----
-
-## Actividades a realizar
-
-1. Transforma POJOs en Entidades JPA (@Entity, @Column, @Enumerated)
-2. Configura H2 en application.properties
-3. Crea los 3 repositorios JpaRepository
-4. Crea import.sql con datos iniciales
-5. Limpia Application.java (elimina CommandLineRunner)
-6. Ejecuta la aplicación sin errores
-7. Accede a H2 Console y consulta las tablas
-8. Realiza commits regulares con mensajes descriptivos (Control de Código Fuente)
-9. Haz push de tus cambios al repositorio remoto de tu organización
-
----
 
 ## Entregable
 
@@ -396,8 +521,8 @@ spring/
 ├── pom.xml (con Spring Data JPA y H2)
 ├── src/main/
 │   ├── java/com/iesdoctorbalmis/spring/
-│   │   ├── entity/ (Cliente, Producto, Empleado, TipoCliente)
-│   │   ├── repository/ (ClienteRepository, ProductoRepository, EmpleadoRepository - JpaRepository)
+│   │   ├── entity/ (Alumnos, Cursos, Libros, TipoAlumno)
+│   │   ├── repository/ (AlumnosRepository, CursosRepository, LibrosRepository)
 │   │   └── Application.java
 │   └── resources/
 │       ├── application.properties (con H2)
@@ -409,7 +534,7 @@ spring/
 
 ### Requisitos de entrega
 
-1. **Repositorio Git:** Crea un repositorio en tu organización con el nombre **Reto1_Apellido1_Nombre** (ejemplo: **Reto1_Estañ_Luis**)
+1. **Repositorio Git:** Crea un repositorio en tu organización con el nombre **Repaso1ev_Apellido1_Nombre** (ejemplo: **Repaso1ev_Estañ_Luis**)
 
 2. **Commits en Git:** 
    - Realiza commits necesarios conforme avanzas en el reto.
@@ -433,7 +558,3 @@ spring/
 5. **Push al repositorio:** Sube todos tus cambios a la rama `main` de tu repositorio remoto antes de la fecha de entrega
 
 6. **Acceso al profesor:** Asegúrate de que tu profesor tiene acceso a tu organización para revisar el trabajo
-
----
-
-**Próximo:** [Reto 2](/docs/retos/reto2) → REST Controllers, DTO, Validaciones
