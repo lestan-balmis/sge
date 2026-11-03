@@ -67,7 +67,7 @@ La estructura quedará así:
 src/main/java/com/iesdoctorbalmis/spring/
 └── model/
     ├── Alumnos.java
-    ├── TipoAlumnos.java
+    ├── TipoAlumno.java
     ├── Cursos.java
     └── Libros.java
 ```
@@ -96,9 +96,9 @@ public class Alumnos {
 }
 ```
 
-### 2.2 Entidad TipoAlumnos
+### 2.2 Entidad TipoAlumno
 
-Crea la clase `src/main/java/com/iesdoctorbalmis/spring/model/TipoAlumnos.java`:
+Crea la clase `src/main/java/com/iesdoctorbalmis/spring/model/TipoAlumno.java`:
 
 ```java
 package com.iesdoctorbalmis.spring.model;
