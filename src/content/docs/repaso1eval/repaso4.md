@@ -1,10 +1,10 @@
 ﻿---
-title: "Rpaso 1: UD4 + Reto 0 + Reto 1"
+title: "Repaso 1: UD4 + Reto 0 + Reto 1"
 description: Comenzar el nuevo proyecto siguiendo la UD4 y los Retos 0 y 1.
 ---
 
-> **Teoría requerida:** [UD4 — Introducción a Spring Boot](/docs/spring/ud4)  
-> **Retos anteriores:** [Reto 0 — La Semilla](/docs/retos/reto0) - [Reto 1 — De la Semilla a la Raíz](/sge/retos/reto1)
+> **Teoría requerida:** [UD4 — Introducción a Spring Boot](/sge/spring/ud4)  
+> **Retos anteriores:** [Reto 0 — La Semilla](/sge/retos/reto0) - [Reto 1 — De la Semilla a la Raíz](/sge/retos/reto1)
 
 ---
 
