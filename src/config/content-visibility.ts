@@ -36,7 +36,8 @@ export const VISIBLE_MODULES = [
 	// Repaso 1ª Evaluación
 	'repaso1eval/repaso4',
 	'repaso1eval/repaso5a',
-	// 'repaso1eval/repaso5b',
+	'repaso1eval/repaso5b',
+	// 'repaso1eval/repaso1ev',
 ];
 
 /**

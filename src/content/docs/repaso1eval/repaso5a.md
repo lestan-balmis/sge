@@ -1,9 +1,9 @@
 ﻿---
-title: "Repaso 2: UD5a + Reto 2"
+title: "Repaso 2: UD5a + Reto 2"                                
 description: Añadir una capa de presentación web usando Thymeleaf y el patrón MVC.
 ---
 
-> **Teoría requerida:** [UD5a — Spring MVC y Thymeleaf](/sge/spring/ud5a)  
+> **Teoría requerida:** [UD5a — Spring MVC y Thymeleaf](/sge/spring/ud5a)                           
 > **Reto anterior:** [Repaso 1: UD4 + Reto 0 + Reto 1](/sge/repaso1eval/repaso4)
 
 ## 📌 Resumen del trabajo a realizar
@@ -942,13 +942,147 @@ Ahora para ver el resto de páginas no hace falta que escribamos nada en el cuad
 
 ![Alumnos](/sge/repaso5a/repaso5a_16_alumnos.png)
 
-
 ![Cursos](/sge/repaso5a/repaso5a_16_cursos.png)
-
 
 ![Libros](/sge/repaso5a/repaso5a_16_libros.png)
 
-## 17. Entrega del Reto 2
+## 17. Terminar con un par de mejoras
+
+Aunque el proyecto ya se puede dar por terminado tal y como esta, vamos a mejorarlo un poco más para que nos quede mejor visualmente.
+
+### Componente de paginación
+
+Lo primero que necesitaremos es un fichero JavaScript llamado `paginacion.js` para que haga funcionar todo lo necesario. Crearemos en `static` una nueva carpeta llamada `js` y dentro pondremos el JavaScript que puedes descargar desde este enlace: <a href="/sge/repaso5a/paginacion.js" target="_blank" style="display: inline-block; margin-top: 0rem; padding: 0rem 0.25rem; background-color: #3f51b5; color: white; border-radius: 4px; text-decoration: none;">paginacion.js</a>
+
+Al final de la plantilla `fragments/layout.html` añadiremos el enlace a ese JavaScript, para que lo podamos usar en cualquier plantilla html.
+
+```html
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/paginacion.js"></script> <!-- Nuevo para añadir -->
+</body>
+```
+Lo añadiremos al final, después de la etiqueta `</footer>`, entre el `<script>` existente y el final del `</body>`.
+
+Después en cada plantilla de listado, `alumnos/lista.html`, `cursos/lista.html` y `libros/lista.html` añadiremos estos dos bloques de líneas.
+
+**Bloque 1:**
+
+```html
+    </tbody>
+    <!-- Cambia el fondo del pie usando variables solo para esta zona -->
+    <tfoot style="--bs-table-bg: var(--xarxa-green-light)">
+        <tr>
+            <td colspan="100%" class="py-2">
+                <!-- Componente de Paginación de Bootstrap -->
+                <nav aria-label="Paginación de la tabla">
+                    <ul class="pagination  mb-0 justify-content-center" id="paginacion">
+                        <!-- Los botones se generarán dinámicamente con JavaScript -->
+                    </ul>
+                </nav>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+```
+
+Entre el `</tbody>` y el `</table>` añadiremos un pie de tabla en donde irán los botones de paginación.
+
+**Bloque 2:**
+
+```html
+        </table>
+    </div>
+    <!-- Enlazas el script externo común -->
+    <script src="paginacion.js"></script>
+    <!-- Lo activas pasando los IDs de esta página específica -->
+    <script>
+        // Asegúrate de que el DOM esté listo
+        document.addEventListener('DOMContentLoaded', function() {
+            // Puedes cambiar el último número para ajustar las filas por página de este HTML
+            inicializarPaginacion('miTabla', 'paginacion', 10);
+        });
+    </script>
+</th:block>
+```
+
+Entre el final del contenedor que contiene la tabla `</table></div>`, y el final del bloque del fragmento `</th:block>`, pondremos las líneas para enlazar con el script externo, cargar el DOM y ajustar las filas por página, en nuestro caso, 10 líneas.
+
+### Componente de carrusel de imágenes
+
+Vamos a utilizar el componente de carrusel para que se muestren las imágenes de cada libro en el Panel de Inicio, en el lado izquierdo de la pantalla, al lado de las tarjetas con contadores de entidades.
+
+Primero modificamos el `HomeController.java`, para pasarle todos los datos de `Libros` a la plantilla `index.html`.
+
+```java
+public String home(Model model) {
+    model.addAttribute("libros", librosRepository.findAll());  /* Añadimos está línea */
+    model.addAttribute("totalAlumnos", alumnosRepository.count());
+```
+
+Añadiremos ese `model.addAttribute` entre el principio del método `home` y el paso del contador de alumnos.
+
+Después, modificaremos la plantilla `index.html` para insertar el carrusel de imágenes.
+
+```html
+<!-- Lado Izquierdo -->
+<div style="text-align: center;" class="col-md-5 col-lg-5 col-xl-5">
+    <!-- Carrusel de portadas de libros -->
+    <div id="carouselLibros" class="carousel slide" data-bs-ride="carousel">
+        <!-- Indicadores -->
+        <div class="carousel-indicators">
+            <button type="button"
+                    th:each="libro, iterStat : ${libros}"
+                    data-bs-target="#carouselLibros"
+                    th:data-bs-slide-to="${iterStat.index}"
+                    th:classappend="${iterStat.first} ? 'active' : ''"
+                    th:aria-current="${iterStat.first} ? 'true' : null"
+                    th:aria-label="'Slide ' + ${iterStat.index + 1}">
+            </button>
+        </div>
+        <!-- Imágenes (portadas desde static/img, nombre guardado en la entidad) -->
+        <div class="carousel-inner">
+            <div th:each="libro, iterStat : ${libros}"
+                class="carousel-item"
+                th:classappend="${iterStat.first} ? 'active' : ''">
+                <img th:src="@{'/img/' + ${libro.imagen}}"
+                    class="d-block mx-auto"
+                    style="max-height: 500px; width: auto; max-width: 100%; object-fit: contain;"
+                    th:alt="${libro.imagen}">
+            </div>
+        </div>
+        <!-- Controles de navegación -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselLibros" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselLibros" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+        </button>
+    </div>
+</div>
+<!-- Lado Derecho -->
+```
+
+Pondremos estas líneas entre el primer contenedor `<div>` que se encuentra entre los comentarios de `<!-- Lado Izquierdo -->` y `<!-- Lado Derecho -->`, cuya primera línea es el comentario `<!-- Carrusel de portadas de libros -->`, para realizar las tareas del carrusel de imágenes, como la gestión de **indicadores**, la **carga de imágenes** y los **controles de navegación**.
+
+## 18. Ejecución Parte 6 con el Repaso 2 mejorado y terminado
+
+Desde el navegador ponemos `localhost:9000` y tendrá que aparecer el carruse de imágen en la página principal.
+
+![Inicio](/sge/repaso5a/repaso5a_18_index.png)
+
+En el resto de páginas comprobaremos que se ha insertado el componenete de paginación.
+
+![Alumnos](/sge/repaso5a/repaso5a_18_alumnos.png)
+
+![Cursos](/sge/repaso5a/repaso5a_18_cursos.png)
+
+![Libros](/sge/repaso5a/repaso5a_18_libros.png)
+
+
+## 19. Entrega del Repaso 2
 
 ### Estructura esperada
 
@@ -959,7 +1093,7 @@ src/
 └── main/
     ├── java/com/iesdoctorbalmis/spring/
     │   ├── Application.java
-    │   ├── controller/             ← NUEVO en Reto 2
+    │   ├── controller/             ← NUEVO en Repaso 2
     │   │   ├── HomeController.java
     │   │   ├── AlumnosController.java
     │   │   ├── CursosController.java
@@ -969,15 +1103,17 @@ src/
     └── resources/
         ├── application.properties  (sin cambios)
         ├── import.sql              (sin cambios)
-        ├── static/                 ← NUEVO en Reto 2
+        ├── static/                 ← NUEVO en Repaso 2
         │   ├── css/
         │   │   └── xarxallibres.css
-        │   └── img/
-        │       ├── Logo_IES.png
-        │       ├── gva.png
-        │       ├── ?eso-0?.jpg
-        │       └── ?pdc-0?.jpg        
-        └── templates/              ← NUEVO en Reto 2
+        │   ├── img/
+        │   │   ├── Logo_IES.png
+        │   │   ├── gva.png
+        │   │   ├── ?eso-0?.jpg
+        │   │   └── ?pdc-0?.jpg        
+        │   └── js/
+        │       └── paginacion.js           
+        └── templates/              ← NUEVO en Repaso 2
             ├── fragments/
             │   └── layout.html
             ├── index.html

@@ -109,6 +109,7 @@ const ALL_MODULES = {
 		{ label: 'Repaso 1 —  UD4 + Reto 0 + Reto 1', slug: 'repaso1eval/repaso4' },
 		{ label: 'Repaso 2 —  UD5a + Reto 2', slug: 'repaso1eval/repaso5a' },
 		{ label: 'Repaso 3 —  UD5b + Reto 3', slug: 'repaso1eval/repaso5b' },
+		{ label: 'Repaso 4 —  Repaso 1ª Evaluación', slug: 'repaso1eval/repaso1ev' },
 	],
 };
 
