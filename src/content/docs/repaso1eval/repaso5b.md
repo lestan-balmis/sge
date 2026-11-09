@@ -28,9 +28,9 @@ En est tercera parte trabajaremos lo siguiente:
 Dentro de la carpeta `controller` creamos la carpeta `rest`.
 Dentro de la carpeta `rest` creamos el fichero `LibroRestController.java`, de forma similar al `ClienteRestController` del `Reto 3`.
 
-## 3. `ProductoRestController`
+## 3. `CursoRestController`
 
-Dentro de la carpeta `rest` creamos el fichero `ProductoRestController.java`, de forma similar al `ProductoRestController` del `Reto 3`.
+Dentro de la carpeta `rest` creamos el fichero `CursoRestController.java`, de forma similar al `ProductoRestController` del `Reto 3`.
 
 ## 4. Ejecución
 
