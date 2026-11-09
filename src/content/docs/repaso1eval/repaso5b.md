@@ -18,8 +18,6 @@ En est tercera parte trabajaremos lo siguiente:
 > **Conceptos teóricos:** La diferencia entre `@Controller` y `@RestController`, Jackson y los códigos de estado HTTP se explican en [UD5b — secciones 5 a 8](/sge/spring/ud5b).
 
 ## 1. Preparación
-
-### Crea una copia del proyecto
 - Continuaremos el proyecto anterior desde tu carpeta de trabajo **workspace-spring**, llamado **spring**, por lo que no tendremos que hacer nada. 
 - Desde el IDE de VSCode, añadiremos la capa REST
 
